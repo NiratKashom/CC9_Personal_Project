@@ -40,6 +40,10 @@
   font-weight: 400;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 body {
   background: url("./img/photo-1467685790346-20bfe73a81f0.jpg");
   background-size: cover;
@@ -237,6 +241,7 @@ nav ul li {
 
 nav ul li a {
   font-size: 24px;
+  text-transform: uppercase;
   color: var(--myWhite50);
 }
 
