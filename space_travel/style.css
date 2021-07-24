@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 /* temp */
 .outline {
@@ -63,6 +63,10 @@ a {
   text-decoration: none;
 }
 
+ul li a {
+  display: inline-block;
+}
+
 /* color with class */
 [class*="btn"][class*="-red"] {
   background: var(--myRed);
@@ -116,7 +120,7 @@ option[class*="-orange"]:hover {
   border-radius: 10px;
   border: none;
   width: 200px;
-  padding: 18px 54px;
+  padding: 18px;
   text-align: center;
   text-transform: capitalize;
   font-size: 24px;
@@ -182,7 +186,7 @@ select:focus {
   padding: 60px;
 }
 
-.container-w-head {
+/* .container-w-head {
   background: radial-gradient(
     163.23% 243.53% at 1.12% 14.1%,
     rgba(137, 153, 194, 0.35) 0%,
@@ -191,9 +195,9 @@ select:focus {
   backdrop-filter: blur(14px);
   border-radius: 20px;
   padding: 60px;
-}
+} */
 
-.head-container {
+.headline {
   position: absolute;
   content: "";
   width: 100%;
@@ -209,7 +213,8 @@ select:focus {
   padding: 20px;
 }
 
-.head-container h1 {
+.headline h1 {
+  font-weight: 600;
   font-size: 24px;
   text-transform: capitalize;
 }
@@ -317,10 +322,6 @@ div.home-container div select {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-}
-
-.login-form form ul li a {
-  display: inline-block;
 }
 
 /* register form */
@@ -578,15 +579,116 @@ div.home-container div select {
   width: 100%;
 }
 
+/* room and sevice section */
 .main-section .left-section {
   flex: 3;
 }
 
+/* room section */
 .main-section .left-section .room-section {
   margin-bottom: 22px;
+  padding: 24px;
 }
 
+.main-section .left-section .room-section .room-select ul {
+  display: flex;
+  margin-bottom: 34px;
+}
+
+.main-section .left-section .room-section .room-select a {
+  width: 250px;
+  margin-right: 12px;
+  padding: 10px;
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite50);
+  color: var(--myWhite50);
+}
+
+.main-section .left-section .room-section .room-select a.active {
+  border: 2px solid var(--myBlue);
+  color: var(--myBlue);
+}
+
+.main-section .left-section .room-section .room-select a:hover {
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite);
+  color: var(--myWhite);
+}
+
+/* room detail */
+
+.main-section .left-section .room-section .room-detail {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-section .left-section .room-section .room-detail img{
+  width: 452px;
+  height: 301px;
+}
+
+.main-section .left-section .room-section .room-detail .room-text{
+padding: 16px;
+}
+
+/* room update amount */
+.main-section .left-section .room-section .room-update {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.main-section .left-section .room-section .room-update label{
+font-size: 24px;
+text-transform: capitalize;
+font-weight: 300;
+}
+
+.main-section .left-section .room-section .room-update select{
+  margin: 16px;
+  padding: 10px;
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite);
+  color: var(--myWhite);
+}
+
+
+.main-section .left-section .room-section .room-update button{
+  padding: 10px;
+  width: 150px;
+}
+
+
+/* summary section */
 .main-section .summary-section {
+  padding: 40px 30px;
   margin-left: 22px;
   flex: 1;
 }
+
+.main-section .summary-section .sum-list {
+  margin: 40px 0px;
+  border-bottom: 1px solid var(--myWhite);
+}
+
+.main-section .summary-section .sum-list h2 {
+  font-size: 24px;
+  line-height: 48px;
+}
+
+.main-section .summary-section .sum-list p {
+  line-height: 30px;
+  font-weight: 300;
+}
+
+.main-section .summary-section ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-section .summary-section ul a,
+.main-section .summary-section ul li button {
+  width: 150px;
+}
+
