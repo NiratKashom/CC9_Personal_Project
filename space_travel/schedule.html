@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li class='branding'><a href="./index.html">SPACE TRAVEL</a></li>
+      <li><a href="./destination.html">DESTINATION</a></li>
+      <li><a href="./schedule.html" class="active">SCHEDULE</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">MANAGE RESERVATION</a></li>
+      <li><a href="./login.html">LOG IN / REGISTER</a></li>
+    </ul>
+  </nav>
+
+
+  <div class="schedule">
+    <!-- stepper progress bar -->
+    <div class="stepper-wrapper">
+      <div class="stepper-item active">
+        <div class="step-counter"></div>
+        <div class="step-name">selecet flight</div>
+      </div>
+      <div class="stepper-item">
+        <div class="step-counter"></div>
+        <div class="step-name">room and service</div>
+      </div>
+      <div class="stepper-item">
+        <div class="step-counter"></div>
+        <div class="step-name">confirmation</div>
+      </div>
+      <div class="stepper-item">
+        <div class="step-counter"></div>
+        <div class="step-name">payment</div>
+      </div>
+    </div>
+    <!-- filter bar -->
+    <div class="schedule-filter">
+      <label for="">destination :</label>
+      <select>
+        <option value="0">Choose</option>
+        <option value="1">Moon</option>
+        <option value="2">Mars</option>
+        <option value="2">Jupiter</option>
+      </select>
+      <label for="">departure :</label>
+      <input type="date">
+    </div>
+    <!-- table -->
+    <div class=" schedule-table">
+      <div class="container row " onclick="location = './roomAndService.html'">
+        <div class="departure-date ">
+          <p> <span>1</span><br> january <br> 2022</p>
+        </div>
+        <div class=" start-dest">
+          <p>day 1<br> <span>earth</span> <br> 1 january 2022</p>
+        </div>
+        <div class=" arrow"> --> </div>
+        <div class=" target-dest">
+          <p>day 1<br> <span>mars</span> <br> 1 january 2022</p>
+        </div>
+        <div class=" arrow">--></div>
+        <div class=" return-dest">
+          <p>day 1<br> <span>earth</span> <br> 1 january 2022</p>
+        </div>
+        <div class="return-date ">
+          <p> <span>20</span><br> january <br> 2022</p>
+        </div>
+        <div class=" container price-tag">
+          <p>9999<span>&#3647;</span></p>
+        </div>
+      </div>
+      <div class="container row " onclick="location = './roomAndService.html'">
+        <div class="departure-date ">
+          <p> <span>1</span><br> january <br> 2022</p>
+        </div>
+        <div class=" start-dest">
+          <p>day 1<br> <span>earth</span> <br> 1 january 2022</p>
+        </div>
+        <div class=" arrow"> --> </div>
+        <div class=" target-dest">
+          <p>day 1<br> <span>mars</span> <br> 1 january 2022</p>
+        </div>
+        <div class=" arrow">--></div>
+        <div class=" return-dest">
+          <p>day 1<br> <span>earth</span> <br> 1 january 2022</p>
+        </div>
+        <div class="return-date ">
+          <p> <span>20</span><br> january <br> 2022</p>
+        </div>
+        <div class=" container price-tag">
+          <p>9999<span>&#3647;</span></p>
+        </div>
+      </div>
+      <div class="container row " onclick="location = './roomAndService.html'">
+        <div class="departure-date ">
+          <p> <span>1</span><br> january <br> 2022</p>
+        </div>
+        <div class=" start-dest">
+          <p>day 1<br> <span>earth</span> <br> 1 january 2022</p>
+        </div>
+        <div class=" arrow"> --> </div>
+        <div class=" target-dest">
+          <p>day 1<br> <span>mars</span> <br> 1 january 2022</p>
+        </div>
+        <div class=" arrow">--></div>
+        <div class=" return-dest">
+          <p>day 1<br> <span>earth</span> <br> 1 january 2022</p>
+        </div>
+        <div class="return-date ">
+          <p> <span>20</span><br> january <br> 2022</p>
+        </div>
+        <div class=" container price-tag">
+          <p>9999<span>&#3647;</span></p>
+        </div>
+      </div>
+      <div class="container row " onclick="location = './roomAndService.html'">
+        <div class="departure-date ">
+          <p> <span>1</span><br> january <br> 2022</p>
+        </div>
+        <div class=" start-dest">
+          <p>day 1<br> <span>earth</span> <br> 1 january 2022</p>
+        </div>
+        <div class=" arrow"> --> </div>
+        <div class=" target-dest">
+          <p>day 1<br> <span>mars</span> <br> 1 january 2022</p>
+        </div>
+        <div class=" arrow">--></div>
+        <div class=" return-dest">
+          <p>day 1<br> <span>earth</span> <br> 1 january 2022</p>
+        </div>
+        <div class="return-date ">
+          <p> <span>20</span><br> january <br> 2022</p>
+        </div>
+        <div class=" container price-tag">
+          <p>9999<span>&#3647;</span></p>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li class='branding'><a href="./index.html">SPACE TRAVEL</a></li>
+      <li><a href="./destination.html">DESTINATION</a></li>
+      <li><a href="./schedule.html" class="active">SCHEDULE</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">MANAGE RESERVATION</a></li>
+      <li><a href="./login.html">LOG IN / REGISTER</a></li>
+    </ul>
+  </nav>
+
+
+  <div class="schedule outline">
+    <!-- stepper progress bar -->
+    <div class="stepper-wrapper">
+      <div class="stepper-item complete">
+        <div class="step-counter"></div>
+        <div class="step-name">selecet flight</div>
+      </div>
+      <div class="stepper-item active">
+        <div class="step-counter"></div>
+        <div class="step-name">room and service</div>
+      </div>
+      <div class="stepper-item">
+        <div class="step-counter"></div>
+        <div class="step-name">confirmation</div>
+      </div>
+      <div class="stepper-item">
+        <div class="step-counter"></div>
+        <div class="step-name">payment</div>
+      </div>
+    </div>
+
+    <!-- room  -->
+    <div class="main-section outline">
+      <div class="outline left-section">
+        <div class="outline container room-section"></div>
+        <div class="outline container service-section"></div>
+      </div>
+      <div class="outline container-w-head summary-section">
+        <div class="head-container">
+          <h1>summary</h1>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
