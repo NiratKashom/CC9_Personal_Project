@@ -1,0 +1,657 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* temp */
+.outline {
+  outline: 1px dashed lime;
+}
+
+:root {
+  /* setup variable */
+  /*colors */
+  --myBlue: #5eb8e9;
+  --myBlueHov: hsl(201, 73%, 45%);
+  --myGreen: #67ca90;
+  --myGreenHov: hsl(145, 48%, 50%);
+  --myRed: #fe6464;
+  --myRedHov: hsl(0, 50%, 49%);
+  --myOrange: #ffac5e;
+  --myOrangeHov: hsl(29, 70%, 50%);
+  --myCyan: #52b8c7;
+  --myCyanHov: hsl(188, 45%, 45%);
+  --myWhite: #fff;
+  --myWhite50: #fff5;
+  --myBlack: #000;
+  --myBlack50: #0005;
+}
+
+/* Global */
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-weight: 400;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+body {
+  background: url("../img/main_background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+nav li a.active {
+  color: var(--myWhite);
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li a {
+  display: inline-block;
+}
+
+/* color with class */
+[class*="btn"][class*="-red"] {
+  background: var(--myRed);
+}
+[class*="btn"][class*="-red"]:hover {
+  background: var(--myRedHov);
+}
+
+[class*="btn"][class*="-green"] {
+  background: var(--myGreen);
+}
+[class*="btn"][class*="-green"]:hover {
+  background: var(--myGreenHov);
+}
+
+[class*="btn"][class*="-blue"] {
+  background: var(--myBlue);
+}
+[class*="btn"][class*="-blue"]:hover {
+  background: var(--myBlueHov);
+}
+
+[class*="btn"][class*="-orange"] {
+  background: var(--myOrange);
+}
+[class*="btn"][class*="-orange"]:hover {
+  background: var(--myOrangeHov);
+}
+option[class*="-orange"]:hover {
+  background: var(--myOrangeHov);
+}
+
+[class*="-white"] {
+  background: var(--myWhite);
+}
+
+[class*="-white50"] {
+  background: var(--myWhite50);
+}
+
+[class*="-black"] {
+  background: var(--myBlack);
+}
+
+[class*="-black50"] {
+  background: var(--myBlack50);
+}
+
+[class*="btn"] {
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  width: 200px;
+  padding: 18px;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+[class*="btn"][class*="-outline"] {
+  background: var(--myBlack50);
+  border: 2px solid var(--myOrange);
+  color: var(--myOrange);
+}
+[class*="btn"][class*="-outline"]:hover {
+  background: var(--myBlack50);
+  border: 2px solid var(--myOrangeHov);
+  color: var(--myOrangeHov);
+}
+
+input {
+  color: var(--myBlack);
+  background: var(--myWhite);
+  border-radius: 10px;
+  padding: 19px;
+  border: none;
+  font-size: 24px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--myBlue);
+}
+
+select {
+  background: var(--myBlack50);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+
+select:focus {
+  outline: none;
+}
+
+.popup {
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    #8999c2 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+}
+
+.container {
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    rgba(137, 153, 194, 0.35) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 60px;
+}
+
+.headline {
+  position: absolute;
+  content: "";
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    rgba(137, 153, 194, 0.35) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+}
+
+.headline h1 {
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+/* navbar */
+nav {
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 138.89%);
+  display: flex;
+  justify-content: space-between;
+  height: 81px;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  margin: 30px;
+}
+
+nav ul li {
+  margin: 0 30px;
+}
+
+nav ul li a {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: var(--myWhite50);
+}
+
+nav ul li a:hover {
+  color: var(--myWhite);
+}
+
+nav ul li.branding a {
+  font-weight: 500;
+  font-size: 36px;
+  color: var(--myWhite);
+}
+
+nav ul li a.active {
+  color: var(--myWhite);
+  text-decoration: underline;
+}
+
+/* END GLOBAL STYLE */
+
+/* home */
+div.home-container {
+  /* outline: 2px dashed lime; */
+  position: relative;
+  top: 30vh;
+  text-align: right;
+  width: 50vw;
+  padding: 30px;
+}
+
+div.home-container h1 {
+  font-size: 72px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+div.home-container h2 {
+  text-transform: capitalize;
+  font-size: 42px;
+  margin-bottom: 30px;
+}
+
+div.home-container div select {
+  width: auto;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  font-size: 24px;
+  text-transform: capitalize;
+  padding: 10px;
+}
+
+
+/* register form */
+.register-form {
+  width: 690px;
+
+  text-align: center;
+}
+
+.register-form form {
+  padding: 61px;
+}
+
+.register-form form h1 {
+  font-size: 48px;
+  text-transform: uppercase;
+  margin-bottom: 39px;
+}
+
+.register-form form div {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 530px;
+}
+
+.register-form form div input {
+  width: 250px;
+}
+
+.register-form form input {
+  margin-bottom: 39px;
+  width: 530px;
+}
+
+.register-form form button {
+  width: 530px;
+}
+
+/* destinaiton page */
+.destination {
+  justify-content: space-around;
+}
+
+.destination div.container {
+  width: 45%;
+  height: 800px;
+}
+
+.destination div.content {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+.destination div.content h1 {
+  text-transform: uppercase;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.destination div.content p {
+  font-size: 18px;
+}
+
+.destination div.content a {
+  align-self: flex-end;
+  width: auto;
+  display: inline-block;
+}
+
+/* schedule page */
+.schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0 250px;
+}
+/* step progress bar */
+
+.stepper-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  width: 950px;
+}
+
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+/* line between step */
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid var(--myWhite50);
+  width: 100%;
+  top: 10px;
+  left: -50%;
+  z-index: 2;
+}
+
+.stepper-item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid var(--myWhite50);
+  width: 100%;
+  top: 10px;
+  left: 50%;
+  z-index: 2;
+}
+
+.step-name {
+  font-size: 24px;
+  text-transform: capitalize;
+  color: var(--myWhite50);
+}
+
+/* dot above name */
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid var(--myWhite50);
+  background: var(--myBlack);
+}
+
+/*active step */
+.stepper-item.active .step-counter,
+.stepper-item.active .step-name {
+  color: var(--myWhite);
+  border-color: var(--myWhite);
+  text-decoration: underline;
+}
+
+/*complete step*/
+.stepper-item.complete .step-name {
+  color: var(--myWhite);
+  text-decoration: none;
+}
+
+.stepper-item.complete .step-counter {
+  background: var(--myWhite);
+}
+
+.stepper-item.complete::after {
+  border-color: var(--myWhite);
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+.stepper-item:last-child::after {
+  content: none;
+}
+
+/* filter bar */
+.schedule .schedule-filter {
+  align-self: flex-start;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+.schedule .schedule-filter input,
+.schedule .schedule-filter select {
+  color: var(--myWhite);
+  background: var(--myBlack50);
+  backdrop-filter: blur(4px);
+  width: 230px;
+  height: 38px;
+  font-size: 18px;
+  border: 1px solid var(--myWhite50);
+  margin-right: 18px;
+}
+
+/*schedule table */
+.schedule .schedule-table {
+  width: 100%;
+}
+
+/*each row */
+.schedule .schedule-table .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 148px;
+  margin-bottom: 20px;
+  padding: 0 0 0 49px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.schedule .schedule-table .row:hover {
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    #242833 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.schedule .schedule-table .row .price-tag {
+  height: 100%;
+  font-size: 48px;
+}
+
+.schedule .schedule-table .row .price-tag p,
+.schedule .schedule-table .row .price-tag span {
+  line-height: 50%;
+  font-size: 48px;
+}
+
+.schedule .schedule-table .row .departure-date,
+.schedule .schedule-table .row .return-date,
+.schedule .schedule-table .row .start-dest,
+.schedule .schedule-table .row .target-dest,
+.schedule .schedule-table .row .return-dest {
+  text-align: center;
+}
+
+.schedule .schedule-table .row .departure-date p,
+.schedule .schedule-table .row .return-date p {
+  font-size: 24px;
+}
+.schedule .schedule-table .row .departure-date span,
+.schedule .schedule-table .row .return-date span {
+  font-size: 48px;
+}
+
+.schedule .schedule-table .row .start-dest span,
+.schedule .schedule-table .row .target-dest span,
+.schedule .schedule-table .row .return-dest span {
+  font-size: 36px;
+}
+
+.schedule .schedule-table .row .arrow {
+  font-size: 48px;
+  color: var(--myBlue);
+}
+
+/* room and service page */
+.main-section {
+  outline: 1px dashed red;
+  display: flex;
+  width: 100%;
+}
+
+/* room and sevice section */
+.main-section .left-section {
+  flex: 3;
+}
+
+/* room section */
+.main-section .left-section .room-section {
+  margin-bottom: 22px;
+  padding: 24px;
+}
+
+.main-section .left-section .room-section .room-select ul {
+  display: flex;
+  margin-bottom: 34px;
+}
+
+.main-section .left-section .room-section .room-select a {
+  width: 250px;
+  margin-right: 12px;
+  padding: 10px;
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite50);
+  color: var(--myWhite50);
+}
+
+.main-section .left-section .room-section .room-select a.active {
+  border: 2px solid var(--myBlue);
+  color: var(--myBlue);
+}
+
+.main-section .left-section .room-section .room-select a:hover {
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite);
+  color: var(--myWhite);
+}
+
+/* room detail */
+
+.main-section .left-section .room-section .room-detail {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-section .left-section .room-section .room-detail img{
+  width: 452px;
+  height: 301px;
+}
+
+.main-section .left-section .room-section .room-detail .room-text{
+padding: 16px;
+}
+
+/* room update amount */
+.main-section .left-section .room-section .room-update {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.main-section .left-section .room-section .room-update label{
+font-size: 24px;
+text-transform: capitalize;
+font-weight: 300;
+}
+
+.main-section .left-section .room-section .room-update select{
+  margin: 16px;
+  padding: 10px;
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite);
+  color: var(--myWhite);
+}
+
+
+.main-section .left-section .room-section .room-update button{
+  padding: 10px;
+  width: 150px;
+}
+
+
+/* summary section */
+.main-section .summary-section {
+  padding: 40px 30px;
+  margin-left: 22px;
+  flex: 1;
+}
+
+.main-section .summary-section .sum-list {
+  margin: 40px 0px;
+  border-bottom: 1px solid var(--myWhite);
+}
+
+.main-section .summary-section .sum-list h2 {
+  font-size: 24px;
+  line-height: 48px;
+}
+
+.main-section .summary-section .sum-list p {
+  line-height: 30px;
+  font-weight: 300;
+}
+
+.main-section .summary-section ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-section .summary-section ul a,
+.main-section .summary-section ul li button {
+  width: 150px;
+}
+
