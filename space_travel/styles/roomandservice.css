@@ -181,7 +181,7 @@ select:focus {
   );
   backdrop-filter: blur(14px);
   border-radius: 20px;
-  padding: 60px;
+  padding: 30px;
 }
 
 .headline {
@@ -198,6 +198,7 @@ select:focus {
   backdrop-filter: blur(14px);
   border-radius: 20px 20px 0 0;
   padding: 20px;
+
 }
 
 .headline h1 {
@@ -232,6 +233,7 @@ nav ul li {
 }
 
 nav ul li a {
+  font-weight: 400;
   font-size: 24px;
   text-transform: uppercase;
   color: var(--myWhite50);
@@ -260,7 +262,7 @@ nav ul li a.active {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin: 0 250px;
+  margin: 0 140px;
 }
 /* step progress bar */
 
@@ -368,6 +370,28 @@ nav ul li a.active {
   margin-right: 18px;
 }
 
+/* select and update btn for schedule page */
+
+.main-section .left-section label {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+.main-section .left-section select {
+  margin: 0px 6px;
+  padding: 7px;
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite50);
+  color: var(--myWhite);
+}
+
+.main-section .left-section button {
+  padding: 10px;
+  width: 100px;
+  font-size: 18px;
+}
+
 /* room and service page */
 .main-section {
   outline: 1px dashed red;
@@ -383,7 +407,7 @@ nav ul li a.active {
 /* room section */
 .main-section .left-section .room-section {
   margin-bottom: 22px;
-  padding: 24px;
+  padding: px;
 }
 
 .main-section .left-section .room-section .room-select ul {
@@ -412,56 +436,76 @@ nav ul li a.active {
 }
 
 /* room detail */
-
 .main-section .left-section .room-section .room-detail {
   display: flex;
   justify-content: space-around;
 }
 
 .main-section .left-section .room-section .room-detail img {
-  width: 452px;
-  height: 301px;
+  width: 450px;
+  height: 300px;
+  border-radius: 20px;
+  margin-right: 24px;
 }
 
 .main-section .left-section .room-section .room-detail .room-text {
-    padding: 16px;
+    padding: 0 10px;
+}
+
+.main-section .left-section .room-section .room-detail .room-text h1 {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.main-section .left-section .room-section .room-detail .room-text ul {
+padding: 20px;
+border-bottom: 2px solid var(--myWhite50);
+margin-bottom: 20px;
 }
 
 .main-section .left-section .room-section .room-detail .room-text li {
+  list-style-type: disc;
   font-size: 16px;
 }
 
-/* room update amount */
+.main-section .left-section .room-section .room-detail .room-text p {
+  font-size: 16px;
+}
+
+/* room update */
 .main-section .left-section .room-section .room-update {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding: 0;
 }
 
 .main-section .left-section .room-section .room-update label {
-  font-size: 24px;
+  font-size: 18px;
   text-transform: capitalize;
   font-weight: 300;
 }
 
-.main-section .left-section .room-section .room-update select {
-  margin: 16px;
-  padding: 10px;
-  background: var(--myBlack50);
-  border: 2px solid var(--myWhite);
-  color: var(--myWhite);
+/* service section */
+.service-section .service-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
 }
 
-.main-section .left-section .room-section .room-update button {
-  padding: 10px;
-  width: 150px;
+.service-section .service-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
 }
+
 
 /* summary section */
 .main-section .summary-section {
   padding: 40px 30px;
   margin-left: 22px;
   flex: 1;
+  height: 100%;
 }
 
 .main-section .summary-section .sum-list {
@@ -487,5 +531,7 @@ nav ul li a.active {
 
 .main-section .summary-section ul a,
 .main-section .summary-section ul li button {
-  width: 150px;
+  width: 130px;
+  padding: 10px;
 }
+

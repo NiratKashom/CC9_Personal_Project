@@ -181,7 +181,7 @@ select:focus {
   );
   backdrop-filter: blur(14px);
   border-radius: 20px;
-  padding: 60px;
+  padding: 30px;
 }
 
 .headline {
@@ -232,6 +232,7 @@ nav ul li {
 }
 
 nav ul li a {
+  font-weight: 400;
   font-size: 24px;
   text-transform: uppercase;
   color: var(--myWhite50);
@@ -396,15 +397,12 @@ nav ul li a.active {
 
 .schedule .schedule-table .row .price-tag {
   height: 100%;
-  font-size: 48px;
 }
 
 .schedule .schedule-table .row .price-tag p,
 .schedule .schedule-table .row .price-tag span {
-  line-height: 50%;
   font-size: 48px;
 }
-
 .schedule .schedule-table .row .departure-date,
 .schedule .schedule-table .row .return-date,
 .schedule .schedule-table .row .start-dest,

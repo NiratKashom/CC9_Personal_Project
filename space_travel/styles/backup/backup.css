@@ -183,7 +183,7 @@ select:focus {
   );
   backdrop-filter: blur(14px);
   border-radius: 20px;
-  padding: 60px;
+  padding: 30px;
 }
 
 /* .container-w-head {
