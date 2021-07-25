@@ -176,7 +176,7 @@ select:focus {
 .container {
   background: radial-gradient(
     163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.35) 0%,
+    rgba(137, 153, 194, 0.2) 0%,
     rgba(0, 0, 0, 0) 100%
   );
   backdrop-filter: blur(14px);
@@ -184,27 +184,41 @@ select:focus {
   padding: 30px;
 }
 
+.container-headline {
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    rgba(137, 153, 194, 0.2) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+}
+
+
 .headline {
-  position: absolute;
+  position: relative;
   content: "";
   width: 100%;
   top: 0;
-  left: 0;
+  width: 100%;
   background: radial-gradient(
     163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.35) 0%,
+    rgba(137, 153, 194, 0.2) 0%,
     rgba(0, 0, 0, 0) 100%
   );
   backdrop-filter: blur(14px);
   border-radius: 20px 20px 0 0;
   padding: 20px;
-
 }
 
 .headline h1 {
   font-weight: 600;
   font-size: 24px;
   text-transform: capitalize;
+}
+
+[class*="-content"] {
+  padding: 30px;
 }
 
 .center {
@@ -257,15 +271,15 @@ nav ul li a.active {
 /* END GLOBAL STYLE */
 
 /* schedule page */
-.schedule {
+.main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   margin: 0 140px;
 }
-/* step progress bar */
 
+/* step progress bar */
 .stepper-wrapper {
   display: flex;
   justify-content: space-between;
@@ -350,28 +364,9 @@ nav ul li a.active {
 .stepper-item:last-child::after {
   content: none;
 }
-
-/* filter bar */
-.schedule .schedule-filter {
-  align-self: flex-start;
-  font-size: 18px;
-  margin-bottom: 50px;
-}
-
-.schedule .schedule-filter input,
-.schedule .schedule-filter select {
-  color: var(--myWhite);
-  background: var(--myBlack50);
-  backdrop-filter: blur(4px);
-  width: 230px;
-  height: 38px;
-  font-size: 18px;
-  border: 1px solid var(--myWhite50);
-  margin-right: 18px;
-}
+/* end stepper */
 
 /* select and update btn for schedule page */
-
 .main-section .left-section label {
   font-size: 18px;
   text-transform: capitalize;
@@ -394,7 +389,7 @@ nav ul li a.active {
 
 /* room and service page */
 .main-section {
-  outline: 1px dashed red;
+  /* outline: 1px dashed red; */
   display: flex;
   width: 100%;
 }
@@ -406,8 +401,8 @@ nav ul li a.active {
 
 /* room section */
 .main-section .left-section .room-section {
+  padding: 30px;
   margin-bottom: 22px;
-  padding: px;
 }
 
 .main-section .left-section .room-section .room-select ul {
@@ -442,14 +437,14 @@ nav ul li a.active {
 }
 
 .main-section .left-section .room-section .room-detail img {
-  width: 450px;
+  /* width: 450px; */
   height: 300px;
   border-radius: 20px;
   margin-right: 24px;
 }
 
 .main-section .left-section .room-section .room-detail .room-text {
-    padding: 0 10px;
+  padding: 0 10px;
 }
 
 .main-section .left-section .room-section .room-detail .room-text h1 {
@@ -458,9 +453,9 @@ nav ul li a.active {
 }
 
 .main-section .left-section .room-section .room-detail .room-text ul {
-padding: 20px;
-border-bottom: 2px solid var(--myWhite50);
-margin-bottom: 20px;
+  padding: 20px;
+  border-bottom: 2px solid var(--myWhite50);
+  margin-bottom: 20px;
 }
 
 .main-section .left-section .room-section .room-detail .room-text li {
@@ -487,51 +482,76 @@ margin-bottom: 20px;
 }
 
 /* service section */
-.service-section .service-container {
-  margin-top: 40px;
-  display: flex;
-  justify-content: space-around;
-}
 
 .service-section .service-container {
-  margin-top: 40px;
   display: flex;
-  justify-content: space-around;
+
 }
 
+.service-section .service-container .service-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+.service-section .service-container .service-list h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.service-section .service-container .service-list p {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
 
 /* summary section */
 .main-section .summary-section {
-  padding: 40px 30px;
+  /* padding: 40px 30px; */
   margin-left: 22px;
   flex: 1;
   height: 100%;
 }
 
-.main-section .summary-section .sum-list {
-  margin: 40px 0px;
+.main-section .summary-section .summary-content {
+  padding: 10px 24px 24px;
+}
+
+.summary-section .summary-content .sum-list {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--myWhite);
 }
 
-.main-section .summary-section .sum-list h2 {
+.summary-section .summary-content .sum-list h2 {
   font-size: 24px;
   line-height: 48px;
+  font-weight: 400;
 }
 
-.main-section .summary-section .sum-list p {
-  line-height: 30px;
+.summary-section .summary-content .sum-list p {
+  font-size: 18px;
   font-weight: 300;
 }
 
-.main-section .summary-section ul {
+.summary-section .summary-content .total-trip {
+  text-align: right;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.summary-section .summary-content ul {
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.main-section .summary-section ul a,
-.main-section .summary-section ul li button {
-  width: 130px;
+.summary-section .summary-content ul a,
+.summary-section .summary-content ul li button {
+  width: 120px;
   padding: 10px;
 }
-

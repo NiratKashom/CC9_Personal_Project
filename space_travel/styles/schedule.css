@@ -176,7 +176,7 @@ select:focus {
 .container {
   background: radial-gradient(
     163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.35) 0%,
+    rgba(137, 153, 194, 0.2) 0%,
     rgba(0, 0, 0, 0) 100%
   );
   backdrop-filter: blur(14px);
@@ -184,15 +184,25 @@ select:focus {
   padding: 30px;
 }
 
+.container-headline {
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    rgba(137, 153, 194, 0.2) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+}
+
 .headline {
-  position: absolute;
+  position: relative;
   content: "";
   width: 100%;
   top: 0;
-  left: 0;
+  width: 100%;
   background: radial-gradient(
     163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.35) 0%,
+    rgba(137, 153, 194, 0.2) 0%,
     rgba(0, 0, 0, 0) 100%
   );
   backdrop-filter: blur(14px);
@@ -204,6 +214,10 @@ select:focus {
   font-weight: 600;
   font-size: 24px;
   text-transform: capitalize;
+}
+
+[class*="-content"] {
+  padding: 30px;
 }
 
 .center {
@@ -256,7 +270,7 @@ nav ul li a.active {
 /* END GLOBAL STYLE */
 
 /* schedule page */
-.schedule {
+.main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -351,14 +365,14 @@ nav ul li a.active {
 }
 
 /* filter bar */
-.schedule .schedule-filter {
+.main-container .schedule-filter {
   align-self: flex-start;
   font-size: 18px;
   margin-bottom: 50px;
 }
 
-.schedule .schedule-filter input,
-.schedule .schedule-filter select {
+.main-container .schedule-filter input,
+.main-container .schedule-filter select {
   color: var(--myWhite);
   background: var(--myBlack50);
   backdrop-filter: blur(4px);
@@ -370,65 +384,67 @@ nav ul li a.active {
 }
 
 /*schedule table */
-.schedule .schedule-table {
+.main-container .schedule-table {
   width: 100%;
 }
 
 /*each row */
-.schedule .schedule-table .row {
+.main-container .schedule-table .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   height: 148px;
   margin-bottom: 20px;
-  padding: 0 0 0 49px;
+  padding: 10px 10px 10px 49px;
   text-transform: capitalize;
   cursor: pointer;
 }
 
-.schedule .schedule-table .row:hover {
+.main-container .schedule-table .row:hover {
   background: radial-gradient(
     163.23% 243.53% at 1.12% 14.1%,
-    #242833 0%,
+    rgba(137, 153, 194, 0.5) 0%,
     rgba(0, 0, 0, 0) 100%
   );
 }
 
-.schedule .schedule-table .row .price-tag {
+.main-container .schedule-table .row .price-tag{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
   height: 100%;
 }
 
-.schedule .schedule-table .row .price-tag p,
-.schedule .schedule-table .row .price-tag span {
+.main-container .schedule-table .row .price-tag p,
+.main-container .schedule-table .row .price-tag span {
   font-size: 48px;
 }
-.schedule .schedule-table .row .departure-date,
-.schedule .schedule-table .row .return-date,
-.schedule .schedule-table .row .start-dest,
-.schedule .schedule-table .row .target-dest,
-.schedule .schedule-table .row .return-dest {
+.main-container .schedule-table .row .departure-date,
+.main-container .schedule-table .row .return-date,
+.main-container .schedule-table .row .start-dest,
+.main-container .schedule-table .row .target-dest,
+.main-container .schedule-table .row .return-dest {
   text-align: center;
 }
 
-.schedule .schedule-table .row .departure-date p,
-.schedule .schedule-table .row .return-date p {
+.main-container .schedule-table .row .departure-date p,
+.main-container .schedule-table .row .return-date p {
   font-size: 24px;
 }
-.schedule .schedule-table .row .departure-date span,
-.schedule .schedule-table .row .return-date span {
+.main-container .schedule-table .row .departure-date span,
+.main-container .schedule-table .row .return-date span {
   font-size: 48px;
 }
 
-.schedule .schedule-table .row .start-dest span,
-.schedule .schedule-table .row .target-dest span,
-.schedule .schedule-table .row .return-dest span {
+.main-container .schedule-table .row .start-dest span,
+.main-container .schedule-table .row .target-dest span,
+.main-container .schedule-table .row .return-dest span {
   font-size: 36px;
 }
 
-.schedule .schedule-table .row .arrow {
+.main-container .schedule-table .row .arrow {
   font-size: 48px;
   color: var(--myBlue);
 }
-
-

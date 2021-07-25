@@ -22,8 +22,7 @@
     </ul>
   </nav>
 
-
-  <div class="schedule outline">
+  <div class="main-container">
     <!-- stepper progress bar -->
     <div class="stepper-wrapper">
       <div class="stepper-item complete">
@@ -45,10 +44,10 @@
     </div>
 
     <!-- main content  -->
-    <div class="main-section outline">
-      <div class="outline left-section">
+    <div class="main-section">
+      <div class="left-section">
         <!-- room section -->
-        <div class="outline container room-section">
+        <div class="container room-section">
           <div class="room-select">
             <ul>
               <li><a href="#" class="room-select-btn active">standard room</a></li>
@@ -80,17 +79,31 @@
             <button class="btn-blue">update</button>
           </div>
         </div>
-         <!-- service section -->
-        <div class="outline container service-section">
+        <!-- service section -->
+        <div class="container-headline service-section">
           <div class="headline">
             <h1>extra service</h1>
           </div>
-          <div class="outline service-container">
+          <!-- service-container -->
+          <div class="service-container">
             <div class="container service-list">
               <h2>Dinner buffet coupon</h2>
-              <p>Enjoy all you can eat. You can always enjoy a wonderful evening with your dinner buffet. </p>
-              <div class="room-update">
-                <label for="">number of rooms :</label>
+              <p>Enjoy all you can eat. You can always enjoy a wonderful evening with your dinner buffet.</p>
+              <div class="update">
+                <select>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+                <button class="btn-blue">update</button>
+              </div>
+            </div>
+            <div class="container service-list">
+              <h2>Travel insurance</h2>
+              <p>Travel insurance can cover your trip cancellation, travel health insurance, and more.</p>
+              <div class="update">
                 <select>
                   <option value="0">0</option>
                   <option value="1">1</option>
@@ -104,8 +117,7 @@
             <div class="container service-list">
               <h2>Dinner buffet coupon</h2>
               <p>Enjoy all you can eat. You can always enjoy a wonderful evening with your dinner buffet. </p>
-              <div class="room-update">
-                <label for="">number of rooms :</label>
+              <div class="update">
                 <select>
                   <option value="0">0</option>
                   <option value="1">1</option>
@@ -117,44 +129,47 @@
               </div>
             </div>
           </div>
-
+          <!-- end service-container -->
         </div>
       </div>
+      <!-- end service section -->
+
       <!-- summary section -->
-      <div class="outline container summary-section">
+      <div class="container-headline summary-section">
         <div class="headline">
           <h1>summary</h1>
         </div>
-        <div class="sum-list">
-          <h2>Flight</h2>
-          <p>Earth - Moon - Earth</p>
-          <p>Depart : Jan 1, 2022 6:00 am </p>
+        <div class="summary-content">
+          <div class="sum-list">
+            <h2>Flight</h2>
+            <p>Earth - Moon - Earth</p>
+            <p>Depart : Jan 1, 2022 6:00 am </p>
+          </div>
+          <div class="sum-list">
+            <h2>Flight</h2>
+            <p>Earth - Moon - Earth</p>
+            <p>Depart : Jan 1, 2022 6:00 am </p>
+          </div>
+          <div class="sum-list">
+            <h2>Flight</h2>
+            <p>Earth - Moon - Earth</p>
+            <p>Depart : Jan 1, 2022 6:00 am </p>
+          </div>
+          <h1 class="total-trip">Total Trip : 12335 THB</h1>
+          <!-- if use ul -->
+          <!-- <h2>Flight</h2>
+          <ul>
+            <li>Earth - Moon - Earth</li>
+            <li>Depart : Jan 1, 2022 6:00 am </li>
+          </ul> -->
+          <ul>
+            <li><a href="./schedule.html" class="btn-orange">back</a></li>
+            <li><button class="btn-green" onclick="location = './confirmation.html' "">next</button></li>
+          </ul>
         </div>
-        <div class="sum-list">
-          <h2>Flight</h2>
-          <p>Earth - Moon - Earth</p>
-          <p>Depart : Jan 1, 2022 6:00 am </p>
-        </div>
-        <div class="sum-list">
-          <h2>Flight</h2>
-          <p>Earth - Moon - Earth</p>
-          <p>Depart : Jan 1, 2022 6:00 am </p>
-        </div>
-        <h2>Flight</h2>
-        <!-- if use ul -->
-        <!-- <h2>Flight</h2>
-        <ul>
-          <li>Earth - Moon - Earth</li>
-          <li>Depart : Jan 1, 2022 6:00 am </li>
-        </ul> -->
-        <ul>
-          <li><a href="./schedule.html" class="btn-orange">back</a></li>
-          <li><button class="btn-green">next</button></li>
-        </ul>
-
       </div>
     </div>
-    <script src="./script.js"></script>
+    <script src=" ./script.js"></script>
 </body>
 
 </html>
