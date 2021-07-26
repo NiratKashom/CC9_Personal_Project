@@ -5,7 +5,6 @@
   outline: 1px dashed lime;
 }
 
-/* Global */
 :root {
   /* setup variable */
   /*colors */
@@ -25,7 +24,7 @@
   --myBlack50: #0005;
 }
 
-
+/* Global */
 
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
@@ -269,9 +268,7 @@ nav ul li a.active {
   text-decoration: underline;
 }
 
-/* END GLOBAL STYLE */
-
-/* schedule page */
+/* main */
 .main-container {
   display: flex;
   flex-direction: column;
@@ -279,6 +276,9 @@ nav ul li a.active {
   padding: 20px;
   margin: 0 140px;
 }
+
+/* END GLOBAL STYLE */
+
 
 /* step progress bar */
 .stepper-wrapper {
@@ -368,7 +368,7 @@ nav ul li a.active {
 /* end stepper */
 
 /* select and update btn for schedule page */
-.main-section .left-section label {
+/* .main-section .left-section label {
   font-size: 18px;
   text-transform: capitalize;
   font-weight: 300;
@@ -386,133 +386,44 @@ nav ul li a.active {
   padding: 10px;
   width: 100px;
   font-size: 18px;
-}
+} */
 
-/* room and service page */
+/* 2 column*/
 .main-section {
-  /* outline: 1px dashed red; */
   display: flex;
   width: 100%;
 }
 
-/* room and sevice section */
-.main-section .left-section {
+.main-section .payment-section {
   flex: 3;
+  height: 100%;
 }
 
-/* room section */
-.main-section .left-section .room-section {
+/* payment-content */
+.payment-section .payment-content {
   padding: 30px;
-  margin-bottom: 22px;
 }
 
-.main-section .left-section .room-section .room-select ul {
-  display: flex;
-  margin-bottom: 34px;
-}
-
-.main-section .left-section .room-section .room-select a {
-  width: 250px;
-  margin-right: 12px;
-  padding: 10px;
-  background: var(--myBlack50);
-  border: 2px solid var(--myWhite50);
-  color: var(--myWhite50);
-}
-
-.main-section .left-section .room-section .room-select a.active {
-  border: 2px solid var(--myBlue);
-  color: var(--myBlue);
-}
-
-.main-section .left-section .room-section .room-select a:hover {
-  background: var(--myBlack50);
-  border: 2px solid var(--myWhite);
-  color: var(--myWhite);
-}
-
-/* room detail */
-.main-section .left-section .room-section .room-detail {
-  display: flex;
-  justify-content: space-around;
-}
-
-.main-section .left-section .room-section .room-detail img {
-  /* width: 450px; */
-  height: 300px;
-  border-radius: 20px;
-  margin-right: 24px;
-}
-
-.main-section .left-section .room-section .room-detail .room-text {
-  padding: 0 10px;
-}
-
-.main-section .left-section .room-section .room-detail .room-text h1 {
-  font-size: 36px;
-  font-weight: 500;
-}
-
-.main-section .left-section .room-section .room-detail .room-text ul {
-  padding: 20px;
-  border-bottom: 2px solid var(--myWhite50);
-  margin-bottom: 20px;
-}
-
-.main-section .left-section .room-section .room-detail .room-text li {
-  list-style-type: disc;
-  font-size: 16px;
-}
-
-.main-section .left-section .room-section .room-detail .room-text p {
-  font-size: 16px;
-}
-
-/* room update */
-.main-section .left-section .room-section .room-update {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0;
-}
-
-.main-section .left-section .room-section .room-update label {
-  font-size: 18px;
-  text-transform: capitalize;
-  font-weight: 300;
-}
-
-/* service section */
-
-.service-section .service-container {
-  display: flex;
-
-}
-
-.service-section .service-container .service-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-  margin: 20px;
-  padding: 20px;
-}
-
-
-.service-section .service-container .service-list h2 {
+.payment-section .payment-content h2{
   font-size: 24px;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 35px;
 }
 
-.service-section .service-container .service-list span {
-  font-size: 80px;
-  margin-bottom: 10px;
+.payment-section .payment-content .upload-slip {
+  display: block;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 0 auto;
+  
+}
+.payment-section .payment-content .upload-slip span {
+  font-size: 100px;
 }
 
-.service-section .service-container .service-list p {
-  font-size: 18px;
-  margin-bottom: 16px;
+.payment-section .payment-content .upload-slip a {
+  text-decoration: underline;
+  color: var(--myBlue);
 }
 
 /* summary section */

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SPACE TRAVEL</title>
-  <link rel="stylesheet" href="./styles/comfirmation.css">
+  <link rel="stylesheet" href="./styles/payment.css">
   <!-- https://material.io/resources/icons/?style=baseline -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
   <!-- https://material.io/resources/icons/?style=outline -->
@@ -26,7 +26,6 @@
     </ul>
   </nav>
 
-
   <div class="main-container">
     <!-- stepper progress bar -->
     <div class="stepper-wrapper">
@@ -38,25 +37,44 @@
         <div class="step-counter"></div>
         <div class="step-name">room and service</div>
       </div>
-      <div class="stepper-item active">
+      <div class="stepper-item complete">
         <div class="step-counter"></div>
         <div class="step-name">confirmation</div>
       </div>
-      <div class="stepper-item">
+      <div class="stepper-item active">
         <div class="step-counter"></div>
         <div class="step-name">payment</div>
       </div>
     </div>
 
-    <!-- main content  -->
-    <div class="main-section outline">
-      <!-- summary section -->
-      <div class="container-headline confirmation-section outline">
-        <div class="headline outline">
-          <h1>booking confirmation</h1>
+    <div class="main-section">
+      <!-- payment section  -->
+      <div class="container-headline payment-section">
+        <div class="headline">
+          <h1>Payment</h1>
         </div>
-        <div class="confirm-content outline">
-          <div class="sum-list outline">
+        <!-- payment-content -->
+        <div class="payment-content">
+          <h2>Upload Your Payslip</h2>
+          <div class="container upload-slip">
+            <span class="material-icons-outlined">
+              file_upload
+            </span>
+            <p>You can also upload file by</p>
+            <a href="#">click here</a>
+          </div>
+        </div>
+        <!-- end payment-content -->
+      </div>
+      <!-- end payment section -->
+
+      <!-- summary section -->
+      <div class="container-headline summary-section">
+        <div class="headline">
+          <h1>summary</h1>
+        </div>
+        <div class="summary-content">
+          <div class="sum-list">
             <h2>Flight</h2>
             <p>Earth - Moon - Earth</p>
             <p>Depart : Jan 1, 2022 6:00 am </p>
@@ -79,13 +97,14 @@
             <li>Depart : Jan 1, 2022 6:00 am </li>
           </ul> -->
           <ul>
-            <li><a href="./roomAndService.html" class="btn-orange">back</a></li>
-            <li><button class="btn-green" onclick="location = './payment.html'">next</button></li>
+            <li><a href="./confirmation.html" class="btn-orange">back</a></li>
+            <li><button class="btn-green">submit</button></li>
           </ul>
         </div>
       </div>
+      <!--end summary section -->
     </div>
-    <script src="./script.js"></script>
+    <script src=" ./script.js"></script>
 </body>
 
 </html>
