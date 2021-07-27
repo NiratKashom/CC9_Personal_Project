@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPACE TRAVEL</title>
+  <link rel="stylesheet" href="./styles/userManageReservation.css">
+  <!-- https://material.io/resources/icons/?style=baseline -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <!-- https://material.io/resources/icons/?style=outline -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+  <!-- https://material.io/resources/icons/?style=round -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li class='branding'><a href="./index.html">SPACE TRAVEL</a></li>
+      <li><a href="./destination.html">DESTINATION</a></li>
+      <li><a href="./schedule.html">SCHEDULE</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">MANAGE RESERVATION</a></li>
+      <li><a href="./userManageReservation.html" class="active">welcome username01</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-container outline">
+    <!-- main content  -->
+    <div class="main-section outline">
+      <!-- usermenu section -->
+      <div class="container-headline usermenu-section">
+        <div class="headline outline">
+          <span class="material-icons-outlined">
+            account_circle
+            </span>
+          <h2>Firstname Lastname</h2>
+        </div>
+        <div class="usermenu-content outline">
+          <ul class="usermenu-list">
+            <li><a href="./schedule.html" class="active" >manage reservation</a></li>
+            <li><a href="./schedule.html" >back</a></li>
+         </ul>
+          <ul class="usermenu-button-list">
+            <!-- <li><a href="./schedule.html" class="btn-red">logout</a></li> -->
+            <li><button class="btn-red" onclick="location = './login.html' "">logout</button></li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- right section -->
+      <div class=" right-section">
+        <!-- service section -->
+        <div class="container-headline service-section">
+          <div class="headline">
+            <h1>extra service</h1>
+          </div>
+          <!-- service-container -->
+          <div class="service-container">
+            <div class="container service-list">
+              <h2>Dinner buffet coupon</h2>
+              <span class="material-icons-outlined">
+                dinner_dining
+              </span>
+              <p>Enjoy all you can eat. You can always enjoy a wonderful evening with your dinner buffet.</p>
+              <div class="update">
+                <select>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+                <button class="btn-blue">update</button>
+              </div>
+            </div>
+          </div>
+          <!-- end service-container -->
+        </div>
+      </div>
+        <!-- end service section -->
+
+
+      </div>
+      <script src=" ./script.js"></script>
+</body>
+
+</html>

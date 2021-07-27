@@ -1,0 +1,478 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* temp */
+.outline {
+  outline: 1px dashed lime;
+}
+
+/* Global */
+:root {
+  /* setup variable */
+  /*colors */
+  --myBlue: #5eb8e9;
+  --myBlueHov: hsl(201, 73%, 45%);
+  --myGreen: #67ca90;
+  --myGreenHov: hsl(145, 48%, 50%);
+  --myRed: #fe6464;
+  --myRedHov: hsl(0, 50%, 49%);
+  --myOrange: #ffac5e;
+  --myOrangeHov: hsl(29, 70%, 50%);
+  --myCyan: #52b8c7;
+  --myCyanHov: hsl(188, 45%, 45%);
+  --myWhite: #fff;
+  --myWhite50: #fff5;
+  --myBlack: #000;
+  --myBlack50: #0005;
+}
+
+
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-weight: 300;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+body {
+  background: url("../img/main_background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+nav li a.active {
+  color: var(--myWhite);
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a.link {
+  color: var(--myBlue);
+  text-decoration: underline;
+}
+
+a.link:hover {
+  color: var(--myBlueHov);
+}
+
+ul li a {
+  display: inline-block;
+}
+
+/* color with class */
+[class*="btn"][class*="-red"] {
+  background: var(--myRed);
+}
+[class*="btn"][class*="-red"]:hover {
+  background: var(--myRedHov);
+}
+
+[class*="btn"][class*="-green"] {
+  background: var(--myGreen);
+}
+[class*="btn"][class*="-green"]:hover {
+  background: var(--myGreenHov);
+}
+
+[class*="btn"][class*="-blue"] {
+  background: var(--myBlue);
+}
+[class*="btn"][class*="-blue"]:hover {
+  background: var(--myBlueHov);
+}
+
+[class*="btn"][class*="-orange"] {
+  background: var(--myOrange);
+}
+[class*="btn"][class*="-orange"]:hover {
+  background: var(--myOrangeHov);
+}
+option[class*="-orange"]:hover {
+  background: var(--myOrangeHov);
+}
+
+[class*="-white"] {
+  background: var(--myWhite);
+}
+
+[class*="-white50"] {
+  background: var(--myWhite50);
+}
+
+[class*="-black"] {
+  background: var(--myBlack);
+}
+
+[class*="-black50"] {
+  background: var(--myBlack50);
+}
+
+[class*="btn"] {
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  width: 200px;
+  padding: 18px;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+[class*="btn"][class*="-outline"] {
+  background: var(--myBlack50);
+  border: 2px solid var(--myOrange);
+  color: var(--myOrange);
+}
+[class*="btn"][class*="-outline"]:hover {
+  background: var(--myBlack50);
+  border: 2px solid var(--myOrangeHov);
+  color: var(--myOrangeHov);
+}
+
+input {
+  color: var(--myBlack);
+  background: var(--myWhite);
+  border-radius: 10px;
+  padding: 19px;
+  border: none;
+  font-size: 24px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--myBlue);
+}
+
+select {
+  background: var(--myBlack50);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+
+select:focus {
+  outline: none;
+}
+
+.popup {
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    #8999c2 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+}
+
+.container {
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    rgba(137, 153, 194, 0.2) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.container-headline {
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    rgba(137, 153, 194, 0.2) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+}
+
+.headline {
+  position: relative;
+  content: "";
+  width: 100%;
+  top: 0;
+  width: 100%;
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    rgba(137, 153, 194, 0.2) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+}
+
+.headline h1 {
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+[class*="-content"] {
+  padding: 30px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+/* navbar */
+nav {
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 138.89%);
+  display: flex;
+  justify-content: space-between;
+  height: 81px;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  margin: 30px;
+}
+
+nav ul li {
+  margin: 0 30px;
+}
+
+nav ul li a {
+  font-weight: 400;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: var(--myWhite50);
+}
+
+nav ul li a:hover {
+  color: var(--myWhite);
+}
+
+nav ul li.branding a {
+  font-weight: 500;
+  font-size: 36px;
+  color: var(--myWhite);
+}
+
+nav ul li a.active {
+  color: var(--myWhite);
+  text-decoration: underline;
+}
+
+/* END GLOBAL STYLE */
+
+/* schedule page */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0 140px;
+}
+
+/* select and update btn for schedule page */
+.main-section .right-section label {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+.main-section .right-section select {
+  margin: 0px 6px;
+  padding: 7px;
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite50);
+  color: var(--myWhite);
+}
+
+.main-section .right-section button {
+  padding: 10px;
+  width: 100px;
+  font-size: 18px;
+}
+
+/* room and service page */
+.main-section {
+  /* outline: 1px dashed red; */
+  display: flex;
+  width: 100%;
+}
+
+/* room and sevice section */
+.main-section .right-section {
+  flex: 3;
+  margin-left: 22px;
+}
+
+/* room section */
+.main-section .right-section .room-section {
+  padding: 30px;
+  margin-bottom: 22px;
+}
+
+.main-section .right-section .room-section .room-select ul {
+  display: flex;
+  margin-bottom: 34px;
+}
+
+.main-section .right-section .room-section .room-select a {
+  width: 250px;
+  margin-right: 12px;
+  padding: 10px;
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite50);
+  color: var(--myWhite50);
+}
+
+.main-section .right-section .room-section .room-select a.active {
+  border: 2px solid var(--myBlue);
+  color: var(--myBlue);
+}
+
+.main-section .right-section .room-section .room-select a:hover {
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite);
+  color: var(--myWhite);
+}
+
+/* room detail */
+.main-section .right-section .room-section .room-detail {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.main-section .right-section .room-section .room-detail .room-text {
+  padding: 0 10px;
+}
+
+.main-section .right-section .room-section .room-detail .room-text h1 {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.main-section .right-section .room-section .room-detail .room-text ul {
+  padding: 20px;
+  border-bottom: 2px solid var(--myWhite50);
+  margin-bottom: 20px;
+}
+
+.main-section .right-section .room-section .room-detail .room-text li {
+  list-style-type: disc;
+  font-size: 16px;
+}
+
+.main-section .right-section .room-section .room-detail .room-text p {
+  font-size: 16px;
+}
+
+/* room update */
+.main-section .right-section .room-section .room-update {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+}
+
+.main-section .right-section .room-section .room-update label {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+/* service section */
+
+.service-section .service-container {
+  display: flex;
+}
+
+.service-section .service-container .service-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+
+.service-section .service-container .service-list h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.service-section .service-container .service-list span {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+
+.service-section .service-container .service-list p {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+/* user menu section */
+.main-section .usermenu-section {
+  flex: 1;
+  /* height: 100%; */
+}
+
+.main-section .usermenu-section .headline {
+  text-align: center;
+  padding: 20px;
+}
+
+.main-section .usermenu-section .headline span{
+  font-size: 260px;
+}
+
+.main-section .usermenu-section .headline h2{
+  font-size: 24px;
+}
+
+.main-section .usermenu-section .usermenu-content {
+  text-align: center;
+}
+
+.usermenu-section .usermenu-content ul.usermenu-list {
+  text-align: left;
+}
+
+.usermenu-section .usermenu-content ul li a {
+  color: var(--myWhite50);
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.usermenu-section .usermenu-content ul li a:hover {
+  color: var(--myWhite);
+}
+
+.usermenu-section .usermenu-content ul li a.active {
+  color: var(--myWhite);
+}
+
+.usermenu-section .usermenu-content ul li button {
+  width: 120px;
+  padding: 10px;
+}
