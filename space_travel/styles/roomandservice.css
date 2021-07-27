@@ -64,6 +64,15 @@ a {
   text-decoration: none;
 }
 
+a.link {
+  color: var(--myBlue);
+  text-decoration: underline;
+}
+
+a.link:hover {
+  color: var(--myBlueHov);
+}
+
 ul li a {
   display: inline-block;
 }
@@ -194,7 +203,6 @@ select:focus {
   backdrop-filter: blur(14px);
   border-radius: 20px;
 }
-
 
 .headline {
   position: relative;

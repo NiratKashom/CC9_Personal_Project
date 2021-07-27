@@ -63,6 +63,15 @@ a {
   text-decoration: none;
 }
 
+a.link {
+  color: var(--myBlue);
+  text-decoration: underline;
+}
+
+a.link:hover {
+  color: var(--myBlueHov);
+}
+
 ul li a {
   display: inline-block;
 }
@@ -419,11 +428,6 @@ nav ul li a.active {
 }
 .payment-section .payment-content .upload-slip span {
   font-size: 100px;
-}
-
-.payment-section .payment-content .upload-slip a {
-  text-decoration: underline;
-  color: var(--myBlue);
 }
 
 /* summary section */

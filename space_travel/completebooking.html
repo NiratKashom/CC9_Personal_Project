@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SPACE TRAVEL</title>
-  <link rel="stylesheet" href="./styles/payment.css">
+  <link rel="stylesheet" href="./styles/completebooking.css">
   <!-- https://material.io/resources/icons/?style=baseline -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
   <!-- https://material.io/resources/icons/?style=outline -->
@@ -27,7 +27,6 @@
       <li><a href="#" class="active">welcome username01</a></li>
     </ul>
   </nav>
-
   <div class="main-container">
     <!-- stepper progress bar -->
     <div class="stepper-wrapper">
@@ -43,7 +42,7 @@
         <div class="step-counter"></div>
         <div class="step-name">confirmation</div>
       </div>
-      <div class="stepper-item active">
+      <div class="stepper-item complete">
         <div class="step-counter"></div>
         <div class="step-name">payment</div>
       </div>
@@ -63,7 +62,7 @@
               file_upload
             </span>
             <p>You can also upload file by</p>
-            <a href="#" class="link">click here</a>
+            <a href="#">click here</a>
           </div>
         </div>
         <!-- end payment-content -->
@@ -100,11 +99,35 @@
           </ul> -->
           <ul>
             <li><a href="./confirmation.html" class="btn-orange">back</a></li>
-            <li><button class="btn-green" onclick="location = './completebooking.html'">submit</button></li>
+            <li><button class="btn-green">submit</button></li>
           </ul>
         </div>
       </div>
       <!--end summary section -->
+    </div>
+  </div>
+  <div class="center complete-booking" onclick="location = './payment.html'">
+    <div class="popup outline">
+      <!-- headline -->
+      <div class="modal-headline">
+        <h1>COMPLETE A BOOKING</h1>
+        <a href="./schedule.html">
+          <span class="material-icons-round">
+            close
+          </span>
+        </a>
+      </div>
+      <!--end headline -->
+      <div class="complete-booking-content">
+        <span class="material-icons-round">
+          check_circle_outline
+        </span>
+        <p>Thank you for your reservation.</p>
+        <p>Booking ID : D002MON0101220701221300</p>
+        <p>You can check booking status in <a href="#" class="link">Manage reservation</a></p>
+        
+      </div>
+
     </div>
   </div>
   <script src=" ./script.js"></script>

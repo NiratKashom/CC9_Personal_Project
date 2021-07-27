@@ -76,6 +76,7 @@ ul li a {
   display: inline-block;
 }
 
+
 /* color with class */
 [class*="btn"][class*="-red"] {
   background: var(--myRed);
@@ -172,6 +173,7 @@ select:focus {
   outline: none;
 }
 
+/* model */
 .popup {
   background: radial-gradient(
     163.23% 243.53% at 1.12% 14.1%,
@@ -182,6 +184,36 @@ select:focus {
   border-radius: 20px;
 }
 
+.modal-headline {
+  position: relative;
+  content: "";
+  width: 100%;
+  top: 0;
+  width: 100%;
+  background: radial-gradient(
+    163.23% 243.53% at 1.12% 14.1%,
+    #8999c2 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  border-radius: 20px 20px 0 0;
+  padding: 6px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-headline h1 {
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.modal-headline span {
+  font-size: 40px;
+}
+
+/* container */
 .container {
   background: radial-gradient(
     163.23% 243.53% at 1.12% 14.1%,
@@ -255,10 +287,10 @@ nav ul li {
 }
 
 nav ul li a {
+  font-weight: 400;
   font-size: 24px;
   text-transform: uppercase;
   color: var(--myWhite50);
-  font-weight: 400;
 }
 
 nav ul li a:hover {
@@ -266,7 +298,6 @@ nav ul li a:hover {
 }
 
 nav ul li.branding a {
-  font-weight: 500;
   font-weight: 500;
   font-size: 36px;
   color: var(--myWhite);
@@ -277,37 +308,243 @@ nav ul li a.active {
   text-decoration: underline;
 }
 
+/* main */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0 140px;
+}
+
 /* END GLOBAL STYLE */
 
 
-/* destinaiton page */
-.destination {
-  justify-content: space-around;
-}
-
-.destination .container {
-  width: 45%;
-  height: 800px;
-}
-
-.destination .content {
+/* step progress bar */
+.stepper-wrapper {
   display: flex;
-  flex-flow: column wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  width: 950px;
+}
+
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+/* line between step */
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid var(--myWhite50);
+  width: 100%;
+  top: 10px;
+  left: -50%;
+  z-index: 2;
+}
+
+.stepper-item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid var(--myWhite50);
+  width: 100%;
+  top: 10px;
+  left: 50%;
+  z-index: 2;
+}
+
+.step-name {
+  font-size: 24px;
+  text-transform: capitalize;
+  color: var(--myWhite50);
+}
+
+/* dot above name */
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid var(--myWhite50);
+  background: var(--myBlack);
+}
+
+/*active step */
+.stepper-item.active .step-counter,
+.stepper-item.active .step-name {
+  color: var(--myWhite);
+  border-color: var(--myWhite);
+  text-decoration: underline;
+}
+
+/*complete step*/
+.stepper-item.complete .step-name {
+  color: var(--myWhite);
+  text-decoration: none;
+}
+
+.stepper-item.complete .step-counter {
+  background: var(--myWhite);
+}
+
+.stepper-item.complete::after {
+  border-color: var(--myWhite);
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+.stepper-item:last-child::after {
+  content: none;
+}
+/* end stepper */
+
+/* select and update btn for schedule page */
+/* .main-section .left-section label {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+.main-section .left-section select {
+  margin: 0px 6px;
+  padding: 7px;
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite50);
+  color: var(--myWhite);
+}
+
+.main-section .left-section button {
+  padding: 10px;
+  width: 100px;
+  font-size: 18px;
+} */
+
+/* 2 column*/
+.main-section {
+  display: flex;
+  width: 100%;
+}
+
+.main-section .payment-section {
+  flex: 3;
+  height: 100%;
+}
+
+/* payment-content */
+.payment-section .payment-content {
+  padding: 30px;
+}
+
+.payment-section .payment-content h2{
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 35px;
+}
+
+.payment-section .payment-content .upload-slip {
+  display: block;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 0 auto;
+  
+}
+.payment-section .payment-content .upload-slip span {
+  font-size: 100px;
+}
+
+.payment-section .payment-content .upload-slip a {
+  text-decoration: underline;
+  color: var(--myBlue);
+}
+
+/* summary section */
+.main-section .summary-section {
+  /* padding: 40px 30px; */
+  margin-left: 22px;
+  flex: 1;
+  height: 100%;
+}
+
+.main-section .summary-section .summary-content {
+  padding: 10px 24px 24px;
+}
+
+.summary-section .summary-content .sum-list {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--myWhite);
+}
+
+.summary-section .summary-content .sum-list h2 {
+  font-size: 24px;
+  line-height: 48px;
+  font-weight: 400;
+}
+
+.summary-section .summary-content .sum-list p {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.summary-section .summary-content .total-trip {
+  text-align: right;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.summary-section .summary-content ul {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
-.destination .content h1 {
-  text-transform: uppercase;
+.summary-section .summary-content ul a,
+.summary-section .summary-content ul li button {
+  width: 120px;
+  padding: 10px;
+}
+
+/* modal complete booking */
+
+.complete-booking {
+  position: absolute;   
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background: var(--myBlack50);
+  backdrop-filter: blur(10px);
+}
+
+.complete-booking-content {
+  text-align: center;
+}
+
+.complete-booking-content span{
+  color:var(--myGreen);
+  font-size: 100px;
+}
+
+.complete-booking-content p{
   font-size: 36px;
-  margin-bottom: 20px;
+  font-weight: 400;
+  padding: 16px;
 }
 
-.destination .content p {
-  font-size: 18px;
+.complete-booking-content p:last-child,
+.complete-booking-content a
+ {
+  font-size: 24px;
 }
 
-.destination div.content a {
-  align-self: flex-end;
-  width: auto;
-  display: inline-block;
-}
