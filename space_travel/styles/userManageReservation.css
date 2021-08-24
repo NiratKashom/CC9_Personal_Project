@@ -25,8 +25,6 @@
   --myBlack50: #0005;
 }
 
-
-
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
@@ -173,33 +171,47 @@ select:focus {
   outline: none;
 }
 
+/* modal */
 .popup {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    #8999c2 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, #8999c2 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
 }
 
+.modal-headline {
+  position: relative;
+  content: "";
+  width: 100%;
+  top: 0;
+  width: 100%;
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, #8999c2 0%, rgba(0, 0, 0, 0) 100%);
+  backdrop-filter: blur(14px);
+  border-radius: 20px 20px 0 0;
+  padding: 6px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-headline h1 {
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.modal-headline span {
+  font-size: 40px;
+}
+
 .container {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
   padding: 30px;
 }
 
 .container-headline {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
 }
@@ -210,11 +222,7 @@ select:focus {
   width: 100%;
   top: 0;
   width: 100%;
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px 20px 0 0;
   padding: 20px;
@@ -309,125 +317,66 @@ nav ul li a.active {
   font-size: 18px;
 }
 
-/* room and service page */
+/* main section */
 .main-section {
-  /* outline: 1px dashed red; */
+  outline: 1px dashed red;
   display: flex;
   width: 100%;
 }
 
-/* room and sevice section */
+/* right section */
 .main-section .right-section {
   flex: 3;
   margin-left: 22px;
 }
 
-/* room section */
-.main-section .right-section .room-section {
-  padding: 30px;
-  margin-bottom: 22px;
+.manage-content {
+  padding: 22px;
 }
 
-.main-section .right-section .room-section .room-select ul {
-  display: flex;
-  margin-bottom: 34px;
-}
-
-.main-section .right-section .room-section .room-select a {
-  width: 250px;
-  margin-right: 12px;
-  padding: 10px;
-  background: var(--myBlack50);
-  border: 2px solid var(--myWhite50);
-  color: var(--myWhite50);
-}
-
-.main-section .right-section .room-section .room-select a.active {
-  border: 2px solid var(--myBlue);
-  color: var(--myBlue);
-}
-
-.main-section .right-section .room-section .room-select a:hover {
-  background: var(--myBlack50);
-  border: 2px solid var(--myWhite);
-  color: var(--myWhite);
-}
-
-/* room detail */
-.main-section .right-section .room-section .room-detail {
-  display: flex;
-  justify-content: space-around;
-}
-
-
-.main-section .right-section .room-section .room-detail .room-text {
-  padding: 0 10px;
-}
-
-.main-section .right-section .room-section .room-detail .room-text h1 {
-  font-size: 36px;
-  font-weight: 500;
-}
-
-.main-section .right-section .room-section .room-detail .room-text ul {
-  padding: 20px;
-  border-bottom: 2px solid var(--myWhite50);
-  margin-bottom: 20px;
-}
-
-.main-section .right-section .room-section .room-detail .room-text li {
-  list-style-type: disc;
-  font-size: 16px;
-}
-
-.main-section .right-section .room-section .room-detail .room-text p {
-  font-size: 16px;
-}
-
-/* room update */
-.main-section .right-section .room-section .room-update {
+.main-section .right-section .filter-bar ul {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0;
-}
-
-.main-section .right-section .room-section .room-update label {
-  font-size: 18px;
-  text-transform: capitalize;
-  font-weight: 300;
-}
-
-/* service section */
-
-.service-section .service-container {
-  display: flex;
-}
-
-.service-section .service-container .service-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  margin-bottom: 22px;
   text-align: center;
-  margin: 20px;
-  padding: 20px;
+  text-transform: capitalize;
 }
 
-
-.service-section .service-container .service-list h2 {
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 10px;
+.main-section .right-section .filter-bar a {
+  padding: 6px;
+  width: 100px;
+  margin-left: 8px;
+  background: var(--myBlack50);
+  border-radius: 10px;
 }
 
-.service-section .service-container .service-list span {
-  font-size: 80px;
-  margin-bottom: 10px;
+.red-outline {
+  border: 2px solid var(--myRed);
+  color: var(--myRed);
 }
 
-.service-section .service-container .service-list p {
-  font-size: 18px;
-  margin-bottom: 16px;
+.orange-outline {
+  border: 2px solid var(--myOrange);
+  color: var(--myOrange);
+}
+
+.green-outline {
+  border: 2px solid var(--myGreen);
+  color: var(--myGreen);
+}
+
+.wish-outline {
+  border: 2px solid #e95edb;
+  color: #e95edb;
+}
+
+a[class*="-outline"] {
+  opacity: 0.5;
+}
+
+a[class*="-outline"]:hover {
+  opacity: 1;
 }
 
 /* user menu section */
@@ -441,11 +390,11 @@ nav ul li a.active {
   padding: 20px;
 }
 
-.main-section .usermenu-section .headline span{
+.main-section .usermenu-section .headline span {
   font-size: 260px;
 }
 
-.main-section .usermenu-section .headline h2{
+.main-section .usermenu-section .headline h2 {
   font-size: 24px;
 }
 
@@ -475,4 +424,23 @@ nav ul li a.active {
 .usermenu-section .usermenu-content ul li button {
   width: 120px;
   padding: 10px;
+}
+
+/*schedule table */
+.main-container .schedule-table {
+  outline: 1px solid lime;
+  width: 100%;
+}
+
+/*each row */
+.main-container .schedule-table .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+  /* padding: 10px 10px 10px 49px; */
+  text-transform: capitalize;
+  cursor: pointer;
 }

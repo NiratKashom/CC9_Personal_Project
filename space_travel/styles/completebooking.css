@@ -173,7 +173,7 @@ select:focus {
   outline: none;
 }
 
-/* model */
+/* modal */
 .popup {
   background: radial-gradient(
     163.23% 243.53% at 1.12% 14.1%,
@@ -212,6 +212,7 @@ select:focus {
 .modal-headline span {
   font-size: 40px;
 }
+
 
 /* container */
 .container {

@@ -28,65 +28,72 @@
     </ul>
   </nav>
 
+
   <div class="main-container outline">
-    <!-- main content  -->
     <div class="main-section outline">
       <!-- usermenu section -->
       <div class="container-headline usermenu-section">
         <div class="headline outline">
           <span class="material-icons-outlined">
             account_circle
-            </span>
+          </span>
           <h2>Firstname Lastname</h2>
         </div>
         <div class="usermenu-content outline">
           <ul class="usermenu-list">
-            <li><a href="./schedule.html" class="active" >manage reservation</a></li>
-            <li><a href="./schedule.html" >back</a></li>
-         </ul>
+            <li><a href="./schedule.html" class="active">manage reservation</a></li>
+            <li><a href="./schedule.html">back</a></li>
+          </ul>
           <ul class="usermenu-button-list">
             <!-- <li><a href="./schedule.html" class="btn-red">logout</a></li> -->
-            <li><button class="btn-red" onclick="location = './login.html' "">logout</button></li>
+            <li><button class="btn-red" onclick="location = './login.html'">logout</button></li>
 
           </ul>
         </div>
       </div>
+      <!-- end usermenu section -->
 
-      <!-- right section -->
-      <div class=" right-section">
-        <!-- service section -->
-        <div class="container-headline service-section">
+      <div class="right-section outline">
+        <div class="container-headline">
           <div class="headline">
-            <h1>extra service</h1>
+            <h1>MANAGE RESERVATION</h1>
           </div>
-          <!-- service-container -->
-          <div class="service-container">
-            <div class="container service-list">
-              <h2>Dinner buffet coupon</h2>
-              <span class="material-icons-outlined">
-                dinner_dining
-              </span>
-              <p>Enjoy all you can eat. You can always enjoy a wonderful evening with your dinner buffet.</p>
-              <div class="update">
-                <select>
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
-                <button class="btn-blue">update</button>
-              </div>
+          <div class="manage-content">
+            <div class="filter-bar">
+              <ul>
+                <li><a href="#" class="green-outline">approved</a></li>
+                <li><a href="#" class="orange-outline">pending</a></li>
+                <li><a href="#" class="red-outline">rejected</a></li>
+                <li><a href="#" class="wish-outline">wishlist</a></li>
+              </ul>
             </div>
+
+            <!-- table -->
+            <div class="schedule-table">
+              <table style="width:100%">
+                <tr>
+                  <th>FLIGHT ID</th>
+                  <th>BOOKING ID</th>
+                  <th>ROUTE</th>
+                  <th>STATUS</th>
+                  <th>ACTION</th>
+                </tr>
+                <tr class="container ">
+                  <td>Alfreds Futterkiste</td>
+                  <td>Maria Anders</td>
+                  <td>Germany</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- </div> -->
           </div>
-          <!-- end service-container -->
         </div>
       </div>
-        <!-- end service section -->
-
-
-      </div>
-      <script src=" ./script.js"></script>
+      <!--end right section -->
+    </div>
+  </div>
+  <script src="./script.js"></script>
 </body>
 
 </html>

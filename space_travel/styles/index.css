@@ -32,7 +32,7 @@
 
 * {
   font-family: "Inter", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -172,33 +172,47 @@ select:focus {
   outline: none;
 }
 
+/* modal */
 .popup {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    #8999c2 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, #8999c2 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
 }
 
+.modal-headline {
+  position: relative;
+  content: "";
+  width: 100%;
+  top: 0;
+  width: 100%;
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, #8999c2 0%, rgba(0, 0, 0, 0) 100%);
+  backdrop-filter: blur(14px);
+  border-radius: 20px 20px 0 0;
+  padding: 6px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-headline h1 {
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.modal-headline span {
+  font-size: 40px;
+}
+
 .container {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
   padding: 30px;
 }
 
 .container-headline {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
 }
@@ -209,11 +223,7 @@ select:focus {
   width: 100%;
   top: 0;
   width: 100%;
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px 20px 0 0;
   padding: 20px;
@@ -309,5 +319,3 @@ div.home-container div select {
   text-transform: capitalize;
   padding: 10px;
 }
-
-
