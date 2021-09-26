@@ -5,6 +5,8 @@
   outline: 1px dashed lime;
 }
 
+/* Global */
+
 :root {
   /* setup variable */
   /*colors */
@@ -16,15 +18,11 @@
   --myRedHov: hsl(0, 50%, 49%);
   --myOrange: #ffac5e;
   --myOrangeHov: hsl(29, 70%, 50%);
-  --myCyan: #52b8c7;
-  --myCyanHov: hsl(188, 45%, 45%);
   --myWhite: #fff;
   --myWhite50: #fff5;
   --myBlack: #000;
   --myBlack50: #0005;
 }
-
-/* Global */
 
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
@@ -45,7 +43,7 @@
 }
 
 body {
-  background: url("../img/main_background.jpg");
+  background: url("./img/main_background.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -76,7 +74,36 @@ ul li a {
   display: inline-block;
 }
 
-/* color with class */
+option[class*="-orange"]:hover {
+  background: var(--myOrangeHov);
+}
+
+[class*="-white"] {
+  background: var(--myWhite);
+}
+
+[class*="-white50"] {
+  background: var(--myWhite50);
+}
+
+[class*="-black"] {
+  background: var(--myBlack);
+}
+
+[class*="-black50"] {
+  background: var(--myBlack50);
+}
+
+/* btn class */
+[class*="btn"] {
+  border-radius: 10px;
+  border: none;
+  padding: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+/* solid btn color */
 [class*="btn"][class*="-red"] {
   background: var(--myRed);
 }
@@ -105,61 +132,68 @@ ul li a {
   background: var(--myOrangeHov);
 }
 
-option[class*="-orange"]:hover {
-  background: var(--myOrangeHov);
-}
+/* outline btn color */
 
-[class*="-white"] {
-  background: var(--myWhite);
-}
-
-[class*="-white50"] {
-  background: var(--myWhite50);
-}
-
-[class*="-black"] {
-  background: var(--myBlack);
-}
-
-[class*="-black50"] {
+[class*="btn"][class*="-outline-red"] {
   background: var(--myBlack50);
+  border: 2px solid var(--myRed);
+  color: var(--myRed);
+}
+[class*="btn"][class*="-outline-red"]:hover {
+  background: var(--myBlack50);
+  border: 2px solid var(--myRedHov);
+  color: var(--myRedHov);
 }
 
-[class*="btn"] {
-  box-sizing: border-box;
-  border-radius: 10px;
-  border: none;
-  width: 200px;
-  padding: 18px;
-  text-align: center;
-  text-transform: capitalize;
-  font-size: 24px;
-  cursor: pointer;
+[class*="btn"][class*="-outline-blue"] {
+  background: var(--myBlack50);
+  border: 2px solid var(--myBlue);
+  color: var(--myBlue);
+}
+[class*="btn"][class*="-outline-blue"]:hover {
+  background: var(--myBlack50);
+  border: 2px solid var(--myBlueHov);
+  color: var(--myBlueHov);
 }
 
-[class*="btn"][class*="-outline"] {
+[class*="btn"][class*="-outline-green"] {
+  background: var(--myBlack50);
+  border: 2px solid var(--myGreen);
+  color: var(--myGreen);
+}
+[class*="btn"][class*="-outline-green"]:hover {
+  background: var(--myBlack50);
+  border: 2px solid var(--myGreenHov);
+  color: var(--myGreenHov);
+}
+
+[class*="btn"][class*="-outline-orange"] {
   background: var(--myBlack50);
   border: 2px solid var(--myOrange);
   color: var(--myOrange);
 }
-[class*="btn"][class*="-outline"]:hover {
+[class*="btn"][class*="-outline-orange"]:hover {
   background: var(--myBlack50);
   border: 2px solid var(--myOrangeHov);
   color: var(--myOrangeHov);
 }
 
+/* form input */
+form {
+  padding: 0;
+  margin: 0;
+}
 input {
   color: var(--myBlack);
   background: var(--myWhite);
   border-radius: 10px;
-  padding: 19px;
+  padding: 1rem;
   border: none;
-  font-size: 24px;
 }
 
 input:focus {
   outline: none;
-  box-shadow: 0 0 0 4px var(--myBlue);
+  box-shadow: 0 0 0 3px var(--myBlue);
 }
 
 select {
@@ -167,6 +201,8 @@ select {
   backdrop-filter: blur(4px);
   border-radius: 10px;
   text-transform: capitalize;
+  width: auto;
+  padding: 0.5rem;
 }
 
 select:focus {
@@ -174,10 +210,11 @@ select:focus {
 }
 
 /* modal */
-.popup {
+.modal {
   background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, #8999c2 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
+  padding: 1.25rem;
 }
 
 .modal-headline {
@@ -193,29 +230,27 @@ select:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.modal-headline h1 {
-  font-weight: 600;
-  font-size: 24px;
-  text-transform: capitalize;
+  padding: 1rem 1.25rem;
 }
 
 .modal-headline span {
-  font-size: 40px;
+  font-size: 2.25rem;
 }
 
-.container {
+.container-with-bg {
   background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
-  padding: 30px;
+  padding: 1.25rem;
+  margin: 0.5rem;
 }
 
-.container-headline {
+/* container-with-head */
+.container-with-head {
   background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
+  margin: 0.5rem;
 }
 
 .headline {
@@ -227,17 +262,40 @@ select:focus {
   background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px 20px 0 0;
-  padding: 20px;
+  padding: 1rem 1.25rem;
 }
 
-.headline h1 {
-  font-weight: 600;
-  font-size: 24px;
-  text-transform: capitalize;
+[class*="content"] {
+  padding: 1.25rem;
+}
+/* end of container-with-head */
+
+/* layout */
+/* flex-justify-align */
+[class*="dflex"] {
+  display: flex;
+  align-items: center;
 }
 
-[class*="-content"] {
-  padding: 30px;
+[class*="dflex"][class*="-col"] {
+  flex-direction: column;
+}
+[class*="dflex"][class*="-jcenter"] {
+  justify-content: center;
+}
+[class*="dflex"][class*="-jaround"] {
+  justify-content: space-around;
+}
+[class*="dflex"][class*="-jbetween"] {
+  justify-content: space-between;
+}
+
+/* flex */
+.flex1 {
+  flex: 1;
+}
+.flex2 {
+  flex: 2;
 }
 
 .center {
@@ -289,13 +347,12 @@ nav ul li a.active {
 
 /* END GLOBAL STYLE */
 
-/* home */
+/* home page*/
 div.home-container {
   position: relative;
   top: 30vh;
   text-align: right;
   width: 50vw;
-  padding: 30px;
 }
 
 div.home-container h1 {
@@ -312,11 +369,12 @@ div.home-container h2 {
 }
 
 div.home-container div select {
-  width: auto;
-  box-sizing: border-box;
-  backdrop-filter: blur(4px);
-  border-radius: 10px;
-  font-size: 24px;
-  text-transform: capitalize;
-  padding: 10px;
+  border-color: var(--myOrange);
+  color: var(--myOrange);
+}
+
+/* login page */
+
+.login {
+  width: 512px;
 }

@@ -174,11 +174,7 @@ select:focus {
 
 /* modal */
 .popup {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    #8999c2 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, #8999c2 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
 }
@@ -189,11 +185,7 @@ select:focus {
   width: 100%;
   top: 0;
   width: 100%;
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    #8999c2 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, #8999c2 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px 20px 0 0;
   padding: 6px 16px;
@@ -212,24 +204,15 @@ select:focus {
   font-size: 40px;
 }
 
-
 .container {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
   padding: 30px;
 }
 
 .container-headline {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
 }
@@ -240,11 +223,7 @@ select:focus {
   width: 100%;
   top: 0;
   width: 100%;
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px 20px 0 0;
   padding: 20px;
@@ -310,7 +289,7 @@ nav ul li a.active {
 /* END GLOBAL STYLE */
 
 /* schedule page */
-.main-container{
+.main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -405,40 +384,30 @@ nav ul li a.active {
 }
 /* end stepper */
 
-
 /* room and service page */
 .main-section {
   width: 100%;
 }
 
 /* summary section */
-.confirmation-section .confirm-content {
-  /* padding: 30px; */
-}
 
 .confirmation-section .confirm-content .sum-list {
   padding-bottom: 24px;
   border-bottom: 1px solid var(--myWhite50);
 }
 
-.confirmation-section .confirm-content .sum-list h2 {
-  font-size: 24px;
-  line-height: 48px;
-  font-weight: 400;
-}
-
-.confirmation-section .confirm-content .sum-list p {
-  font-size: 18px;
-  font-weight: 300;
+.sum-list.date-list {
+  display: flex;
+  align-items: center;
 }
 
 .confirmation-section .confirm-content .total-trip {
-  text-align: right;
   font-size: 24px;
   font-weight: 400;
   margin: 24px 0;
 }
 
+/* btn */
 .confirmation-section .confirm-content ul {
   display: flex;
   align-items: center;

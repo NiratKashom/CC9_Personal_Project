@@ -25,8 +25,6 @@
   --myBlack50: #0005;
 }
 
-
-
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
@@ -175,11 +173,7 @@ select:focus {
 
 /* modal */
 .popup {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    #8999c2 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, #8999c2 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
 }
@@ -190,11 +184,7 @@ select:focus {
   width: 100%;
   top: 0;
   width: 100%;
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    #8999c2 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, #8999c2 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px 20px 0 0;
   padding: 6px 16px;
@@ -213,24 +203,15 @@ select:focus {
   font-size: 40px;
 }
 
-
 .container {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
   padding: 30px;
 }
 
 .container-headline {
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
 }
@@ -241,11 +222,7 @@ select:focus {
   width: 100%;
   top: 0;
   width: 100%;
-  background: radial-gradient(
-    163.23% 243.53% at 1.12% 14.1%,
-    rgba(137, 153, 194, 0.2) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px 20px 0 0;
   padding: 20px;
@@ -525,7 +502,6 @@ nav ul li a.active {
 
 .service-section .service-container {
   display: flex;
-
 }
 
 .service-section .service-container .service-list {
@@ -536,7 +512,6 @@ nav ul li a.active {
   margin: 20px;
   padding: 20px;
 }
-
 
 .service-section .service-container .service-list h2 {
   font-size: 24px;
@@ -581,6 +556,11 @@ nav ul li a.active {
 .summary-section .summary-content .sum-list p {
   font-size: 18px;
   font-weight: 300;
+}
+
+.sum-list .price-list {
+  display: flex;
+  justify-content: space-between;
 }
 
 .summary-section .summary-content .total-trip {
