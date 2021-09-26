@@ -4,7 +4,7 @@ import ButtonSolid from '../components/ButtonSolid';
 function Register() {
   return (
     <div className="center">
-      <div className="login modal dflex-col p25">
+      <div className="register modal dflex-col p25">
         <p className="fz25 mb2 ttup">register</p>
         <form action="">
           <div className="w100 dflex-jaround">

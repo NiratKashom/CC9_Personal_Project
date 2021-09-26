@@ -242,7 +242,7 @@ select:focus {
   backdrop-filter: blur(14px);
   border-radius: 20px;
   padding: 1.25rem;
-  margin: 0.5rem;
+  /* margin: 0.5rem; */
 }
 
 /* container-with-head */
@@ -250,7 +250,7 @@ select:focus {
   background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
-  margin: 0.5rem;
+  /* margin: 0.5rem; */
 }
 
 .headline {
@@ -344,7 +344,6 @@ nav ul li a.active {
   color: var(--myWhite);
   text-decoration: underline;
 }
-
 /* END GLOBAL STYLE */
 
 /* home page*/
@@ -374,7 +373,120 @@ div.home-container div select {
 }
 
 /* login page */
-
 .login {
   width: 512px;
+}
+/* end login page */
+
+/* register page */
+.register {
+  width: 512px;
+}
+/*end register page */
+
+/* schedule */
+
+/* step progress bar */
+.stepper-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 950px;
+}
+
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+/* line between step */
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid var(--myWhite50);
+  width: 100%;
+  top: 10px;
+  left: -50%;
+  z-index: 2;
+}
+
+.stepper-item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid var(--myWhite50);
+  width: 100%;
+  top: 10px;
+  left: 50%;
+  z-index: 2;
+}
+
+.step-name {
+  font-size: 24px;
+  text-transform: capitalize;
+  color: var(--myWhite50);
+}
+
+/* dot above name */
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid var(--myWhite50);
+  background: var(--myBlack);
+}
+
+/*active step */
+.stepper-item.active .step-counter,
+.stepper-item.active .step-name {
+  color: var(--myWhite);
+  border-color: var(--myWhite);
+  text-decoration: underline;
+}
+
+/*complete step*/
+.stepper-item.complete .step-name {
+  color: var(--myWhite);
+  text-decoration: none;
+}
+
+.stepper-item.complete .step-counter {
+  background: var(--myWhite);
+}
+
+.stepper-item.complete::after {
+  border-color: var(--myWhite);
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+.stepper-item:last-child::after {
+  content: none;
+}
+
+/* filter bar */
+.schedule-filter {
+  align-self: flex-start;
+}
+.schedule-filter input {
+  color: var(--myWhite);
+  background: var(--myBlack50);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--myWhite50);
+}
+
+/* schedule-table */
+.schedule-table-row div p {
+  font-size: 1.5rem;
+}
+.schedule-table-row:hover {
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  cursor: pointer;
 }

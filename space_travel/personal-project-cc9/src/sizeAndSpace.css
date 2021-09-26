@@ -17,8 +17,36 @@
 .p25 {
   padding: 2.5em;
 }
+/* padding left right */
+.py05 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.py1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py125 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.py15 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.py2 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.py25 {
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
 
 /* margin */
+.m0auto {
+  margin: 0 auto;
+}
 .m05 {
   margin: 0.5rem;
 }
@@ -30,6 +58,22 @@
 }
 .m15 {
   margin: 1.5rem;
+}
+/* margin-top */
+.mt05 {
+  margin-top: 0.5rem;
+}
+.mt1 {
+  margin-top: 1rem;
+}
+.mt125 {
+  margin-top: 1.25rem;
+}
+.mt15 {
+  margin-top: 1.5rem;
+}
+.mt2 {
+  margin-top: 2rem;
 }
 /* margin-bottom */
 .mb05 {
@@ -60,7 +104,6 @@
 .ml15 {
   margin-left: 1.5rem;
 }
-
 /* margin-right */
 .mr05 {
   margin-right: 0.5rem;
@@ -72,6 +115,40 @@
   margin-right: 1.25rem;
 }
 .mr15 {
+  margin-right: 1.5rem;
+}
+/* margin-top-bot */
+.my05 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.my1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my125 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.my15 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+/* margin-left-right */
+.mx05 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.mx1 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.mx125 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+.mx15 {
+  margin-left: 1.5rem;
   margin-right: 1.5rem;
 }
 
@@ -104,4 +181,16 @@
 /* width and height */
 .w100 {
   width: 100%;
+}
+
+.w75 {
+  width: 75%;
+}
+
+.w45 {
+  width: 45%;
+}
+
+.w25 {
+  width: 25%;
 }
