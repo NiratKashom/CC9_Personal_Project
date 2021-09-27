@@ -3,7 +3,13 @@ import ScheduleTableRow from './ScheduleTableRow';
 
 function ScheduleTable() {
   return (
-    <div class="schedule-table w100 outline">
+    <div className="schedule-table w100">
+      <ScheduleTableRow />
+      <ScheduleTableRow />
+      <ScheduleTableRow />
+      <ScheduleTableRow />
+      <ScheduleTableRow />
+      <ScheduleTableRow />
       <ScheduleTableRow />
       <ScheduleTableRow />
     </div >

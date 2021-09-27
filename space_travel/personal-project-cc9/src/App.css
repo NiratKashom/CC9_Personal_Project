@@ -94,6 +94,23 @@ option[class*="-orange"]:hover {
   background: var(--myBlack50);
 }
 
+/* text color */
+.txtred {
+  color: var(--myRed);
+}
+
+.txtgreen {
+  color: var(--myGreen);
+}
+
+.txtblue {
+  color: var(--myBlue);
+}
+
+.txtorange {
+  color: var(--myOrange);
+}
+
 /* btn class */
 [class*="btn"] {
   border-radius: 10px;
@@ -269,41 +286,6 @@ select:focus {
   padding: 1.25rem;
 }
 /* end of container-with-head */
-
-/* layout */
-/* flex-justify-align */
-[class*="dflex"] {
-  display: flex;
-  align-items: center;
-}
-
-[class*="dflex"][class*="-col"] {
-  flex-direction: column;
-}
-[class*="dflex"][class*="-jcenter"] {
-  justify-content: center;
-}
-[class*="dflex"][class*="-jaround"] {
-  justify-content: space-around;
-}
-[class*="dflex"][class*="-jbetween"] {
-  justify-content: space-between;
-}
-
-/* flex */
-.flex1 {
-  flex: 1;
-}
-.flex2 {
-  flex: 2;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh;
-}
 
 /* navbar */
 nav {
@@ -483,10 +465,28 @@ div.home-container div select {
 }
 
 /* schedule-table */
-.schedule-table-row div p {
-  font-size: 1.5rem;
+.schedule-table-row {
+  padding: 0;
 }
+
 .schedule-table-row:hover {
   background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
   cursor: pointer;
+}
+
+.schedule-table-row div:not(:last-child) {
+  margin: 1.25rem 0;
+}
+
+.schedule-table-row div:first-child {
+  margin-left: 1.25rem;
+}
+
+.schedule-table-row div p {
+  text-transform: capitalize;
+  line-height: 2.5rem;
+}
+
+.schedule-table-row .price-tag {
+  height: 152px;
 }

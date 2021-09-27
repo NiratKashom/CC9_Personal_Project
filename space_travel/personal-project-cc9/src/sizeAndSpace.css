@@ -17,6 +17,9 @@
 .p25 {
   padding: 2.5em;
 }
+.p3 {
+  padding: 3em;
+}
 /* padding left right */
 .py05 {
   padding-left: 0.5rem;
@@ -170,6 +173,11 @@
   font-weight: 500;
 }
 
+.fz3 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
 /* text-transform */
 .ttcap {
   text-transform: capitalize;
@@ -178,9 +186,18 @@
   text-transform: uppercase;
 }
 
+/* text-align */
+.txtcenter {
+  text-align: center;
+}
+
 /* width and height */
 .w100 {
   width: 100%;
+}
+
+.w84 {
+  width: 84%;
 }
 
 .w75 {
@@ -193,4 +210,46 @@
 
 .w25 {
   width: 25%;
+}
+.w15 {
+  width: 15%;
+}
+
+/* layout */
+/* flex-justify-align */
+[class*="dflex"] {
+  display: flex;
+  align-items: center;
+}
+
+[class*="dflex"][class*="-col"] {
+  flex-direction: column;
+}
+[class*="dflex"][class*="-jcenter"] {
+  justify-content: center;
+}
+[class*="dflex"][class*="-jaround"] {
+  justify-content: space-around;
+}
+[class*="dflex"][class*="-jbetween"] {
+  justify-content: space-between;
+}
+
+.alignitmcenter {
+  align-items: center;
+}
+
+/* flex */
+.flex1 {
+  flex: 1;
+}
+.flex2 {
+  flex: 2;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
 }
