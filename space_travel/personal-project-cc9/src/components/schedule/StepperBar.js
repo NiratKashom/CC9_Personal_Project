@@ -2,22 +2,22 @@ import React from 'react';
 
 function StepperBar() {
   return (
-    <div class="stepper-wrapper my15">
-      <div class="stepper-item active">
-        <div class="step-counter"></div>
-        <div class="step-name">selecet flight</div>
+    <div className="stepper-wrapper my15">
+      <div className="stepper-item active">
+        <div className="step-counter"></div>
+        <div className="step-name">selecet flight</div>
       </div>
-      <div class="stepper-item">
-        <div class="step-counter"></div>
-        <div class="step-name">room and service</div>
+      <div className="stepper-item">
+        <div className="step-counter"></div>
+        <div className="step-name">room and service</div>
       </div>
-      <div class="stepper-item">
-        <div class="step-counter"></div>
-        <div class="step-name">confirmation</div>
+      <div className="stepper-item">
+        <div className="step-counter"></div>
+        <div className="step-name">confirmation</div>
       </div>
-      <div class="stepper-item">
-        <div class="step-counter"></div>
-        <div class="step-name">payment</div>
+      <div className="stepper-item">
+        <div className="step-counter"></div>
+        <div className="step-name">payment</div>
       </div>
     </div>
   );

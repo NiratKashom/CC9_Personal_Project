@@ -195,6 +195,18 @@ option[class*="-orange"]:hover {
   color: var(--myOrangeHov);
 }
 
+[class*="btn"][class*="-outline-white"] {
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite50);
+  color: var(--myWhite50);
+}
+[class*="btn"][class*="-outline-white"]:hover,
+[class*="btn"][class*="-outline-white-active"] {
+  background: var(--myBlack50);
+  border: 2px solid var(--myWhite);
+  color: var(--myWhite);
+}
+
 /* form input */
 form {
   padding: 0;
@@ -489,4 +501,9 @@ div.home-container div select {
 
 .schedule-table-row .price-tag {
   height: 152px;
+}
+
+/* room and service */
+.selectTypeRoom label {
+  font-size: 2rem;
 }

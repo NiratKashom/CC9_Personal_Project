@@ -234,9 +234,11 @@
 [class*="dflex"][class*="-jbetween"] {
   justify-content: space-between;
 }
-
-.alignitmcenter {
+.alicenter {
   align-items: center;
+}
+.alistart {
+  align-items: flex-start;
 }
 
 /* flex */
@@ -246,10 +248,18 @@
 .flex2 {
   flex: 2;
 }
+.flex3 {
+  flex: 3;
+}
 
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 90vh;
+}
+
+/* hidden */
+.hidden {
+  display: hidden;
 }
