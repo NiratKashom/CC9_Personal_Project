@@ -1,13 +1,13 @@
 import React from 'react';
 
 function ContainerWithHeadline(props) {
-  const { children, headline } = props;
+  const { children, headline, addClass } = props;
   return (
     <div className="container-with-head">
       <div className="headline">
-        <h1 className="fz2 ttcap">{headline}</h1>
+        <h1 className="fz15 ttcap">{headline}</h1>
       </div>
-      <div className="content">
+      <div className={`p125 ${addClass || ''}`}>
         {children}
       </div>
     </div>

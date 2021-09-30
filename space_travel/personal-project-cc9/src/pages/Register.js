@@ -1,5 +1,4 @@
 import React from 'react';
-import ButtonSolid from '../components/ButtonSolid';
 
 function Register() {
   return (
@@ -14,7 +13,10 @@ function Register() {
           <input className="fz15 mb2 w100" type="text" placeholder="Email" />
           <input className="fz15 mb2 w100" type="text" placeholder="Password" />
           <input className="fz15 mb2 w100" type="text" placeholder="Confirm Password" />
-          <ButtonSolid title="submit" class="btn-green fz15 w100" />
+          <button type="button"
+            className="btn-green fz15 w100 ">
+            submit
+          </button>
         </form>
       </div>
     </div>

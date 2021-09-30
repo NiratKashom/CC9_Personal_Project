@@ -234,6 +234,9 @@
 [class*="dflex"][class*="-jbetween"] {
   justify-content: space-between;
 }
+[class*="dflex"][class*="-jend"] {
+  justify-content: flex-end;
+}
 .alicenter {
   align-items: center;
 }

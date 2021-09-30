@@ -504,6 +504,26 @@ div.home-container div select {
 }
 
 /* room and service */
+.selectTypeRoom input {
+  visibility: hidden;
+}
+
 .selectTypeRoom label {
-  font-size: 2rem;
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+.room-detail img {
+  height: 300px;
+  border-radius: 20px;
+  margin-right: 1.5rem;
+}
+
+.room-detai-text ul {
+  border-bottom: 2px solid var(--myWhite50);
+}
+
+.room-detai-text ul li {
+  list-style-type: disc;
+  /* font-size: 1.25rem; */
 }

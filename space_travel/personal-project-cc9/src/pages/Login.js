@@ -1,5 +1,4 @@
 import React from 'react';
-import ButtonSolid from '../components/ButtonSolid';
 
 function Login() {
   return (
@@ -9,8 +8,14 @@ function Login() {
         <input className="fz15 mb2 w100" type="text" placeholder="Email" />
         <input className="fz15 mb2 w100" type="text" placeholder="Password" />
         <div className="w100 dflex-jaround">
-          <ButtonSolid title="register" class="btn-blue mr15  fz15 flex1" />
-          <ButtonSolid title="login" class="btn-green  fz15 flex1" />
+          <button type="button"
+            className="btn-blue fz15 mr15 flex1">
+            register
+          </button>
+          <button type="button"
+            className="btn-green fz15 flex1 ">
+            login
+          </button>
         </div>
       </div>
     </div>
