@@ -241,7 +241,6 @@ select:focus {
   background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, #8999c2 0%, rgba(0, 0, 0, 0) 100%);
   backdrop-filter: blur(14px);
   border-radius: 20px;
-  padding: 1.25rem;
 }
 
 .modal-headline {
@@ -260,8 +259,22 @@ select:focus {
   padding: 1rem 1.25rem;
 }
 
-.modal-headline span {
-  font-size: 2.25rem;
+.modal-headline button {
+  cursor: pointer;
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background: var(--myBlack50);
+  backdrop-filter: blur(5px);
 }
 
 .container-with-bg {
@@ -533,4 +546,11 @@ div.home-container div select {
 /* payment  */
 .payment .upload-payslip span {
   font-size: 7rem;
+}
+
+/* complete-booking */
+
+.complete-booking .complete-booking-detail span {
+  color: var(--myGreen);
+  font-size: 6rem;
 }

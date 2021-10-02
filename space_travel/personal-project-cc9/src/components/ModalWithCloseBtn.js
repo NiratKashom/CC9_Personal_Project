@@ -1,18 +1,16 @@
 import React from 'react';
 
 function ModalWithCloseBtn(props) {
-  const { children, headline } = props;
+  const { children, headline, addClass } = props;
   return (
     <div className="modal">
       <div className="modal-headline">
         <p className="fz15 ttcap">{headline}</p>
-        <a href="#">
-          <span class="material-icons-round">
-            close
-          </span>
-        </a>
+        <button type="button" class="material-icons-round">
+          close
+        </button>
       </div>
-      <div className="content">
+      <div className={`content ${addClass || ''}`}>
         {children}
       </div>
     </div>
