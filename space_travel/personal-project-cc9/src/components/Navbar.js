@@ -2,7 +2,7 @@ import React from 'react';
 
 function Navbar() {
   return (
-    <nav>
+    <nav className="nav w100">
       <ul>
         <li className='branding'><a href="./index.html">SPACE TRAVEL</a></li>
         <li><a href="./destination.html">DESTINATION</a></li>

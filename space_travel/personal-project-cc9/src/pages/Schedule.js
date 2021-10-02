@@ -1,6 +1,7 @@
 import React from 'react';
 import ScheduleSection from '../components/schedule/ScheduleSection';
 import StepperBar from '../components/StepperBar';
+import BookingConfirm from './BookingConfirm';
 import RoomAndService from './RoomAndService';
 
 function Schedule() {
@@ -9,7 +10,9 @@ function Schedule() {
     <div className="schedule w84 m0auto dflex-col-center py2">
       <StepperBar />
       {/* <ScheduleSection /> */}
-      <RoomAndService />
+      {/* <RoomAndService /> */}
+      <BookingConfirm />
+
     </div>
   );
 }

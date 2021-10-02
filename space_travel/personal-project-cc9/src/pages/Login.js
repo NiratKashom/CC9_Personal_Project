@@ -8,6 +8,7 @@ function Login() {
         <input className="fz15 mb2 w100" type="text" placeholder="Email" />
         <input className="fz15 mb2 w100" type="text" placeholder="Password" />
         <div className="w100 dflex-jaround">
+
           <button type="button"
             className="btn-blue fz15 mr15 flex1">
             register
