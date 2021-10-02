@@ -2,7 +2,7 @@ import React from 'react';
 
 function RoomAmountUpdate() {
   return (
-    <div class="room-update outline w100 dflex-jend">
+    <div class="room-update w100 dflex-jend">
       <label className="ttcap fz125 mr1">number of rooms :</label>
       <select className="fz125 p05 mr1">
         <option value="0">0</option>

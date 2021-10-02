@@ -228,14 +228,17 @@ input:focus {
 select {
   background: var(--myBlack50);
   backdrop-filter: blur(4px);
+  border: 0;
   border-radius: 10px;
   text-transform: capitalize;
   width: auto;
   padding: 0.5rem;
+  box-shadow: inset 0px 0px 0px 1px var(--myWhite50);
 }
 
 select:focus {
   outline: none;
+  box-shadow: inset 0px 0px 0px 1px var(--myWhite);
 }
 
 /* modal */
@@ -519,11 +522,20 @@ div.home-container div select {
   margin-right: 1.5rem;
 }
 
-.room-detai-text ul {
+.room-detail-text ul {
   border-bottom: 2px solid var(--myWhite50);
 }
 
-.room-detai-text ul li {
+.room-detail-text ul li {
   list-style-type: disc;
-  /* font-size: 1.25rem; */
+}
+
+/* service card */
+
+/* .service-card > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+} */
+
+.service-card span {
+  font-size: 5rem;
 }

@@ -234,6 +234,9 @@
 [class*="dflex"][class*="-jbetween"] {
   justify-content: space-between;
 }
+[class*="dflex"][class*="-jstart"] {
+  justify-content: flex-start;
+}
 [class*="dflex"][class*="-jend"] {
   justify-content: flex-end;
 }
@@ -242,6 +245,9 @@
 }
 .alistart {
   align-items: flex-start;
+}
+.aliend {
+  align-items: flex-end;
 }
 
 /* flex */
