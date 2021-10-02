@@ -3,6 +3,7 @@ import ScheduleSection from '../components/schedule/ScheduleSection';
 import StepperBar from '../components/StepperBar';
 import BookingConfirm from './BookingConfirm';
 import RoomAndService from './RoomAndService';
+import Payment from './Payment';
 
 function Schedule() {
   return (
@@ -11,8 +12,8 @@ function Schedule() {
       <StepperBar />
       {/* <ScheduleSection /> */}
       {/* <RoomAndService /> */}
-      <BookingConfirm />
-
+      {/* <BookingConfirm /> */}
+      <Payment />
     </div>
   );
 }

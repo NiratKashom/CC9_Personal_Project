@@ -242,6 +242,10 @@
   width: 15%;
 }
 
+.h100 {
+  height: 100%;
+}
+
 /* layout */
 /* flex-justify-align */
 [class*="dflex"] {

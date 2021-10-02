@@ -4,7 +4,7 @@ import ContainerWithHeadline from '../components/ContainerWithHeadline';
 function BookingConfirm() {
   return (
     <div className="booking-confirm mt125">
-      <ContainerWithHeadline headline="Booking Confirmation">
+      <ContainerWithHeadline headline="booking confirmation">
         <div className="summary ">
 
           <div className="borderbot mb1 pb1">
@@ -40,7 +40,6 @@ function BookingConfirm() {
           </div>
 
           <div className="borderbot mb1 pb1">
-
             <h2 className="fz125 mb05 ttup">Booking Info</h2>
             <div className="dflex-jbetween">
               <div >

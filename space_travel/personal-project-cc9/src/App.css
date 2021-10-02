@@ -526,13 +526,11 @@ div.home-container div select {
 }
 
 /* service card */
-
 .service-card span {
   font-size: 5rem;
 }
 
-/* booking-confirm */
-
-.booking-confirm .confirm-button-grp {
-  /* text-align: end; */
+/* payment  */
+.payment .upload-payslip span {
+  font-size: 7rem;
 }
