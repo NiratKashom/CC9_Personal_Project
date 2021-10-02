@@ -2,7 +2,7 @@ import React from 'react';
 
 function ServiceCard() {
   return (
-    <div className="service-card container-with-bg mr1 flex1 txtcenter">
+    <div className="service-card container-with-bg mx15 flex1 txtcenter">
       <p className="fz15">Dinner buffet coupon</p>
       <span className="material-icons-outlined service-icon">
         dinner_dining

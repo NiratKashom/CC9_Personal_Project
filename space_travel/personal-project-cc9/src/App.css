@@ -532,10 +532,8 @@ div.home-container div select {
 
 /* service card */
 
-/* .service-card > *:not(:last-child) {
-  margin-bottom: 0.5rem;
-} */
-
 .service-card span {
   font-size: 5rem;
 }
+
+/* summary */

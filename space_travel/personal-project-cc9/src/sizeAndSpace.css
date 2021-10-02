@@ -20,6 +20,24 @@
 .p3 {
   padding: 3em;
 }
+
+/* padding-bottom */
+.pb05 {
+  padding-bottom: 0.5rem;
+}
+.pb1 {
+  padding-bottom: 1rem;
+}
+.pb125 {
+  padding-bottom: 1.25rem;
+}
+.pb15 {
+  padding-bottom: 1.5rem;
+}
+.pb2 {
+  padding-bottom: 2rem;
+}
+
 /* padding left right */
 .py05 {
   padding-left: 0.5rem;
@@ -120,6 +138,7 @@
 .mr15 {
   margin-right: 1.5rem;
 }
+
 /* margin-top-bot */
 .my05 {
   margin-top: 0.5rem;
@@ -186,9 +205,17 @@
   text-transform: uppercase;
 }
 
+.tdun {
+  text-decoration: underline;
+}
+
 /* text-align */
 .txtcenter {
   text-align: center;
+}
+
+.txtend {
+  text-align: end;
 }
 
 /* width and height */
@@ -271,4 +298,9 @@
 /* hidden */
 .hidden {
   display: hidden;
+}
+
+/*  border */
+.borderbot {
+  border-bottom: 1px solid var(--myWhite);
 }

@@ -4,10 +4,10 @@ import standardRoomPic from '../../img/standard_room.jpg';
 
 function RoomDetail() {
   return (
-    <div className="room-detail mt125 dflex alistart outline">
+    <div className="room-detail mt125 dflex alistart">
       <img src={standardRoomPic} alt="standard_room" />
-      <div className="room-detail-text outline">
-        <p className="fz2">1500 THB</p>
+      <div className="room-detail-text">
+        <p className="fz2">1500 &#3647;</p>
         <ul className="p125 mb125 ">
           <li>2 adult</li>
           <li>1 king size bed</li>
