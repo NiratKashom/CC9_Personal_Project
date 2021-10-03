@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Schedule from './pages/Schedule';
+import UserManage from './pages/UserManage';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       {/* <Home /> */}
       {/* <Login />
       <Register /> */}
-      <Schedule />
+      {/* <Schedule /> */}
+      <UserManage />
     </div>
   );
 }

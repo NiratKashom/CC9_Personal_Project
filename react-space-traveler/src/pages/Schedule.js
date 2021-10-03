@@ -15,7 +15,7 @@ function Schedule() {
       {/* <RoomAndService /> */}
       {/* <BookingConfirm /> */}
       {/* <Payment /> */}
-      <CompleteBooking />
+      {/* <CompleteBooking /> */}
     </div>
   );
 }

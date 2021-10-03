@@ -554,3 +554,11 @@ div.home-container div select {
   color: var(--myGreen);
   font-size: 6rem;
 }
+
+/* user manage reserve filter bar */
+/* .reservation-filter-bar {
+  align-self: flex-end;
+} */
+.reservation-filter-bar div input {
+  visibility: hidden;
+}
