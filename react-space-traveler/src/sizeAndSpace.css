@@ -1,4 +1,8 @@
 /* padding */
+.p0 {
+  padding: 0;
+}
+
 .p05 {
   padding: 0.5rem;
 }
@@ -201,6 +205,9 @@
 }
 
 /* font size */
+.fz08 {
+  font-size: 0.8rem;
+}
 .fz125 {
   font-size: 1.25rem;
 }
@@ -261,11 +268,18 @@
   width: 45%;
 }
 
+.w30 {
+  width: 30%;
+}
 .w25 {
   width: 25%;
 }
 .w15 {
   width: 15%;
+}
+
+.w10 {
+  width: 10%;
 }
 
 .h100 {
@@ -316,6 +330,9 @@
 }
 .flex3 {
   flex: 3;
+}
+.flex4 {
+  flex: 4;
 }
 
 .center {

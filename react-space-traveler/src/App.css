@@ -20,6 +20,7 @@
   --myOrangeHov: hsl(29, 70%, 50%);
   --myWhite: #fff;
   --myWhite50: #fff5;
+  --myWhite80: #fff8;
   --myBlack: #000;
   --myBlack50: #0005;
 }
@@ -106,6 +107,10 @@ option[class*="-orange"]:hover {
   color: var(--myOrange);
 }
 
+.txtwhite80 {
+  color: var(--myWhite80);
+}
+
 /* btn class */
 [class*="btn"] {
   border-radius: 10px;
@@ -151,6 +156,7 @@ option[class*="-orange"]:hover {
   border: 2px solid var(--myRed);
   color: var(--myRed);
 }
+
 [class*="btn"][class*="-outline-red"]:hover {
   background: var(--myBlack50);
   border: 2px solid var(--myRedHov);
@@ -234,6 +240,12 @@ select {
 select:focus {
   outline: none;
   box-shadow: inset 0px 0px 0px 1px var(--myWhite);
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
 }
 
 /* modal */
@@ -497,6 +509,10 @@ div.home-container div select {
   cursor: pointer;
 }
 
+.schedule-table-row div {
+  text-align: center;
+}
+
 .schedule-table-row div:not(:last-child) {
   margin: 1.25rem 0;
 }
@@ -518,11 +534,6 @@ div.home-container div select {
 .selectTypeRoom input {
   display: none;
 }
-
-/* .selectTypeRoom label {
-  width: 100%;
-  font-size: 1.25rem;
-} */
 
 .room-detail img {
   height: 300px;
@@ -554,13 +565,15 @@ div.home-container div select {
   color: var(--myGreen);
   font-size: 6rem;
 }
-
-/* user manage reserve filter bar */
-
-.reservation-filter-bar {
-  /* align-self: flex-end; */
+/* user-table-row  */
+.user-table-row:hover {
+  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  cursor: pointer;
 }
 
-.reservation-filter-bar input {
-  /* display: none; */
+/* user-menu */
+.user-menu {
+}
+.user-menu span {
+  font-size: 15rem;
 }

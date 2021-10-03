@@ -28,9 +28,6 @@ function SelectTypeRoom() {
       <input type="radio" name="roomType" id="suitRoom" value="suitRoom"
         onChange={e => setTypeRoom(e.target.value)}
       />
-
-
-
     </div>
   );
 }
