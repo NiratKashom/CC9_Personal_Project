@@ -110,7 +110,7 @@ option[class*="-orange"]:hover {
 [class*="btn"] {
   border-radius: 10px;
   border: none;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
   text-transform: capitalize;
   cursor: pointer;
@@ -516,13 +516,13 @@ div.home-container div select {
 
 /* room and service */
 .selectTypeRoom input {
-  visibility: hidden;
+  display: none;
 }
 
-.selectTypeRoom label {
+/* .selectTypeRoom label {
   width: 100%;
   font-size: 1.25rem;
-}
+} */
 
 .room-detail img {
   height: 300px;
@@ -556,9 +556,11 @@ div.home-container div select {
 }
 
 /* user manage reserve filter bar */
-/* .reservation-filter-bar {
-  align-self: flex-end;
-} */
-.reservation-filter-bar div input {
-  visibility: hidden;
+
+.reservation-filter-bar {
+  /* align-self: flex-end; */
+}
+
+.reservation-filter-bar input {
+  /* display: none; */
 }

@@ -12,7 +12,7 @@ function Schedule() {
     <div className="schedule w75 px2 m0auto dflex-col-center outline">
       <StepperBar />
       {/* <ScheduleSection /> */}
-      {/* <RoomAndService /> */}
+      <RoomAndService />
       {/* <BookingConfirm /> */}
       {/* <Payment /> */}
       {/* <CompleteBooking /> */}

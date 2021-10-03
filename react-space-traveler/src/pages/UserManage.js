@@ -3,6 +3,8 @@ import ContainerWithHeadline from '../components/ContainerWithHeadline';
 
 function UserManage() {
   const [filterStatus, setFilterStatus] = useState('');
+
+  console.log(filterStatus);
   return (
     <div className="w75 px2 m0auto dflex alistart outline">
       {/* usermenu */}
@@ -29,28 +31,32 @@ function UserManage() {
       <div className="flex3 outline">
         <ContainerWithHeadline headline="manage reservation"  >
           {/* filter bar */}
-          <div className="reservation-filter-bar dflex-jend outline">
-            <div className="dflex w45">
-              <label className=" btn-outline-green flex1 p05" htmlFor="approved">
-                approved
-              </label>
+          <div className="dflex-jend outline">
+            <div className="dflex w45 outline">
               <input type="radio" name="status" id="approved" value="approved"
                 onChange={e => setFilterStatus(e.target.value)}
+                className="dnone"
               />
-
-              <label className="btn-outline-orange flex1 p05" htmlFor="pending">
-                pending
+              <label className=" btn-outline-green flex1 mr1" htmlFor="approved">
+                approved
               </label>
+
               <input type="radio" name="status" id="pending" value="pending"
                 onChange={e => setFilterStatus(e.target.value)}
+                className="dnone"
               />
-
-              <label className="btn-outline-red  flex1 p05" htmlFor="rejected">
-                rejected
+              <label className="btn-outline-orange flex1 mr1" htmlFor="pending">
+                pending
               </label>
+
               <input type="radio" name="status" id="rejected" value="rejected"
                 onChange={e => setFilterStatus(e.target.value)}
+                className="dnone"
               />
+              <label className="btn-outline-red flex1" htmlFor="rejected">
+                rejected
+              </label>
+
             </div>
           </div>
           {/* end filter bar */}

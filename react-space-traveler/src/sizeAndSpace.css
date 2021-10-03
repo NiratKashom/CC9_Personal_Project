@@ -326,8 +326,8 @@
 }
 
 /* hidden */
-.hidden {
-  display: hidden;
+.dnone {
+  display: none;
 }
 
 /*  border */
