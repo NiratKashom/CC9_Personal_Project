@@ -2,7 +2,7 @@ import React from 'react';
 
 function AdminMenu() {
   return (
-    <div className="user-menu flex1 mr1 container-with-bg p0">
+    <div className="menu flex1 mr1 container-with-bg p0">
       <div className="headline txtcenter">
         <span className="material-icons-outlined fz25 ">
           account_circle

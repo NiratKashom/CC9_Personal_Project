@@ -2,7 +2,7 @@ import React from 'react';
 
 function UserManageTableRow() {
   return (
-    <div className="user-table-row  container-with-bg dflex-jbetween mb15 py1">
+    <div className="table-row container-with-bg dflex-jbetween mb125 pt1">
       {/* Id */}
       <div className="mr05">
         <p className="txtwhite80 ttup">Flight id:</p>

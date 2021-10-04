@@ -2,9 +2,9 @@ import React from 'react';
 
 function UserMenu() {
   return (
-    <div className="user-menu flex1 mr1 container-with-bg p0">
+    <div className="menu p0 flex1 mr1 container-with-bg ">
       <div className="headline txtcenter">
-        <span className="material-icons-outlined fz25 ">
+        <span className="material-icons-outlined fz25">
           account_circle
         </span>
         <p className="fz15">Firstname Lastname</p>

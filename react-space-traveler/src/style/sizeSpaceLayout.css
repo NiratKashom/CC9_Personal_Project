@@ -329,6 +329,10 @@
   align-items: flex-end;
 }
 
+.testali {
+  align-items: baseline;
+}
+
 /* flex */
 .flex1 {
   flex: 1;

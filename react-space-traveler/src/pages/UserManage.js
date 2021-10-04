@@ -8,12 +8,12 @@ import UserCancelComplete from '../components/userManage/UserCancelComplete';
 function UserManage() {
 
   return (
-    <div className="w84 px2 m0auto dflex alistart">
+    <div className="w75 px2 m0auto dflex alistart">
       <UserMenu />
       <UserManageReservation />
       {/* <UserReverseInfo /> */}
-      <UserCancelReserve />
-      <UserCancelComplete />
+      {/* <UserCancelReserve /> */}
+      {/* <UserCancelComplete /> */}
     </div >
   );
 }
