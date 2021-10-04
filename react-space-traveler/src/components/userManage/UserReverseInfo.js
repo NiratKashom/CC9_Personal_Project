@@ -1,5 +1,5 @@
 import React from 'react';
-import ModalWithCloseBtn from '../components/ModalWithCloseBtn';
+import ModalWithCloseBtn from '../ModalWithCloseBtn';
 
 
 function UserReverseInfo() {

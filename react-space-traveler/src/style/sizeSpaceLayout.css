@@ -349,5 +349,18 @@
 
 /*  border */
 .borderbot {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   border-bottom: 1px solid var(--myWhite50);
+}
+
+.borderright {
+  padding-right: 1rem;
+  margin-right: 1rem;
+  border-right: 1px solid var(--myWhite50);
+}
+
+/* position */
+.bot0 {
+  bottom: 0;
 }

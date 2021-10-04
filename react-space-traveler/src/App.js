@@ -11,9 +11,9 @@ function App() {
     <div className="App">
       <Navbar />
       {/* <Home /> */}
-      <Login />
-      <Register />
-      <Schedule />
+      {/* <Login />
+      <Register /> */}
+      {/* <Schedule /> */}
       <UserManage />
     </div>
   );
