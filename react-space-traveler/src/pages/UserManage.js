@@ -3,6 +3,7 @@ import UserManageReservation from '../components/userManage/UserManageReservatio
 import UserMenu from '../components/userManage/UserMenu';
 import UserReverseInfo from '../components/userManage/UserReverseInfo';
 import UserCancelReserve from '../components/userManage/UserCancelReserve';
+import UserCancelComplete from '../components/userManage/UserCancelComplete';
 
 function UserManage() {
 
@@ -12,6 +13,7 @@ function UserManage() {
       <UserManageReservation />
       {/* <UserReverseInfo /> */}
       <UserCancelReserve />
+      <UserCancelComplete />
     </div >
   );
 }

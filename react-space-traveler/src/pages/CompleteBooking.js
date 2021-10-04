@@ -8,7 +8,7 @@ function CompleteBooking() {
       <ModalWithCloseBtn headline="complete booking"
         addClass="txtcenter px25 complete-booking-detail"
       >
-        <span class="material-icons-round">
+        <span class="material-icons-round fz6 txtgreen">
           check_circle_outline
         </span>
         <p className="fz15 mb05">Thank you for your reservation.</p>

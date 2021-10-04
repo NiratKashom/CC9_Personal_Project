@@ -13,7 +13,7 @@ function App() {
       {/* <Home /> */}
       {/* <Login />
       <Register /> */}
-      {/* <Schedule /> */}
+      <Schedule />
       <UserManage />
     </div>
   );

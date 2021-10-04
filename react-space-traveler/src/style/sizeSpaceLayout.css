@@ -230,6 +230,14 @@
   font-weight: 500;
 }
 
+.fz6 {
+  font-size: 6rem;
+}
+
+.fz10 {
+  font-size: 10rem;
+}
+
 /* text-transform */
 .ttcap {
   text-transform: capitalize;
