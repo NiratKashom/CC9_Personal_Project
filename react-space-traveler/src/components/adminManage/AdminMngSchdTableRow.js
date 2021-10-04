@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ScheduleTableRow() {
+function AdminMngSchdTableRow() {
   return (
     <div className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
       <div className="flex1">
@@ -33,7 +33,8 @@ function ScheduleTableRow() {
       <div className="flex1 container-with-bg price-tag dflex-jcenter alignitmcenter">
         <p className="fz2">999999<span className="fz2 m;1">&#3647;</span></p>
       </div>
-    </div>);
+    </div>
+  );
 }
 
-export default ScheduleTableRow;
+export default AdminMngSchdTableRow;

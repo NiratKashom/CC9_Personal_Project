@@ -21,13 +21,13 @@ function UserReverseInfo() {
               <p className="fz2">earth</p>
               <p className="fz125">1 january 2022</p>
             </div>
-            <p className="fz25 txtblue">--></p>
+            <p className="fz25 txtblue">{`->`}</p>
             <div className=" dflex-col-center ttcap">
               <p className="fz125">day 1</p>
               <p className="fz2">moon</p>
               <p className="fz125">1 january 2022</p>
             </div>
-            <p className="fz25 txtgreen">--></p>
+            <p className="fz25 txtgreen">{`->`}</p>
             <div className="dflex-col-center ttcap">
               <p className="fz125">day 1</p>
               <p className="fz2">earth</p>

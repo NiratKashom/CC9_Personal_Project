@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ContainerWithHeadline from '../ContainerWithHeadline';
 
 
 function UserManageFilterBar() {

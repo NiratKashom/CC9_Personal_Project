@@ -512,34 +512,10 @@ div.home-container div select {
 }
 
 /* schedule-table */
-.schedule-table-row {
-  padding: 0;
-}
 
-.schedule-table-row:hover {
+.table-row:hover {
   background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
   cursor: pointer;
-}
-
-.schedule-table-row div {
-  text-align: center;
-}
-
-.schedule-table-row div:not(:last-child) {
-  margin: 1.25rem 0;
-}
-
-.schedule-table-row div:first-child {
-  margin-left: 1.25rem;
-}
-
-.schedule-table-row div p {
-  text-transform: capitalize;
-  line-height: 2.5rem;
-}
-
-.schedule-table-row .price-tag {
-  height: 152px;
 }
 
 /* room and service */
@@ -588,4 +564,12 @@ user-table-row .user-table-row:hover {
   position: absolute;
   right: 1.25rem;
   bottom: 1.25rem;
+}
+
+/* admin manage filter bar */
+.admin-schedule-filter input {
+  color: var(--myWhite);
+  background: var(--myBlack50);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--myWhite50);
 }

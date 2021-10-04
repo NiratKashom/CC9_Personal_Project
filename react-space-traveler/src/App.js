@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Schedule from './pages/Schedule';
 import UserManage from './pages/UserManage';
+import AdminManage from './pages/AdminManage';
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       {/* <Home /> */}
       {/* <Login />
       <Register /> */}
-      <Schedule />
-      <UserManage />
+      {/* <Schedule /> */}
+      {/* <UserManage /> */}
+      <AdminManage />
     </div>
   );
 }
