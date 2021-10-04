@@ -13,7 +13,7 @@ function Schedule() {
       <StepperBar />
       <ScheduleSection />
       {/* <RoomAndService /> */}
-      {/* <BookingConfirm /> */}
+      <BookingConfirm />
       {/* <Payment /> */}
       {/* <CompleteBooking /> */}
     </div>

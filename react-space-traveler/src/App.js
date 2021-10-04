@@ -1,5 +1,4 @@
 import './App.css';
-import './sizeAndSpace.css';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
@@ -12,9 +11,9 @@ function App() {
     <div className="App">
       <Navbar />
       {/* <Home /> */}
-      {/* <Login />
-      <Register /> */}
-      {/* <Schedule /> */}
+      <Login />
+      <Register />
+      <Schedule />
       <UserManage />
     </div>
   );

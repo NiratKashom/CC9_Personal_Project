@@ -8,7 +8,7 @@ function BookingConfirm() {
         <div className="summary ">
 
           <div className="borderbot mb1 pb1">
-            <div className=" container-with-bg dflex-jbetween">
+            <div className="dflex-jbetween">
               <div className="dflex-col-center mr15 ttcap">
                 <p className="fz25">1</p>
                 <p className="fz125">january</p>
