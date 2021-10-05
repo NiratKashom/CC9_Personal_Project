@@ -215,17 +215,33 @@ form {
   padding: 0;
   margin: 0;
 }
+
+input[type="date"] {
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  color: var(--myWhite);
+  background: var(--myBlack50);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--myWhite50);
+}
+
 input {
   color: var(--myBlack);
   background: var(--myWhite);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 0.5rem;
   border: none;
+  font-size: 1.25rem;
 }
 
 input:focus {
   outline: none;
   box-shadow: 0 0 0 3px var(--myBlue);
+}
+
+label {
+  font-size: 1.25rem;
+  text-transform: capitalize;
 }
 
 select {
@@ -236,6 +252,7 @@ select {
   text-transform: capitalize;
   width: auto;
   padding: 0.5rem;
+  font-size: 1.25rem;
   box-shadow: inset 0px 0px 0px 1px var(--myWhite50);
 }
 
@@ -504,15 +521,8 @@ div.home-container div select {
 .schedule-filter {
   align-self: flex-start;
 }
-.schedule-filter input {
-  color: var(--myWhite);
-  background: var(--myBlack50);
-  backdrop-filter: blur(4px);
-  border: 1px solid var(--myWhite50);
-}
 
 /* schedule-table */
-
 .table-row:hover {
   background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
   cursor: pointer;
@@ -567,12 +577,4 @@ div.home-container div select {
   position: absolute;
   right: 1.25rem;
   bottom: 1.25rem;
-}
-
-/* admin manage filter bar */
-.admin-schedule-filter input {
-  color: var(--myWhite);
-  background: var(--myBlack50);
-  backdrop-filter: blur(4px);
-  border: 1px solid var(--myWhite50);
 }

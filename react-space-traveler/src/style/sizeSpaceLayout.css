@@ -259,6 +259,11 @@
   text-align: end;
 }
 
+/* txt decoration */
+.ttunderline {
+  text-decoration: underline;
+}
+
 /* width and height */
 .w100 {
   width: 100%;
