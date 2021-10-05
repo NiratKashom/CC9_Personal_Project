@@ -1,8 +1,7 @@
 import React from 'react';
 import ModalWithCloseBtn from '../ModalWithCloseBtn';
 
-
-function UserReverseInfo() {
+function AdminMngUserReserveInfo() {
   return (
     <div className="modal-backdrop center">
 
@@ -97,12 +96,16 @@ function UserReverseInfo() {
           Total Trip:
           <span className="fz15" > 12335 &#3647; </span>
         </p>
+
         <div className="dflex-jbetween">
           <p className="fz15 ttup ">
             status :
             <span className="fz15 txtorange ml05">pending</span>
           </p>
-          <button class="btn-outline-red fz125 ml1">cancel a reservation</button>
+          <div className="dflex w30">
+            <button class="btn-red fz125 mr1 flex1 ">reject</button>
+            <button class="btn-green fz125 flex1">approve</button>
+          </div>
         </div>
 
       </ModalWithCloseBtn>
@@ -110,4 +113,4 @@ function UserReverseInfo() {
   );
 }
 
-export default UserReverseInfo;
+export default AdminMngUserReserveInfo;

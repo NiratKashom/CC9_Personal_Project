@@ -1,14 +1,14 @@
 import React from 'react';
-import UserManageTableRow from './UserManageTableRow';
+import AdminMngUserTableRow from '../adminManage/AdminMngUserTableRow';
 
 function UserManageTable() {
   return (
     <div className="mt125">
-
-      <UserManageTableRow />
-      <UserManageTableRow />
-      <UserManageTableRow />
-      <UserManageTableRow />
+      <AdminMngUserTableRow />
+      <AdminMngUserTableRow />
+      <AdminMngUserTableRow />
+      <AdminMngUserTableRow />
+      <AdminMngUserTableRow />
 
 
     </div>

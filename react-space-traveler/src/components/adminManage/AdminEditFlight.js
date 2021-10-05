@@ -88,10 +88,18 @@ function AdminEditFlight() {
 
         <AdminMngSchdTableRow />
 
-        <div className="dflex-jbetween">
+        {/* <div className="dflex-jbetween">
           <div className="">
             <button className="btn-red fz125">delete flight</button>
           </div>
+          <div className="dflex w25">
+            <button className="fz125 btn-orange mr1 flex1 ">back</button>
+            <button className="fz125 btn-green flex1">submit</button>
+          </div>
+        </div> */}
+
+
+        <div className="dflex-jend">
           <div className="dflex w25">
             <button className="fz125 btn-orange mr1 flex1 ">back</button>
             <button className="fz125 btn-green flex1">submit</button>
