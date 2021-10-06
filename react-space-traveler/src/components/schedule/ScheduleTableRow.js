@@ -1,17 +1,7 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { separateDate, getFormattedDate } from '../../services/dateService';
 
-function ScheduleTableRow() {
-  const MOCK_SCHEDULE = {
-    departureDate: new Date("09/04/2022 13:00:00"),
-    arrivalDate: new Date("10/13/2022 10:00:00"),
-    returnDate: new Date("11/20/2022 22:00:00"),
-    departureLocation: 'earth',
-    destinationLocation: 'moon',
-    flightId: uuidv4(),
-    startingPrice: 5000
-  };
+function ScheduleTableRow(props) {
 
   const {
     departureDate,
@@ -19,9 +9,10 @@ function ScheduleTableRow() {
     returnDate,
     departureLocation,
     destinationLocation,
-    flightId,
-    startingPrice
-  } = MOCK_SCHEDULE;
+    // flightId,
+    roomPrice,
+    // extraPrice
+  } = props.data;
 
 
   return (
@@ -56,7 +47,7 @@ function ScheduleTableRow() {
         </div>
       </div>
       <div className="flex1 container-with-bg p125 dflex-jcenter alignitmcenter">
-        <p className="fz3">{startingPrice}<span className="fz2 ">&#3647;</span></p>
+        <p className="fz3">{roomPrice.standart}<span className="fz2 ">&#3647;</span></p>
       </div>
     </div>);
 }

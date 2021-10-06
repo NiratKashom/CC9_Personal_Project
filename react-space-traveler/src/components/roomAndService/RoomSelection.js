@@ -2,6 +2,7 @@ import React from 'react';
 import SelectTypeRoom from './SelectTypeRoom';
 import RoomDetail from './RoomDetail';
 import RoomAmountUpdate from './RoomAmountUpdate';
+import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
 
 
 function RoomSelection() {

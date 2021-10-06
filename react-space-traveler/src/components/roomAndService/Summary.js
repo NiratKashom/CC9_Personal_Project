@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
 import { Link, useHistory } from 'react-router-dom';
+import { summaryContext } from '../../contexts/summaryContext';
+import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
+import { getFormattedDate } from '../../services/dateService';
 
 function Summary() {
   const history = useHistory();
+  const { summary, setSummary } = useContext(summaryContext);
+
 
   const hdlClickGoBack = () => history.goBack();
 
@@ -13,8 +18,10 @@ function Summary() {
         <div className="summary">
           <div className="flight-detail borderbot mb1 pb1">
             <h2 className="fz125 mb05 ttup">Flight</h2>
-            <p>Earth - Moon - Earth</p>
-            <p>Depart: Jan 1, 2022 6: 00 am </p>
+            <p className="ttcap">{`${MOCK_FLIGHT[0].departureLocation} - ${MOCK_FLIGHT[0].destinationLocation} - ${MOCK_FLIGHT[0].departureLocation}`}</p>
+            <p>Depart: {getFormattedDate(MOCK_FLIGHT[0].departureDate)}</p>
+            <p>Arrival: {getFormattedDate(MOCK_FLIGHT[0].arrivalDate)}</p>
+            <p>Return: {getFormattedDate(MOCK_FLIGHT[0].returnDate)}</p>
           </div>
 
           <div className="borderbot mb1 pb1">
