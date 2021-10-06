@@ -2,7 +2,7 @@ import React from 'react';
 
 function StepperBar() {
   return (
-    <div className="stepper-wrapper my15">
+    <div className="stepper-wrapper mt125">
       <div className="stepper-item active">
         <div className="step-counter"></div>
         <div className="step-name">selecet flight</div>

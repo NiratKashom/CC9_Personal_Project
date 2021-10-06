@@ -7,7 +7,7 @@ function UserCancelComplete() {
       <ModalWithCloseBtn headline="completed cancelled "
         addClass="txtcenter px25 complete-booking-detail"
       >
-        <span class="material-icons-outlined txtred fz6">
+        <span className="material-icons-outlined txtred fz6">
           cancel
         </span>
         <p className="fz15 mb05">Your booking has been cancelled.</p>

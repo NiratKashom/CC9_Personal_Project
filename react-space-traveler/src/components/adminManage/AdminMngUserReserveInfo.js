@@ -6,7 +6,7 @@ function AdminMngUserReserveInfo() {
     <div className="modal-backdrop center">
 
       <ModalWithCloseBtn headline="reservation infomation"
-        addClass=""
+
       >
         <div className="borderbot mb1 pb1">
           <div className="dflex-jbetween">
@@ -103,8 +103,8 @@ function AdminMngUserReserveInfo() {
             <span className="fz15 txtorange ml05">pending</span>
           </p>
           <div className="dflex w30">
-            <button class="btn-red fz125 mr1 flex1 ">reject</button>
-            <button class="btn-green fz125 flex1">approve</button>
+            <button className="btn-red fz125 mr1 flex1 ">reject</button>
+            <button className="btn-green fz125 flex1">approve</button>
           </div>
         </div>
 

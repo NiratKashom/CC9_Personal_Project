@@ -1,3 +1,5 @@
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
+
 import './App.css';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
@@ -9,15 +11,26 @@ import AdminManage from './pages/AdminManage';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      {/* <Home /> */}
-      {/* <Login />
-      <Register /> */}
-      {/* <Schedule /> */}
-      {/* <UserManage /> */}
-      <AdminManage />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <Switch>
+
+          <Route path="/login"><Login /></Route>
+          <Route path="/register"><Register /></Route>
+          <Route path="/admin-manage"><AdminManage /></Route>
+          <Route path="/schedule-flight"><Schedule /></Route>
+          <Route path="/user-manage"><UserManage /></Route>
+          <Route exact path="/"><Home /></Route>
+          <Route path="*">
+            <p> 404 page not found</p>
+          </Route>
+
+        </Switch>
+
+      </div>
+    </BrowserRouter>
+
   );
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ModalWithCloseBtn from '../ModalWithCloseBtn';
 
 function UserCancelReserve() {
@@ -109,8 +110,11 @@ function UserCancelReserve() {
             <textarea className="mb1" name="" id="" cols="40" rows="10"></textarea>
           </div>
           <div className="cancelBtn">
-            <button class=" fz125 btn-red">cancel a reservation</button>
+            <Link to={`/user-manage/UserCancelComplete`}>
+              <button className=" fz125 btn-red">cancel a reservation</button>
+            </Link>
           </div>
+
         </div>
       </ModalWithCloseBtn >
     </div >

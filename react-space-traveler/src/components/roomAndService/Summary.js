@@ -1,7 +1,12 @@
 import React from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
+import { Link, useHistory } from 'react-router-dom';
 
 function Summary() {
+  const history = useHistory();
+
+  const hdlClickGoBack = () => history.goBack();
+
   return (
     <div className="flex1">
       <ContainerWithHeadline headline="summary">
@@ -43,8 +48,10 @@ function Summary() {
             <span className="fz15" > 12335 &#3647;</span>
           </p>
           <div className="w100 dflex-jaround">
-            <button class="btn-orange fz15 mr15 p05 flex1">back</button>
-            <button class="btn-green fz15 ml15 p05 flex1">next</button>
+            <button className="btn-orange fz15 mr15 p05 flex1"
+              onClick={hdlClickGoBack}
+            >back</button>
+            <Link to={`/schedule-flight/confirm`} className="btn-green fz15 ml15 p05 flex1">next</Link>
           </div>
         </div>
 

@@ -6,7 +6,7 @@ function ModalWithCloseBtn(props) {
     <div className="modal">
       <div className="modal-headline">
         <p className="fz15 ttcap">{headline}</p>
-        <button type="button" class="material-icons-round">
+        <button type="button" className="material-icons-round">
           close
         </button>
       </div>

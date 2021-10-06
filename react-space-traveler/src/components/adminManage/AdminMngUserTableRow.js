@@ -37,7 +37,7 @@ function AdminMngUserTableRow() {
         <button className="material-icons-outlined txtblue fz2">
           description
         </button>
-        <span class="material-icons-round fz2 txtgreen">
+        <span className="material-icons-round fz2 txtgreen">
           check_circle_outline
         </span>
         <button className="material-icons-outlined txtred fz2">

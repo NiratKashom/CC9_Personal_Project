@@ -420,7 +420,7 @@ div.home-container div select {
 
 /* login page */
 .login {
-  width: 512px;
+  width: 25%;
 }
 /* end login page */
 
@@ -436,7 +436,7 @@ div.home-container div select {
 .stepper-wrapper {
   display: flex;
   justify-content: space-between;
-  width: 950px;
+  width: 74%;
 }
 
 .stepper-item {
@@ -453,7 +453,7 @@ div.home-container div select {
   content: "";
   border-bottom: 2px solid var(--myWhite50);
   width: 100%;
-  top: 10px;
+  top: 0.5rem;
   left: -50%;
   z-index: 2;
 }
@@ -463,13 +463,13 @@ div.home-container div select {
   content: "";
   border-bottom: 2px solid var(--myWhite50);
   width: 100%;
-  top: 10px;
+  top: 0.5rem;
   left: 50%;
   z-index: 2;
 }
 
 .step-name {
-  font-size: 24px;
+  font-size: 1.5rem;
   text-transform: capitalize;
   color: var(--myWhite50);
 }
@@ -481,8 +481,8 @@ div.home-container div select {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 22px;
-  height: 22px;
+  width: 1.25rem;
+  height: 1.25rem;
   border-radius: 50%;
   border: 3px solid var(--myWhite50);
   background: var(--myBlack);

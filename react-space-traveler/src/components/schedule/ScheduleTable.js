@@ -1,9 +1,14 @@
 import React from 'react';
-import ScheduleTableRow from './ScheduleTableRow';
+import { Link, useRouteMatch } from 'react-router-dom'; import ScheduleTableRow from './ScheduleTableRow';
+
 
 function ScheduleTable() {
+  const { url } = useRouteMatch();
   return (
     <div className="schedule-table w100">
+      <Link to={`${url}/room`} className="fz6">
+        <ScheduleTableRow />
+      </Link>
       <ScheduleTableRow />
       <ScheduleTableRow />
       <ScheduleTableRow />
@@ -17,3 +22,4 @@ function ScheduleTable() {
 }
 
 export default ScheduleTable;
+

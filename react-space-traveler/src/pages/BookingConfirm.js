@@ -1,5 +1,6 @@
 import React from 'react';
 import ContainerWithHeadline from '../components/ContainerWithHeadline';
+import { Link } from 'react-router-dom';
 
 function BookingConfirm() {
   return (
@@ -96,8 +97,8 @@ function BookingConfirm() {
             <span className="fz15" > 12335 &#3647; </span>
           </p>
           <div className="dflex-jend">
-            <button class="btn-orange fz15 p05 w15 mr15">back</button>
-            <button class="btn-green fz15 p05 w15 ml15">next</button>
+            <button className="btn-orange fz15 p05 w15 mr15">back</button>
+            <Link to={`/schedule-flight/payment`} className="btn-green fz15 p05 w15 ml15">next</Link>
           </div>
         </div>
 

@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 function Navbar() {
   return (
     <nav className="nav w100">
       <ul>
-        <li className='branding'><a href="./index.html">SPACE TRAVEL</a></li>
-        <li><a href="./destination.html">DESTINATION</a></li>
-        <li><a href="./schedule.html">SCHEDULE</a></li>
+        <li className='branding'><Link to="/">SPACE TRAVEL</Link></li>
+        {/* <li><Link to="./destination.html">DESTINATION</Link></li> */}
+        <li><NavLink to="/schedule-flight">SCHEDULE</NavLink></li>
       </ul>
       <ul>
-        {/* <li><a href="#">MANAGE RESERVATION</a></li>
-        <li><a href="./userManageReservation.html" class="active">welcome username01</a></li> */}
-        <li><a href="./login.html">LOG IN / REGISTER</a></li>
+        <li><NavLink to="/user-manage">MANAGE RESERVATION</NavLink></li>
+        <li><NavLink to="/admin-manage" >welcome username01</NavLink></li>
+        <li><NavLink to="/login">LOG IN / REGISTER</NavLink></li>
       </ul>
     </nav>
   );

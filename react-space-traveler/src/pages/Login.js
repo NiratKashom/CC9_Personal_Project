@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Login() {
   return (
@@ -8,11 +9,9 @@ function Login() {
         <input className="fz15 mb2 w100" type="text" placeholder="Email" />
         <input className="fz15 mb2 w100" type="text" placeholder="Password" />
         <div className="w100 dflex-jaround">
-
-          <button type="button"
-            className="btn-blue fz15 mr15 flex1">
+          <Link to="/register" className="btn-blue fz15 mr15 flex1">
             register
-          </button>
+          </Link>
           <button type="button"
             className="btn-green fz15 flex1 ">
             login

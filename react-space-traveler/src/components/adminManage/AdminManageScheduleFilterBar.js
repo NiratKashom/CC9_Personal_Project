@@ -1,26 +1,29 @@
 import React from 'react';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 function AdminManageScheduleFilterBar() {
+  const { url } = useRouteMatch();
   return (
-    <div class="admin-schedule-filter dflex-jbetween">
+    <div className="admin-schedule-filter dflex-jbetween">
       <div>
-        <label className="fz125 ttcap mr05" for="">destination :</label>
+        <label className="fz125 ttcap mr05" >destination :</label>
         <select className="p05 mr125 fz125 ttcap" >
           <option value="0">Choose</option>
           <option value="1">Moon</option>
           <option value="2">Mars</option>
-          <optnion value="2">Jupiter</optnion>
+          <option value="2">Jupiter</option>
         </select>
-        <label className="fz125 ttcap mr05" for="">departure :</label>
+        <label className="fz125 ttcap mr05" >departure :</label>
         <input className="p05 fz125 ttup" type="date" />
-      </div>
+      </div >
       <div>
-        <button type="button"
+
+        <Link to={`${url}/create-flight`}
           className="btn-blue fz125"
-        >create schedule</button>
+        >create schedule</Link>
       </div>
 
-    </div>
+    </div >
   );
 }
 

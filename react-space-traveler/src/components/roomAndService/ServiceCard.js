@@ -18,7 +18,7 @@ function ServiceCard() {
           <option value="3">3</option>
           <option value="4">4</option>
         </select>
-        <button class="btn-blue fz125 p05">update</button>
+        <button className="btn-blue fz125 p05">update</button>
       </div>
     </div>
   );

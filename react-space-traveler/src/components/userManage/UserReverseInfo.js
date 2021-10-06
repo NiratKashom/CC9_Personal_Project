@@ -1,11 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ModalWithCloseBtn from '../ModalWithCloseBtn';
 
 
 function UserReverseInfo() {
   return (
     <div className="modal-backdrop center">
-
       <ModalWithCloseBtn headline="reservation infomation"
         addClass=""
       >
@@ -102,7 +102,9 @@ function UserReverseInfo() {
             status :
             <span className="fz15 txtorange ml05">pending</span>
           </p>
-          <button class="btn-outline-red fz125 ml1">cancel a reservation</button>
+          <Link to={`/user-manage/UserCancelReserve`}>
+            <button className="btn-outline-red fz125 ml1">cancel a reservation</button>
+          </Link>
         </div>
 
       </ModalWithCloseBtn>
