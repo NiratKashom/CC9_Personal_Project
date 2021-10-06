@@ -7,6 +7,7 @@ import RoomAndService from './RoomAndService';
 import Payment from './Payment';
 import CompleteBooking from './CompleteBooking';
 import { SummaryProvider } from '../contexts/summaryContext';
+import { MockFlightProvider } from '../contexts/mockContext';
 import { MOCK_FLIGHT } from '../temp/MOCK_SHCEDULE_FLIGTH';
 
 function Schedule() {
@@ -18,34 +19,36 @@ function Schedule() {
   return (
     <div className="schedule w75 px2 m0auto dflex-col-center outline">
       <StepperBar />
-
-      <Switch>
+      <MockFlightProvider>
         <SummaryProvider>
-          <Route path={`${path}/complete`}>
-            <CompleteBooking />
-          </Route>
+          <Switch>
 
-          <Route path={`${path}/payment`}>
-            <Payment />
-          </Route>
+            <Route path={`${path}/complete`}>
+              <CompleteBooking />
+            </Route>
 
-          <Route path={`${path}/confirm`}>
-            <BookingConfirm />
-          </Route>
+            <Route path={`${path}/payment`}>
+              <Payment />
+            </Route>
 
-          <Route path={`${path}/room`}>
-            <RoomAndService />
-          </Route>
+            <Route path={`${path}/confirm`}>
+              <BookingConfirm />
+            </Route>
+
+            <Route path={`${path}/room`}>
+              <RoomAndService />
+            </Route>
+
+            <Route path={`${path}`}>
+              <ScheduleSection flightData={flightData} />
+            </Route>
+          </Switch>
         </SummaryProvider>
-
-
-        <Route path={`${path}`}>
-          <ScheduleSection flightData={flightData} />
-        </Route>
+      </MockFlightProvider>
 
 
 
-      </Switch>
+
 
     </div>
   );

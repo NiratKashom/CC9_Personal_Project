@@ -7,10 +7,11 @@ import { getFormattedDate } from '../../services/dateService';
 
 function Summary() {
   const history = useHistory();
-  const { summary, setSummary } = useContext(summaryContext);
+  const { summary } = useContext(summaryContext);
 
 
   const hdlClickGoBack = () => history.goBack();
+  console.log(summary.roomList[0]);
 
   return (
     <div className="flex1">
@@ -27,14 +28,14 @@ function Summary() {
           <div className="borderbot mb1 pb1">
             {/* each service */}
             <h2 className="fz125 mb05 ttup">Room</h2>
-            <div className="dflex-jbetween ">
-              <p>1 Standard room :</p>
-              <p className="fz125 txtend ">999 &#3647;</p>
-            </div>
-            <div className="dflex-jbetween">
-              <p className="ttcap">2 Deluxe room :</p>
-              <p className="fz125 txtend ">3000 &#3647;</p>
-            </div>
+            {summary.roomList.map((item, idx) => (
+              <div className="dflex-jbetween ">
+                <p className="ttcap">{`${item.amount} ${item.roomType} room :`}</p>
+                <p className="fz125">{item.amount * item.price} &#3647;</p>
+              </div>
+            ))
+            }
+
           </div>
 
           <div className="borderbot mb1 pb1">
@@ -42,11 +43,11 @@ function Summary() {
             <h2 className="fz125 mb05 ttup">Extra Service</h2>
             <div className="dflex-jbetween">
               <p>3 Dinner buffet coupon :</p>
-              <p className="fz125 txtend ">3000 &#3647;</p>
+              <p className="fz125 ">3000 &#3647;</p>
             </div>
             <div className="dflex-jbetween">
               <p>1 Travel Insurance :</p>
-              <p className="fz125 txtend ">12335 &#3647;</p>
+              <p className="fz125 ">12335 &#3647;</p>
             </div>
           </div>
 

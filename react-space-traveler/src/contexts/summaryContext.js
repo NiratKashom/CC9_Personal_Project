@@ -10,8 +10,13 @@ const SummaryProvider = ({ children }) => {
     returnDate: "",
     departureLocation: 'earth',
     destinationLocation: 'moon',
-    roomList: {
-    },
+    roomList: [
+      {
+        roomType: 'standard',
+        amount: 1,
+        price: 2000
+      }
+    ],
     extraList: {
     }
   });

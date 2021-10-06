@@ -1,6 +1,7 @@
 import React from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
 import ServiceCard from './ServiceCard';
+import { summaryContext } from '../../contexts/summaryContext';
 
 
 function ServiceSelection() {

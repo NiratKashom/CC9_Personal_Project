@@ -1,32 +1,30 @@
 import React, { useState } from 'react';
 
-function SelectTypeRoom() {
-  const [typeRoom, setTypeRoom] = useState('');
+function SelectTypeRoom(props) {
+  const { setRoomType } = props;
 
-  console.log(typeRoom);
 
   return (
     <div className="selectTypeRoom dflex w75">
-      <label className="btn-outline-white fz125 w25 mr1 " htmlFor="standardRoom">
+      <label className="btn-outline-white fz125 w25 mr1 " htmlFor="standard">
         Standard Room
       </label>
-      <input type="radio" name="roomType" id="standardRoom" value="standardRoom"
-        onChange={e => setTypeRoom(e.target.value)}
-        className="dnone"
+      <input type="radio" name="roomType" id="standard" value="standard"
+        onChange={e => setRoomType(e.target.value)}
       />
 
-      <label className="btn-outline-white fz125 w25 mr1 " htmlFor="deluxeRoom">
+      <label className="btn-outline-white fz125 w25 mr1 " htmlFor="deluxe">
         Deluxe Room
       </label>
-      <input type="radio" name="roomType" id="deluxeRoom" value="deluxeRoom"
-        onChange={e => setTypeRoom(e.target.value)}
+      <input type="radio" name="roomType" id="deluxe" value="deluxe"
+        onChange={e => setRoomType(e.target.value)}
       />
 
-      <label className="btn-outline-white fz125 w25 mr1 " htmlFor="suitRoom">
+      <label className="btn-outline-white fz125 w25 mr1 " htmlFor="suit">
         Suit Room
       </label>
-      <input type="radio" name="roomType" id="suitRoom" value="suitRoom"
-        onChange={e => setTypeRoom(e.target.value)}
+      <input type="radio" name="roomType" id="suit" value="suit"
+        onChange={e => setRoomType(e.target.value)}
       />
     </div>
   );
