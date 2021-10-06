@@ -3,10 +3,11 @@ import AdminMngUserTableRow from '../adminManage/AdminMngUserTableRow';
 import { Link, useRouteMatch } from 'react-router-dom';
 
 function UserManageTable() {
-  const { path, url } = useRouteMatch();
+  const { path } = useRouteMatch();
+
   return (
     <div className="mt125">
-      <Link exact to={`${url}/UserReverseInfo`}>
+      <Link to={`${path}/UserReverseInfo`}>
         <AdminMngUserTableRow />
       </Link>
       <AdminMngUserTableRow />

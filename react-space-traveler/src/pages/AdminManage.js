@@ -7,13 +7,13 @@ import AdminMngUserReserveInfo from '../components/adminManage/AdminMngUserReser
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 
 function AdminManage() {
-  const { path, url } = useRouteMatch();
+  const { path } = useRouteMatch();
   return (
     <div className="w75 px2 m0auto dflex alistart outline">
       <AdminMenu />
       <Switch>
-        <Route exact path={path}>
-          <AdminManageSchedule />
+        <Route path={`${path}/AdminMngUserReserveInfo`}>
+          <AdminMngUserReserveInfo />
         </Route>
         <Route path={`${path}/create-flight`}>
           <AdminEditFlight />
@@ -21,9 +21,14 @@ function AdminManage() {
         <Route path={`${path}/user-reservation`}>
           <AdminMngUserReserve />
         </Route>
-      </Switch>
 
-      {/* <AdminMngUserReserveInfo /> */}
+        <Route exact path={path}>
+          <AdminManageSchedule />
+        </Route>
+        <Route path='*'>
+          <p>404 page not found</p>
+        </Route>
+      </Switch>
     </div>
   );
 }

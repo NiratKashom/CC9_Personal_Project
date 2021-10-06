@@ -12,7 +12,6 @@ function UserManage() {
   return (
     <div className="w75 px2 m0auto dflex alistart">
       <UserMenu />
-
       <UserManageReservation />
       <Switch >
         <Route exact path={`${path}/UserReverseInfo`}>

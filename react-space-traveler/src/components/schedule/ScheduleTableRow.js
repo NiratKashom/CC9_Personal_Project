@@ -1,6 +1,37 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 function ScheduleTableRow() {
+  const MOCK_SCHEDULE = {
+    departureTime: new Date("09/04/2022 13:00:00"),
+    arrivalTime: new Date("10/13/2022 10:00:00"),
+    returnTime: new Date("11/20/2022 22:00:00"),
+    departureLocation: 'earth',
+    destinationLocation: 'moon',
+    flightId: uuidv4(),
+    startingPrice: 5000
+  };
+
+  const seperateDate = (dateObject, requirePart) => {
+    // input: date object / requirePart('day','month','year')
+    // output: string of date part
+    const dateStr = dateObject.toDateString();
+    let pickPart = '';
+    if (requirePart === 'day') {
+      pickPart = dateStr.split(' ')[2];
+      if (pickPart.startsWith('0')) return pickPart.slice(1);
+      return pickPart;
+    }
+    if (requirePart === 'month') return dateStr.split(' ')[1];
+    if (requirePart === 'year') return dateStr.split(' ')[3];
+  };
+
+  console.log(MOCK_SCHEDULE);
+
+
+
+
+
   return (
     <div className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
       <div className="dflex flex4">

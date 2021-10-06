@@ -9,14 +9,14 @@ function ScheduleTable() {
       <Link to={`${url}/room`} className="fz6">
         <ScheduleTableRow />
       </Link>
+      {/* <ScheduleTableRow /> */}
+      {/* <ScheduleTableRow />
       <ScheduleTableRow />
       <ScheduleTableRow />
       <ScheduleTableRow />
       <ScheduleTableRow />
       <ScheduleTableRow />
-      <ScheduleTableRow />
-      <ScheduleTableRow />
-      <ScheduleTableRow />
+      <ScheduleTableRow /> */}
     </div >
   );
 }

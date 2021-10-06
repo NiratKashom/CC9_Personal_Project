@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ModalWithCloseBtn from '../ModalWithCloseBtn';
 
-
 function UserReverseInfo() {
+
+
   return (
     <div className="modal-backdrop center">
       <ModalWithCloseBtn headline="reservation infomation"

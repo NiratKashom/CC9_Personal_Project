@@ -23,7 +23,6 @@ function Schedule() {
           <Payment />
         </Route>
 
-
         <Route path={`${path}/confirm`}>
           <BookingConfirm />
         </Route>
