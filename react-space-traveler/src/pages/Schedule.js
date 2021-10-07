@@ -39,6 +39,7 @@ function Schedule() {
               <RoomAndService />
             </Route>
 
+
             <Route path={`${path}`}>
               <ScheduleSection flightData={flightData} />
             </Route>

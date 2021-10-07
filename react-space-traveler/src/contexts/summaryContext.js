@@ -17,8 +17,9 @@ const SummaryProvider = ({ children }) => {
         price: 2000
       }
     ],
-    extraList: {
-    }
+    extraList: [
+
+    ]
   });
 
   return <summaryContext.Provider value={{ summary, setSummary }}>
