@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { separateDate, getFormattedDate } from '../../services/dateService';
+import { summaryContext } from '../../contexts/summaryContext';
 
 function ScheduleTableRow(props) {
+  const { hdlClickIncrStep } = useContext(summaryContext);
 
   const {
     departureDate,
@@ -16,7 +18,7 @@ function ScheduleTableRow(props) {
 
 
   return (
-    <div className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
+    <div onClick={hdlClickIncrStep} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
       <div className="dflex flex4">
         <div className="flex1">
           <p className="fz25">{separateDate(departureDate, 'day')}</p>

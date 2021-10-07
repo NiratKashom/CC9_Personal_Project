@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { summaryContext } from '../contexts/summaryContext';
+
 
 function StepperBar() {
-  const [step, setStep] = useState(0);
-
-  const hdlClickIncr = () => setStep(step + 1);
-  const hdlClickDecr = () => setStep(step - 1);
-
+  const { step } = useContext(summaryContext);
 
   return (
     <>
@@ -26,11 +24,6 @@ function StepperBar() {
           <div className="step-counter"></div>
           <div className="step-name">payment</div>
         </div>
-      </div>
-      <div>
-        <p className="fz2">{step}</p>
-        <button className="fz2 btn-outline-white mr1" onClick={hdlClickIncr}> + </button>
-        <button className="fz2 btn-outline-white mr1" onClick={hdlClickDecr}> - </button>
       </div>
     </>
   );

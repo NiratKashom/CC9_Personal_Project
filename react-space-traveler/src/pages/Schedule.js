@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import ScheduleSection from '../components/schedule/ScheduleSection';
 import StepperBar from '../components/StepperBar';
 import BookingConfirm from './BookingConfirm';
 import RoomAndService from './RoomAndService';
 import Payment from './Payment';
-import CompleteBooking from './CompleteBooking';
 import { SummaryProvider } from '../contexts/summaryContext';
 import { MockFlightProvider } from '../contexts/mockContext';
 import { MOCK_FLIGHT } from '../temp/MOCK_SHCEDULE_FLIGTH';
@@ -13,21 +12,21 @@ import { MOCK_FLIGHT } from '../temp/MOCK_SHCEDULE_FLIGTH';
 function Schedule() {
   const { path } = useRouteMatch();
 
-  const [flightData] = useState(MOCK_FLIGHT);
-
-
   return (
     <div className="schedule w75 px2 m0auto dflex-col-center outline">
-      <StepperBar />
+
       <MockFlightProvider>
         <SummaryProvider>
+          <StepperBar />
+
           <Switch>
 
-            <Route path={`${path}/complete`}>
-              <CompleteBooking />
-            </Route>
+            {/* <Route path={`${path}/complete`}> */}
+
+            {/* </Route> */}
 
             <Route path={`${path}/payment`}>
+
               <Payment />
             </Route>
 
@@ -41,7 +40,7 @@ function Schedule() {
 
 
             <Route path={`${path}`}>
-              <ScheduleSection flightData={flightData} />
+              <ScheduleSection flightData={MOCK_FLIGHT} />
             </Route>
           </Switch>
         </SummaryProvider>

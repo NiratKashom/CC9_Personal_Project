@@ -1,15 +1,20 @@
-import React from 'react';
-// import PaymentSummary from '../components/payment/PaymentSummary';
+import React, { useContext } from 'react';
 import Summary from '../components/roomAndService/Summary';
 import PaymentMethod from '../components/payment/PaymentMethod';
+import CompleteBooking from './CompleteBooking';
+import { summaryContext } from '../contexts/summaryContext';
 
 
 function Payment() {
+  const { step } = useContext(summaryContext);
+
   return (
     <div className="w100 dflex alistart mt125 outline">
       <PaymentMethod />
       <Summary />
       {/* <PaymentSummary /> */}
+      {step === 4 ? <CompleteBooking /> : null}
+
     </div>
   );
 }

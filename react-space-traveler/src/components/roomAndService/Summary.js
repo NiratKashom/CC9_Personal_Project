@@ -9,19 +9,12 @@ import { getFormattedDate } from '../../services/dateService';
 
 function Summary() {
   const history = useHistory();
-  const { summary, sumPrice } = useContext(summaryContext);
+  const { summary, sumPrice, hdlClickDecrStep, hdlClickIncrStep, step, setStep } = useContext(summaryContext);
 
-  // const sumRoom = summary.roomList.reduce((acc, item) => {
-  //   return acc += item.price;
-  // }, 0);
-
-  // const sumExtra = summary.extraList.reduce((acc, item) => {
-  //   return acc += item.price;
-  // }, 0);
-
-  console.log(summary.roomList.reduce((acc, item) => {
-    return acc += item.price * item.amount;
-  }, 0));
+  const hdlClickBack = () => {
+    hdlClickDecrStep();
+    history.goBack();
+  };
 
   return (
     <div className="flex1">
@@ -66,12 +59,14 @@ function Summary() {
           </p>
           <div className="w100 dflex-jaround">
             <button className="btn-orange fz15 mr15 p05 flex1"
-              onClick={() => history.goBack()}
+              onClick={hdlClickBack}
             >back</button>
-            <Link to={`/schedule-flight/confirm`} className="btn-green fz15 ml15 p05 flex1">next</Link>
+            {step === 3 ? <button onClick={hdlClickIncrStep} className="btn-green fz15 ml15 p05 flex1">Submit</button>
+              :
+              <Link onClick={hdlClickIncrStep} to={`/schedule-flight/confirm`} className="btn-green fz15 ml15 p05 flex1">next</Link>
+            }
           </div>
         </div>
-
       </ContainerWithHeadline >
     </div >
   );

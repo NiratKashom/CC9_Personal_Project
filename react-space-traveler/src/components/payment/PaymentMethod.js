@@ -1,7 +1,9 @@
 import React from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
 
+
 function PaymentMethod() {
+
   return (
     <div className="mr1 flex3 payment">
       <ContainerWithHeadline headline="payment">

@@ -10,7 +10,14 @@ function BookingConfirm() {
   const history = useHistory();
 
   const { MOCK_USER, MOCK_FLIGHT } = useContext(mockFlightContext);
-  const { summary, sumPrice } = useContext(summaryContext);
+  const { summary, sumPrice, hdlClickDecrStep, hdlClickIncrStep } = useContext(summaryContext);
+
+
+  const hdlClickBack = () => {
+    hdlClickDecrStep();
+    history.goBack();
+  };
+
   const {
     departureDate,
     arrivalDate,
@@ -111,9 +118,9 @@ function BookingConfirm() {
           </p>
           <div className="dflex-jend">
             <button className="btn-orange fz15 p05 w15 mr15"
-              onClick={() => history.goBack()}
+              onClick={hdlClickBack}
             >back</button>
-            <Link to={`/schedule-flight/payment`} className="btn-green fz15 p05 w15 ml15">next</Link>
+            <Link onClick={hdlClickIncrStep} to={`/schedule-flight/payment`} className="btn-green fz15 p05 w15 ml15">next</Link>
           </div>
         </div>
 
