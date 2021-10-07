@@ -28,14 +28,12 @@ function RoomAmountUpdate(props) {
       roomSelect.price = roomPrice[roomType];
       roomSelect.amount = +val;
       cloneSummary.roomList.push(roomSelect);
-
     }
-    // console.log(cloneSummary);
-
     setSummary(cloneSummary);
   };
 
-  console.log(summary);
+  console.log(summary.roomList);
+
   return (
     <div className="room-update w100 dflex-jend">
       <label className="ttcap fz125 mr1">number of rooms :</label>

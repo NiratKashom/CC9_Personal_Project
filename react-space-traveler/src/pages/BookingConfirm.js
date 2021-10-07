@@ -1,67 +1,81 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ContainerWithHeadline from '../components/ContainerWithHeadline';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { mockFlightContext } from '../contexts/mockContext';
+import { summaryContext } from '../contexts/summaryContext';
+import { separateDate, getFormattedDate } from '../services/dateService';
+
 
 function BookingConfirm() {
+  const history = useHistory();
+
+  const { MOCK_USER, MOCK_FLIGHT } = useContext(mockFlightContext);
+  const { summary, sumPrice } = useContext(summaryContext);
+  const {
+    departureDate,
+    arrivalDate,
+    returnDate,
+    departureLocation,
+    destinationLocation,
+    flightId,
+    roomList,
+    extraList
+  } = MOCK_FLIGHT;
+  console.log(MOCK_USER);
+
   return (
-    <div className="booking-confirm mt125">
+    <div className="booking-confirm w45 mt125">
       <ContainerWithHeadline headline="booking confirmation">
         <div className="summary ">
+          <div className="borderbot mb1 pb1 txtcenter ttcap dflex-jbetween">
 
-          <div className="borderbot mb1 pb1">
-            <div className="dflex-jbetween">
-              <div className="dflex-col-center mr15 ttcap">
-                <p className="fz25">1</p>
-                <p className="fz125">january</p>
-                <p className="fz125">2022</p>
-              </div>
-              <div className="dflex-col-center ttcap">
-                <p className="fz125">day 1</p>
-                <p className="fz2">earth</p>
-                <p className="fz125">1 january 2022</p>
-              </div>
-              <p className="fz25 txtblue">--></p>
-              <div className=" dflex-col-center ttcap">
-                <p className="fz125">day 1</p>
-                <p className="fz2">moon</p>
-                <p className="fz125">1 january 2022</p>
-              </div>
-              <p className="fz25 txtgreen">--></p>
-              <div className="dflex-col-center ttcap">
-                <p className="fz125">day 1</p>
-                <p className="fz2">earth</p>
-                <p className="fz125">1 january 2022</p>
-              </div>
-              <div className="dflex-col-center ml15 ttcap" >
-                <p className="fz25">20</p>
-                <p className="fz125">january</p>
-                <p className="fz125">2022</p>
-              </div>
+            <div className="mr1">
+              <p className="fz25">{separateDate(departureDate, 'day')}</p>
+              <p className="fz125">{separateDate(departureDate, 'month')}</p>
+              <p className="fz125">{separateDate(departureDate, 'year')}</p>
             </div>
+            <div >
+              <p className="fz125">day 1</p>
+              <p className="fz2">{departureLocation}</p>
+              <p className="fz125">{getFormattedDate(departureDate)}</p>
+            </div>
+            <p className="fz25 txtblue">{`->`}</p>
+            <div>
+              <p className="fz125">day 1</p>
+              <p className="fz2">{destinationLocation}</p>
+              <p className="fz125">{getFormattedDate(arrivalDate)}</p>
+            </div>
+            <p className="fz25 txtgreen">{`->`}</p>
+            <div>
+              <p className="fz125">day 1</p>
+              <p className="fz2">{departureLocation}</p>
+              <p className="fz125">{getFormattedDate(returnDate)}</p>
+            </div>
+            <div className="ml1">
+              <p className="fz25">{separateDate(returnDate, 'day')}</p>
+              <p className="fz125">{separateDate(returnDate, 'month')}</p>
+              <p className="fz125">{separateDate(returnDate, 'year')}</p>
+            </div>
+
           </div>
 
           <div className="borderbot mb1 pb1">
             <h2 className="fz125 mb05 ttup">Booking Info</h2>
-            <div className="dflex-jbetween">
-              <div >
+            <div className="dflex-jbetween alistart">
+              <div className="mr1">
                 <div className="dflex-jbetween ">
-                  <p className="ttcap ">Booker name :</p>
-                  <p className="ml05 txtend ttcap fz125">nirat kashom</p>
+                  <p className="ttcap txtwhite80">Booker name :</p>
+                  <p className="ml05 txtend ttcap fz125">{`${MOCK_USER.firstName} ${MOCK_USER.lastName}`}</p>
                 </div>
                 <div className="dflex-jbetween">
-                  <p className="ttcap">email address: </p>
-                  <p className="ml05 txtend fz125">nkashom @email.com</p>
+                  <p className="ttcap txtwhite80">email address: </p>
+                  <p className="ml05 txtend fz125">{MOCK_USER.email}</p>
                 </div>
               </div>
-
               <div>
                 <div className="dflex-jbetween">
-                  <p className="ttcap">flight id: </p>
-                  <p className="ml05 txtend fz125">MON0101220701221300</p>
-                </div>
-                <div className="dflex-jbetween">
-                  <p className="ttcap">booking id: </p>
-                  <p className="ml05 txtend fz125">D002MON0101220801221300</p>
+                  <p className="ttcap txtwhite80">flight id: </p>
+                  <p className="ml05 txtend fz125">{flightId}</p>
                 </div>
               </div>
             </div>
@@ -70,14 +84,13 @@ function BookingConfirm() {
 
           <div className="borderbot mb1 pb1">
             <h2 className="fz125 mb05 ttup">Room</h2>
-            <div className="dflex-jbetween ">
-              <p>1 Standard room: </p>
-              <p className="fz125 txtend ">999 &#3647; </p>
-            </div>
-            <div className="dflex-jbetween">
-              <p className="ttcap">2 Deluxe room: </p>
-              <p className="fz125 txtend ">3000 &#3647; </p>
-            </div>
+            {summary.roomList.map((item, idx) => (
+              <div key={idx} className="dflex-jbetween ">
+                <p className="ttcap">{`${item.amount} ${item.roomType} room :`}</p>
+                <p className="fz125">{item.amount * item.price} &#3647;</p>
+              </div>
+            ))
+            }
           </div>
 
           <div className="borderbot mb1 pb1">
@@ -94,10 +107,12 @@ function BookingConfirm() {
 
           <p className="fz125 txtend mb125">
             Total Trip:
-            <span className="fz15" > 12335 &#3647; </span>
+            <span className="fz15" > {sumPrice} &#3647; </span>
           </p>
           <div className="dflex-jend">
-            <button className="btn-orange fz15 p05 w15 mr15">back</button>
+            <button className="btn-orange fz15 p05 w15 mr15"
+              onClick={() => history.goBack()}
+            >back</button>
             <Link to={`/schedule-flight/payment`} className="btn-green fz15 p05 w15 ml15">next</Link>
           </div>
         </div>

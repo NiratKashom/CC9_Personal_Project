@@ -5,13 +5,23 @@ import { summaryContext } from '../../contexts/summaryContext';
 import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
 import { getFormattedDate } from '../../services/dateService';
 
+
+
 function Summary() {
   const history = useHistory();
-  const { summary } = useContext(summaryContext);
+  const { summary, sumPrice } = useContext(summaryContext);
 
+  // const sumRoom = summary.roomList.reduce((acc, item) => {
+  //   return acc += item.price;
+  // }, 0);
 
-  const hdlClickGoBack = () => history.goBack();
-  console.log(summary.roomList[0]);
+  // const sumExtra = summary.extraList.reduce((acc, item) => {
+  //   return acc += item.price;
+  // }, 0);
+
+  console.log(summary.roomList.reduce((acc, item) => {
+    return acc += item.price * item.amount;
+  }, 0));
 
   return (
     <div className="flex1">
@@ -29,13 +39,12 @@ function Summary() {
             {/* each service */}
             <h2 className="fz125 mb05 ttup">Room</h2>
             {summary.roomList.map((item, idx) => (
-              <div className="dflex-jbetween ">
+              <div key={idx} className="dflex-jbetween ">
                 <p className="ttcap">{`${item.amount} ${item.roomType} room :`}</p>
                 <p className="fz125">{item.amount * item.price} &#3647;</p>
               </div>
             ))
             }
-
           </div>
 
           <div className="borderbot mb1 pb1">
@@ -53,11 +62,11 @@ function Summary() {
 
           <p className="fz125 txtend mb125">
             Total Trip :
-            <span className="fz15" > 12335 &#3647;</span>
+            <span className="fz15"> {sumPrice} &#3647;</span>
           </p>
           <div className="w100 dflex-jaround">
             <button className="btn-orange fz15 mr15 p05 flex1"
-              onClick={hdlClickGoBack}
+              onClick={() => history.goBack()}
             >back</button>
             <Link to={`/schedule-flight/confirm`} className="btn-green fz15 ml15 p05 flex1">next</Link>
           </div>

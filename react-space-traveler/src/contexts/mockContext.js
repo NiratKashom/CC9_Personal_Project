@@ -5,7 +5,7 @@ const mockFlightContext = createContext();
 const MockFlightProvider = ({ children }) => {
   const MOCK_FLIGHT =
   {
-    flightId: 5678,
+    flightId: '5678',
     departureDate: "03/05/2022 12:34:54",
     arrivalDate: "04/12/2022 13:23:54",
     returnDate: "04/20/2022 23:55:34",
@@ -17,12 +17,36 @@ const MockFlightProvider = ({ children }) => {
       suit: 14000
     },
     extraPrice: {
-      insurance: 2444,
-      dinner: 5666,
+      insurance: 600,
+      dinner: 1500,
     }
   };
 
-  return <mockFlightContext.Provider value={{ MOCK_FLIGHT }}>
+  const MOCK_USER = {
+    id: 'ksdfh389r3r',
+    firstName: 'nirat',
+    lastName: 'kashom',
+    email: 'sadkfj@eamil.com',
+    isAdmin: false,
+  };
+
+  const MOCK_EXTRA_LIST = [
+    {
+      title: 'Dinner buffet coupon',
+      icon: 'dinner_dining',
+      value: 'dinner',
+      description: 'Enjoy all you can eat. You can always enjoy a wonderful evening with your dinner buffet.'
+    },
+    {
+      title: 'Travel insurance',
+      icon: 'verified_user',
+      value: 'insurance',
+      description: 'Travel insurance can cover your trip cancellation, travel health insurance, and more.'
+    }
+  ];
+
+
+  return <mockFlightContext.Provider value={{ MOCK_FLIGHT, MOCK_USER, MOCK_EXTRA_LIST }}>
     {children}
   </mockFlightContext.Provider>;
 };

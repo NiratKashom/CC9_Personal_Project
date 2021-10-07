@@ -13,7 +13,7 @@ import { MOCK_FLIGHT } from '../temp/MOCK_SHCEDULE_FLIGTH';
 function Schedule() {
   const { path } = useRouteMatch();
 
-  const [flightData, setflightData] = useState(MOCK_FLIGHT);
+  const [flightData] = useState(MOCK_FLIGHT);
 
 
   return (
