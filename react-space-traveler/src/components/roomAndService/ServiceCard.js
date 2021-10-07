@@ -1,8 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { summaryContext } from '../../contexts/summaryContext';
+
 
 function ServiceCard(props) {
-  const { title, description, icon, value } = props.data;
-  console.log(props.price[value]);
+  const { summary, setSummary } = useContext(summaryContext);
+  const { price } = props;
+  const { title, description, icon, extraType } = props.data;
+
+  const hdlChangeAmountExtra = val => {
+    const cloneSummary = { ...summary };
+    // findIndex >>> find = index /not found = -1
+    const idxExtraHad = cloneSummary.extraList.findIndex(item => item.extraType === extraType);
+    if (idxExtraHad >= 0) {
+      if (+val === 0) {
+        cloneSummary.extraList.splice(idxExtraHad, 1);
+      } else {
+        cloneSummary.extraList[idxExtraHad].amount = +val;
+      }
+    } else {
+      let extraSelect = {
+        extraType: '',
+        price: '',
+        amount: ''
+      };
+      extraSelect.extraType = extraType;
+      extraSelect.price = price[extraType];
+      extraSelect.amount = +val;
+      cloneSummary.extraList.push(extraSelect);
+    }
+    setSummary(cloneSummary);
+  };
+
+  console.log(summary.roomList);
+  console.log(summary.extraList);
 
 
   return (
@@ -14,17 +44,18 @@ function ServiceCard(props) {
       <p className="mb05">
         {description}
       </p>
-      {/* <p className="fz15 ttcap">{`${props.price[value]}`} &#3647; </p> */}
       <div className="dflex-jcenter">
-        <p className="fz15 ttcap mr1">{`${props.price[value]}`} &#3647; </p>
-        <select className="fz125 p05 mr1">
+        <p className="fz15 ttcap mr1">{`${price[extraType]}`} &#3647; </p>
+        <select className="fz125 p05 mr1"
+          onChange={e => hdlChangeAmountExtra(e.target.value)}
+        >
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
         </select>
-        {/* <button className="btn-blue fz125 p05">update</button> */}
+
       </div>
     </div>
   );

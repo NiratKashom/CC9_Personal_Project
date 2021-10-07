@@ -34,13 +34,13 @@ const MockFlightProvider = ({ children }) => {
     {
       title: 'Dinner buffet coupon',
       icon: 'dinner_dining',
-      value: 'dinner',
+      extraType: 'dinner',
       description: 'Enjoy all you can eat. You can always enjoy a wonderful evening with your dinner buffet.'
     },
     {
       title: 'Travel insurance',
       icon: 'verified_user',
-      value: 'insurance',
+      extraType: 'insurance',
       description: 'Travel insurance can cover your trip cancellation, travel health insurance, and more.'
     }
   ];
