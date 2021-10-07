@@ -57,14 +57,7 @@ function Summary() {
               </div>
             ))
             }
-            {/* <div className="dflex-jbetween">
-              <p>3 Dinner buffet coupon :</p>
-              <p className="fz125 ">3000 &#3647;</p>
-            </div>
-            <div className="dflex-jbetween">
-              <p>1 Travel Insurance :</p>
-              <p className="fz125 ">12335 &#3647;</p>
-            </div> */}
+
           </div>
 
           <p className="fz125 txtend mb125">
