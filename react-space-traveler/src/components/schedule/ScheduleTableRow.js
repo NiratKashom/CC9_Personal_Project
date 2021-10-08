@@ -1,9 +1,18 @@
 import React, { useContext } from 'react';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 import { separateDate, getFormattedDate } from '../../services/dateService';
 import { summaryContext } from '../../contexts/summaryContext';
 
 function ScheduleTableRow(props) {
-  const { hdlClickIncrStep } = useContext(summaryContext);
+  const history = useHistory();
+  const { path } = useRouteMatch();
+  const { hdlClickIncrStep, hdlClickSetCurFlightWithId } = useContext(summaryContext);
+
+  const hdlClickToRoomById = () => {
+    hdlClickIncrStep();
+    hdlClickSetCurFlightWithId(flightId);
+    history.push(`${path}/room/${flightId}`);
+  };
 
   const {
     departureDate,
@@ -11,14 +20,16 @@ function ScheduleTableRow(props) {
     returnDate,
     departureLocation,
     destinationLocation,
-    // flightId,
+    flightId,
     roomPrice,
     // extraPrice
   } = props.data;
 
 
+
+
   return (
-    <div onClick={hdlClickIncrStep} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
+    <div onClick={hdlClickToRoomById} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
       <div className="dflex flex4">
         <div className="flex1">
           <p className="fz25">{separateDate(departureDate, 'day')}</p>
@@ -49,7 +60,7 @@ function ScheduleTableRow(props) {
         </div>
       </div>
       <div className="flex1 container-with-bg p125 dflex-jcenter alignitmcenter">
-        <p className="fz3">{roomPrice.standart}<span className="fz2 ">&#3647;</span></p>
+        <p className="fz3">{roomPrice.standard}<span className="fz2 ">&#3647;</span></p>
       </div>
     </div>);
 }

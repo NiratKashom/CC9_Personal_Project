@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ScheduleFilterBar from '../schedule/ScheduleFilterBar';
 import ScheduleTable from '../schedule/ScheduleTable';
 
 function ScheduleSection(props) {
+
   return (
     <>
       <ScheduleFilterBar />

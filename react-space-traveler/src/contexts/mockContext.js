@@ -22,23 +22,6 @@ const MockFlightProvider = ({ children }) => {
     }
   };
 
-  const MOCK_USER = {
-    id: 'ksdfh389r3r',
-    firstName: 'nirat',
-    lastName: 'kashom',
-    email: 'sadkfj@eamil.com',
-    isAdmin: false,
-  };
-
-  const MOCK_ADMIN = {
-    id: 'admin5678',
-    firstName: 'ADMIN',
-    lastName: 'nirat',
-    email: 'admin5678@emil.com',
-    isAdmin: true,
-  };
-
-
   const MOCK_EXTRA_LIST = [
     {
       title: 'Dinner buffet coupon',
@@ -55,7 +38,7 @@ const MockFlightProvider = ({ children }) => {
   ];
 
 
-  return <mockFlightContext.Provider value={{ MOCK_ADMIN, MOCK_FLIGHT, MOCK_USER, MOCK_EXTRA_LIST }}>
+  return <mockFlightContext.Provider value={{ MOCK_FLIGHT, MOCK_EXTRA_LIST }}>
     {children}
   </mockFlightContext.Provider>;
 };

@@ -4,7 +4,7 @@ import standardRoomPic from '../../img/standard_room.jpg';
 
 function RoomDetail(props) {
   const { roomPrice, roomType } = props;
-  // console.log(roomType);
+  console.log(roomPrice);
 
   return (
     <div className="room-detail mt125 dflex alistart">

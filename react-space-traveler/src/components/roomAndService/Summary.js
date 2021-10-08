@@ -9,7 +9,7 @@ import { getFormattedDate } from '../../services/dateService';
 
 function Summary() {
   const history = useHistory();
-  const { summary, sumPrice, hdlClickDecrStep, hdlClickIncrStep, step, setStep } = useContext(summaryContext);
+  const { summary, sumPrice, hdlClickDecrStep, hdlClickIncrStep, step, setCurrentFlight } = useContext(summaryContext);
 
   const hdlClickBack = () => {
     hdlClickDecrStep();

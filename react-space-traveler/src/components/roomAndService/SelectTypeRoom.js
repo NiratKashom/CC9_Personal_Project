@@ -9,8 +9,6 @@ function SelectTypeRoom(props) {
     setRoomType(e.target.value);
   };
 
-  console.log(active);
-
 
   return (
     <div className="selectTypeRoom dflex w75">

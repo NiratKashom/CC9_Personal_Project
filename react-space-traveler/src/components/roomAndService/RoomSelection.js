@@ -2,18 +2,18 @@ import React, { useContext, useState } from 'react';
 import SelectTypeRoom from './SelectTypeRoom';
 import RoomDetail from './RoomDetail';
 import RoomAmountUpdate from './RoomAmountUpdate';
-import { mockFlightContext } from '../../contexts/mockContext';
+import { summaryContext } from '../../contexts/summaryContext';
 
 
 function RoomSelection() {
-  const { MOCK_FLIGHT } = useContext(mockFlightContext);
+  const { currentFlight } = useContext(summaryContext);
   const [roomType, setRoomType] = useState('standard');
-
+  console.log(currentFlight);
   return (
     <div className="container-with-bg mb125 p2">
       <SelectTypeRoom setRoomType={setRoomType} />
-      <RoomDetail roomPrice={MOCK_FLIGHT.roomPrice} roomType={roomType} />
-      <RoomAmountUpdate roomPrice={MOCK_FLIGHT.roomPrice} roomType={roomType} />
+      <RoomDetail roomPrice={currentFlight.roomPrice} roomType={roomType} />
+      <RoomAmountUpdate roomPrice={currentFlight.roomPrice} roomType={roomType} />
     </div >
   );
 }

@@ -32,8 +32,6 @@ function RoomAmountUpdate(props) {
     setSummary(cloneSummary);
   };
 
-  console.log(summary.roomList);
-
   return (
     <div className="room-update w100 dflex-jend">
       <label className="ttcap fz125 mr1">number of rooms :</label>

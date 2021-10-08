@@ -31,10 +31,6 @@ function ServiceCard(props) {
     setSummary(cloneSummary);
   };
 
-  console.log(summary.roomList);
-  console.log(summary.extraList);
-
-
   return (
     <div className="service-card container-with-bg p1 mx15 flex1 txtcenter">
       <p className="fz15 ttcap">{title}</p>

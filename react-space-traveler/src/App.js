@@ -24,6 +24,7 @@ function App() {
             <Route path="/schedule-flight"><Schedule /></Route>
             <Route path="/user-manage"><UserManage /></Route>
             <Route exact path="/"><Home /></Route>
+
             <Route path="*">
               <p> 404 page not found</p>
             </Route>

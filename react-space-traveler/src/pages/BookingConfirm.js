@@ -4,13 +4,28 @@ import { Link, useHistory } from 'react-router-dom';
 import { mockFlightContext } from '../contexts/mockContext';
 import { summaryContext } from '../contexts/summaryContext';
 import { separateDate, getFormattedDate } from '../services/dateService';
+import { MOCK_USER } from '../temp//MOCK_USER';
+
 
 
 function BookingConfirm() {
   const history = useHistory();
 
-  const { MOCK_USER, MOCK_FLIGHT } = useContext(mockFlightContext);
-  const { summary, sumPrice, hdlClickDecrStep, hdlClickIncrStep } = useContext(summaryContext);
+  const { summary, sumPrice, hdlClickDecrStep,
+    hdlClickIncrStep, currentFlight, setSummary } = useContext(summaryContext);
+
+  const hdlGoForward = () => {
+    setSummary(cur => ({
+      ...cur,
+      userId: MOCK_USER.id,
+      bookerName: `${MOCK_USER.firstName} ${MOCK_USER.lastName}`,
+      flightId: currentFlight.flightId,
+      status: 'pending'
+    })
+    );
+    hdlClickIncrStep();
+    history.push(`/schedule-flight/payment`);
+  };
 
 
   const hdlClickBack = () => {
@@ -27,7 +42,7 @@ function BookingConfirm() {
     flightId,
     roomList,
     extraList
-  } = MOCK_FLIGHT;
+  } = currentFlight;
   console.log(MOCK_USER);
 
   return (
@@ -120,7 +135,7 @@ function BookingConfirm() {
             <button className="btn-orange fz15 p05 w15 mr15"
               onClick={hdlClickBack}
             >back</button>
-            <Link onClick={hdlClickIncrStep} to={`/schedule-flight/payment`} className="btn-green fz15 p05 w15 ml15">next</Link>
+            <button onClick={hdlGoForward} className="btn-green fz15 p05 w15 ml15">next</button>
           </div>
         </div>
 

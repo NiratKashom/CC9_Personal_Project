@@ -10,9 +10,9 @@ function ScheduleTable(props) {
     <div className="schedule-table w100">
       {flightData.map((data, idx) => {
         return (
-          <Link key={idx} to={`${url}/room`} className="fz6">
-            <ScheduleTableRow data={data} />
-          </Link>
+          // <Link key={idx} to={`${url}/room/${data.flightId}`}>
+          <ScheduleTableRow key={idx} data={data} />
+          // </Link>
         );
       })}
     </div >

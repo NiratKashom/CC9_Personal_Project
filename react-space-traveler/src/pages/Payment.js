@@ -6,7 +6,9 @@ import { summaryContext } from '../contexts/summaryContext';
 
 
 function Payment() {
-  const { step } = useContext(summaryContext);
+  const { step, summary } = useContext(summaryContext);
+
+  console.log(summary);
 
   return (
     <div className="w100 dflex alistart mt125 outline">
