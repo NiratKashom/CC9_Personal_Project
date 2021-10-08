@@ -28,7 +28,7 @@ const SummaryProvider = ({ children }) => {
         price: 42000
       },
       {
-        roomType: 'suit',
+        roomType: 'suite',
         amount: 1,
         price: 50000
       }

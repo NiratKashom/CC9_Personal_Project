@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { mockFlightContext } from '../contexts/mockContext';
 
 function Navbar() {
+  const { MOCK_ADMIN, MOCK_USER } = useContext(mockFlightContext);
+
+  const user = MOCK_ADMIN;
+
   return (
     <nav className="nav w100">
       <ul>
@@ -10,9 +15,17 @@ function Navbar() {
         <li><NavLink to="/schedule-flight">SCHEDULE</NavLink></li>
       </ul>
       <ul>
-        <li><NavLink to="/user-manage">MANAGE RESERVATION</NavLink></li>
-        <li><NavLink to="/admin-manage" >welcome username01</NavLink></li>
-        <li><NavLink to="/login">LOG IN / REGISTER</NavLink></li>
+        {user ?
+          <>
+            <li><NavLink to="/user-manage">MANAGE RESERVATION</NavLink></li>
+            <li><NavLink to="/admin-manage" >welcome {user.firstName}</NavLink></li>
+          </>
+          :
+          <>
+            <li><NavLink to="/login">LOG IN / REGISTER</NavLink></li>
+          </>
+        }
+
       </ul>
     </nav>
   );

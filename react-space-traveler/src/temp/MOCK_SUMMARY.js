@@ -14,7 +14,7 @@ const MOCK_SUMMARY = {
       amount: 1,
       price: 35000
     },
-    suit: {
+    suite: {
       amount: 1,
       price: 50000
     }

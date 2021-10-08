@@ -14,42 +14,34 @@ function Schedule() {
 
   return (
     <div className="schedule w75 px2 m0auto dflex-col-center outline">
+      <SummaryProvider>
+        <StepperBar />
 
-      <MockFlightProvider>
-        <SummaryProvider>
-          <StepperBar />
+        <Switch>
 
-          <Switch>
+          {/* <Route path={`${path}/complete`}> */}
 
-            {/* <Route path={`${path}/complete`}> */}
+          {/* </Route> */}
 
-            {/* </Route> */}
+          <Route path={`${path}/payment`}>
 
-            <Route path={`${path}/payment`}>
+            <Payment />
+          </Route>
 
-              <Payment />
-            </Route>
+          <Route path={`${path}/confirm`}>
+            <BookingConfirm />
+          </Route>
 
-            <Route path={`${path}/confirm`}>
-              <BookingConfirm />
-            </Route>
-
-            <Route path={`${path}/room`}>
-              <RoomAndService />
-            </Route>
+          <Route path={`${path}/room`}>
+            <RoomAndService />
+          </Route>
 
 
-            <Route path={`${path}`}>
-              <ScheduleSection flightData={MOCK_FLIGHT} />
-            </Route>
-          </Switch>
-        </SummaryProvider>
-      </MockFlightProvider>
-
-
-
-
-
+          <Route path={`${path}`}>
+            <ScheduleSection flightData={MOCK_FLIGHT} />
+          </Route>
+        </Switch>
+      </SummaryProvider>
     </div>
   );
 }

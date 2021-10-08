@@ -14,7 +14,7 @@ const MockFlightProvider = ({ children }) => {
     roomPrice: {
       standard: 5000,
       deluxe: 10000,
-      suit: 14000
+      suite: 14000
     },
     extraPrice: {
       insurance: 600,
@@ -29,6 +29,15 @@ const MockFlightProvider = ({ children }) => {
     email: 'sadkfj@eamil.com',
     isAdmin: false,
   };
+
+  const MOCK_ADMIN = {
+    id: 'admin5678',
+    firstName: 'ADMIN',
+    lastName: 'nirat',
+    email: 'admin5678@emil.com',
+    isAdmin: true,
+  };
+
 
   const MOCK_EXTRA_LIST = [
     {
@@ -46,7 +55,7 @@ const MockFlightProvider = ({ children }) => {
   ];
 
 
-  return <mockFlightContext.Provider value={{ MOCK_FLIGHT, MOCK_USER, MOCK_EXTRA_LIST }}>
+  return <mockFlightContext.Provider value={{ MOCK_ADMIN, MOCK_FLIGHT, MOCK_USER, MOCK_EXTRA_LIST }}>
     {children}
   </mockFlightContext.Provider>;
 };

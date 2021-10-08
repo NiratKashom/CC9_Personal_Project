@@ -8,27 +8,30 @@ import Register from './pages/Register';
 import Schedule from './pages/Schedule';
 import UserManage from './pages/UserManage';
 import AdminManage from './pages/AdminManage';
+import { MockFlightProvider } from './contexts/mockContext';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Navbar />
-        <Switch>
+      <MockFlightProvider>
+        <div className="App">
+          <Navbar />
+          <Switch>
 
-          <Route path="/login"><Login /></Route>
-          <Route path="/register"><Register /></Route>
-          <Route path="/admin-manage"><AdminManage /></Route>
-          <Route path="/schedule-flight"><Schedule /></Route>
-          <Route path="/user-manage"><UserManage /></Route>
-          <Route exact path="/"><Home /></Route>
-          <Route path="*">
-            <p> 404 page not found</p>
-          </Route>
+            <Route path="/login"><Login /></Route>
+            <Route path="/register"><Register /></Route>
+            <Route path="/admin-manage"><AdminManage /></Route>
+            <Route path="/schedule-flight"><Schedule /></Route>
+            <Route path="/user-manage"><UserManage /></Route>
+            <Route exact path="/"><Home /></Route>
+            <Route path="*">
+              <p> 404 page not found</p>
+            </Route>
 
-        </Switch>
+          </Switch>
 
-      </div>
+        </div>
+      </MockFlightProvider>
     </BrowserRouter>
 
   );
