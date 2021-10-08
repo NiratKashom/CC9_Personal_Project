@@ -12,12 +12,6 @@ function UserManageTable() {
       </Link>
       <AdminMngUserTableRow />
       <AdminMngUserTableRow />
-      <AdminMngUserTableRow />
-      <AdminMngUserTableRow />
-      <AdminMngUserTableRow />
-      <AdminMngUserTableRow />
-
-
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import ContainerWithHeadline from '../components/ContainerWithHeadline';
-import { Link, useHistory } from 'react-router-dom';
-import { mockFlightContext } from '../contexts/mockContext';
+import { useHistory } from 'react-router-dom';
+
 import { summaryContext } from '../contexts/summaryContext';
 import { separateDate, getFormattedDate } from '../services/dateService';
 import { MOCK_USER } from '../temp//MOCK_USER';
@@ -40,8 +40,8 @@ function BookingConfirm() {
     departureLocation,
     destinationLocation,
     flightId,
-    roomList,
-    extraList
+    // roomList,
+    // extraList
   } = currentFlight;
   console.log(MOCK_USER);
 

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { mockFlightContext } from '../contexts/mockContext';
+import { userContext } from '../contexts/userContext';
+import { isEmptyObj } from '../services/validateService';
 
 function Navbar() {
-  const { MOCK_ADMIN, MOCK_USER } = useContext(mockFlightContext);
+  const { user, hdlLogout } = useContext(userContext);
 
-  const user = MOCK_ADMIN;
 
   return (
     <nav className="nav w100">
@@ -15,19 +15,35 @@ function Navbar() {
         <li><NavLink to="/schedule-flight">SCHEDULE</NavLink></li>
       </ul>
       <ul>
-        {user ?
-          <>
-            <li><NavLink to="/user-manage">MANAGE RESERVATION</NavLink></li>
-            <li><NavLink to="/admin-manage" >welcome {user.firstName}</NavLink></li>
-          </>
-          :
+        {!user ?
           <>
             <li><NavLink to="/login">LOG IN / REGISTER</NavLink></li>
           </>
+          :
+          user.isAdmin ?
+            <>
+              <li><NavLink to="/admin-manage">MANAGE schedule</NavLink></li>
+              <li>
+                <NavLink to="#" >welcome admin</NavLink>
+                <button className="btn-outline-red fz15 ml1"
+                  onClick={hdlLogout}
+                >logout</button>
+              </li>
+            </>
+            :
+            <>
+              <li><NavLink to="/user-manage">MANAGE RESERVATION</NavLink></li>
+              <li>
+                <NavLink to="#" >welcome {user.firstName}</NavLink>
+                <button className="btn-outline-red fz15 ml1"
+                  onClick={hdlLogout}
+                >logout</button>
+              </li>
+            </>
         }
 
       </ul>
-    </nav>
+    </nav >
   );
 }
 

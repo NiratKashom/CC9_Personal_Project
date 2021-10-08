@@ -6,7 +6,7 @@ import { mockFlightContext } from '../../contexts/mockContext';
 
 
 function ServiceSelection() {
-  const { MOCK_FLIGHT, MOCK_USER, MOCK_EXTRA_LIST } = useContext(mockFlightContext);
+  const { MOCK_FLIGHT, MOCK_EXTRA_LIST } = useContext(mockFlightContext);
 
   return (
     <>

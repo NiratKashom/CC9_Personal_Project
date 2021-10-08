@@ -1,6 +1,5 @@
 import { createContext, useState } from 'react';
 import { MOCK_FLIGHT } from '../temp/MOCK_SHCEDULE_FLIGTH';
-import { MOCK_USER } from '../temp/MOCK_USER';
 
 const summaryContext = createContext();
 
@@ -9,7 +8,6 @@ const SummaryProvider = ({ children }) => {
 
   const hdlClickIncrStep = () => setStep(step + 1);
   const hdlClickDecrStep = () => setStep(step - 1);
-
 
   const [summary, setSummary] = useState({
     roomList: [
@@ -37,14 +35,6 @@ const SummaryProvider = ({ children }) => {
     );
     setCurrentFlight(cur => ({ ...cur, ...pickOne }));
   };
-
-  // setSummary(cur => ({
-  //   ...cur,
-  //   userId: MOCK_USER.id,
-  //   bookerName: `${MOCK_USER.firstName} ${MOCK_USER.lastName}`,
-  //   flightId: currentFlight.flightId,
-  //   status: 'pending',
-  // }));
 
   return <summaryContext.Provider value={{
     summary, setSummary, sumPrice,
