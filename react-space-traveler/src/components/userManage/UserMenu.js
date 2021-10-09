@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { userContext } from '../../contexts/userContext';
 
 function UserMenu() {
+  const { hdlLogout } = useContext(userContext);
   return (
     <div className="menu p0 flex1 mr1 container-with-bg ">
       <div className="headline txtcenter">
@@ -15,7 +17,7 @@ function UserMenu() {
           <li><a href="./schedule.html" className="fz125">back</a></li>
         </ul>
         <div className=" txtcenter mt15">
-          <button className="btn-red fz15">logout</button>
+          <button className="btn-red fz15" onClick={hdlLogout} >logout</button>
         </div>
       </div>
     </div>

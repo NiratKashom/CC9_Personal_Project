@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminManageScheduleFilterBar from './AdminManageScheduleFilterBar';
-import AdminMngSchdTable from './AdminMngSchdTable';
 import ContainerWithHeadline from '../ContainerWithHeadline';
+import ScheduleTable from '../schedule/ScheduleTable';
 
 
 function AdminManageSchedule() {
@@ -9,7 +9,7 @@ function AdminManageSchedule() {
     <div className="flex3">
       <ContainerWithHeadline headline="manage schedule"  >
         <AdminManageScheduleFilterBar />
-        <AdminMngSchdTable />
+        <ScheduleTable />
       </ContainerWithHeadline>
     </div>
   );

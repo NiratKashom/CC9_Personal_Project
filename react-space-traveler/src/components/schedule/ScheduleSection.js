@@ -2,12 +2,12 @@ import React from 'react';
 import ScheduleFilterBar from '../schedule/ScheduleFilterBar';
 import ScheduleTable from '../schedule/ScheduleTable';
 
-function ScheduleSection(props) {
+function ScheduleSection() {
 
   return (
     <>
       <ScheduleFilterBar />
-      <ScheduleTable flightData={props.flightData} />
+      <ScheduleTable />
     </>
   );
 }

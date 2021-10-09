@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
+import { userContext } from '../../contexts/userContext';
 
 function AdminMenu() {
+  const { hdlLogout } = useContext(userContext);
   const { url } = useRouteMatch();
   return (
     <div className="menu flex1 mr1 container-with-bg p0">
@@ -22,7 +24,7 @@ function AdminMenu() {
           </Link></li>
         </ul>
         <div className=" txtcenter mt15">
-          <button className="btn-red fz15">logout</button>
+          <button className="btn-red fz15" onClick={hdlLogout}>logout</button>
         </div>
       </div>
     </div>

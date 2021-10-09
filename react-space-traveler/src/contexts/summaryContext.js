@@ -18,15 +18,13 @@ const SummaryProvider = ({ children }) => {
     ]
   });
 
-
-
   const sumPrice = summary.roomList.reduce((acc, item) => {
     return acc += item.price * item.amount;
   }, 0) + summary.extraList.reduce((acc, item) => {
     return acc += item.price * item.amount;
   }, 0);
 
-  const [currentFlight, setCurrentFlight] = useState({});
+  const [currentFlight, setCurrentFlight] = useState('');
 
 
   const hdlClickSetCurFlightWithId = (flightId) => {

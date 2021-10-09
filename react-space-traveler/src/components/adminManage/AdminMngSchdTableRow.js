@@ -39,4 +39,4 @@ function AdminMngSchdTableRow() {
   );
 }
 
-export default AdminMngSchdTableRow;
+// export default AdminMngSchdTableRow;

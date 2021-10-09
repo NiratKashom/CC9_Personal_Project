@@ -2,17 +2,13 @@ import React, { useContext } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { separateDate, getFormattedDate } from '../../services/dateService';
 import { summaryContext } from '../../contexts/summaryContext';
+import { userContext } from '../../contexts/userContext';
 
 function ScheduleTableRow(props) {
   const history = useHistory();
   const { path } = useRouteMatch();
   const { hdlClickIncrStep, hdlClickSetCurFlightWithId } = useContext(summaryContext);
-
-  const hdlClickToRoomById = () => {
-    hdlClickIncrStep();
-    hdlClickSetCurFlightWithId(flightId);
-    history.push(`${path}/room/${flightId}`);
-  };
+  const { user } = useContext(userContext);
 
   const {
     departureDate,
@@ -25,11 +21,19 @@ function ScheduleTableRow(props) {
     // extraPrice
   } = props.data;
 
+  const hdlClickToRoomById = () => {
+    hdlClickIncrStep();
+    hdlClickSetCurFlightWithId(flightId);
+    history.push(`${path}/room/${flightId}`);
+  };
 
-
+  const hdlClickEditSchdById = () => {
+    hdlClickSetCurFlightWithId(flightId);
+    history.push(`${path}/manage-flight/${flightId}`);
+  };
 
   return (
-    <div onClick={hdlClickToRoomById} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
+    <div onClick={user.isAdmin ? hdlClickEditSchdById : hdlClickToRoomById} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
       <div className="dflex flex4">
         <div className="flex1">
           <p className="fz25">{separateDate(departureDate, 'day')}</p>

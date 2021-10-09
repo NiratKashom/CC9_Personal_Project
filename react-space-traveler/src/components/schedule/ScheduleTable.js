@@ -1,18 +1,15 @@
 import React from 'react';
 import ScheduleTableRow from './ScheduleTableRow';
+import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
 
-
-function ScheduleTable(props) {
-
-  const { flightData } = props;
+function ScheduleTable() {
+  console.log(MOCK_FLIGHT);
 
   return (
-    <div className="schedule-table w100">
-      {flightData.map((data, idx) => {
+    <div className="w100">
+      {MOCK_FLIGHT.map((data, idx) => {
         return (
-
           <ScheduleTableRow key={idx} data={data} />
-
         );
       })}
     </div >

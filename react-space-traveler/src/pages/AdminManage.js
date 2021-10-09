@@ -15,7 +15,7 @@ function AdminManage() {
         <Route path={`${path}/AdminMngUserReserveInfo`}>
           <AdminMngUserReserveInfo />
         </Route>
-        <Route path={`${path}/create-flight`}>
+        <Route path={`${path}/manage-flight`}>
           <AdminEditFlight />
         </Route>
         <Route path={`${path}/user-reservation`}>

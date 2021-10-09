@@ -4,7 +4,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 function AdminManageScheduleFilterBar() {
   const { url } = useRouteMatch();
   return (
-    <div className="admin-schedule-filter dflex-jbetween">
+    <div className="dflex-jbetween mb1">
       <div>
         <label className="fz125 ttcap mr05" >destination :</label>
         <select className="p05 mr125 fz125 ttcap" >
@@ -18,7 +18,7 @@ function AdminManageScheduleFilterBar() {
       </div >
       <div>
 
-        <Link to={`${url}/create-flight`}
+        <Link to={`${url}/manage-flight`}
           className="btn-blue fz125"
         >create schedule</Link>
       </div>

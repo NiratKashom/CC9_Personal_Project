@@ -9,6 +9,8 @@ import UserManage from './pages/UserManage';
 import AdminManage from './pages/AdminManage';
 import { MockFlightProvider } from './contexts/mockContext';
 import { UserProvider } from './contexts/userContext';
+import { SummaryProvider } from './contexts/summaryContext';
+
 
 function App() {
   return (
@@ -18,19 +20,21 @@ function App() {
         <MockFlightProvider>
           <div className="App">
             <Navbar />
+
             <Switch>
 
               <Route path="/login"><Login /></Route>
               <Route path="/register"><Register /></Route>
-              <Route path="/admin-manage"><AdminManage /></Route>
-              <Route path="/schedule-flight"><Schedule /></Route>
+              <SummaryProvider>
+                <Route path="/admin-manage"><AdminManage /></Route>
+                <Route path="/schedule-flight"><Schedule /></Route>
+              </SummaryProvider>
               <Route path="/user-manage"><UserManage /></Route>
-              <Route exact path="/"><Home /></Route>
+              <Route exact path="/home"><Home /></Route>
 
               <Route path="*">
                 <p> 404 page not found</p>
               </Route>
-
             </Switch>
 
           </div>
