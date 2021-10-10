@@ -24,7 +24,24 @@ const SummaryProvider = ({ children }) => {
     return acc += item.price * item.amount;
   }, 0);
 
-  const [currentFlight, setCurrentFlight] = useState('');
+  const [currentFlight, setCurrentFlight] = useState({
+    flightId: '',
+    departureDate: '',
+    arrivalDate: '',
+    returnDate: '',
+    departureLocation: '',
+    destinationLocation: '',
+    roomPrice: {
+      standard: 0,
+      deluxe: 0,
+      suite: 0
+    },
+    extraPrice: {
+      insurance: 0,
+      dinner: 0,
+      fitness: 0,
+    }
+  });
 
 
   const hdlClickSetCurFlightWithId = (flightId) => {

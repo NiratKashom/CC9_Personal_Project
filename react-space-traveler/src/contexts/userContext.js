@@ -7,7 +7,7 @@ const userContext = createContext();
 
 const UserProvider = ({ children }) => {
   const history = useHistory();
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState({ isAdmin: 1 });
 
   const hdlUserLogin = input => {
     const currentUser = MOCK_USER.find(item =>
@@ -28,7 +28,7 @@ const UserProvider = ({ children }) => {
   };
 
   const hdlLogout = () => {
-    setUser(cur => '');
+    setUser('');
     history.push('/login');
   };
 

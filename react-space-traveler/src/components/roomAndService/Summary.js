@@ -12,6 +12,7 @@ function Summary() {
   const { summary, sumPrice, hdlClickDecrStep, hdlClickIncrStep, step, setCurrentFlight } = useContext(summaryContext);
 
   const hdlClickBack = () => {
+    setCurrentFlight('');
     hdlClickDecrStep();
     history.goBack();
   };
@@ -50,7 +51,6 @@ function Summary() {
               </div>
             ))
             }
-
           </div>
 
           <p className="fz125 txtend mb125">

@@ -7,9 +7,13 @@ import ScheduleTableRow from '../schedule/ScheduleTableRow';
 
 function AdminEditFlight() {
   const history = useHistory();
-  const { currentFlight } = useContext(summaryContext);
+  const { currentFlight, setCurrentFlight } = useContext(summaryContext);
 
-  console.log(currentFlight);
+  const hdlClickGoBackAndClearCurFlight = () => {
+    setCurrentFlight('');
+    history.goBack();
+  };
+
 
   return (
     <div className="flex3">
@@ -93,7 +97,7 @@ function AdminEditFlight() {
               <select name="" id="">
                 <option value="">Select</option>
               </select>
-            </div>
+            </div>ps
           </div>
         </div>
 
@@ -105,25 +109,14 @@ function AdminEditFlight() {
           </div>
           <div className="dflex w25">
             <button className="fz125 btn-orange mr1 flex1 "
-              onClick={() => history.goBack()}
+              onClick={hdlClickGoBackAndClearCurFlight}
             >back</button>
             <button className="fz125 btn-green flex1">submit</button>
           </div>
         </div>
 
-
-        {/* <div className="dflex-jend">
-          <div className="dflex w25">
-            <button className="fz125 btn-orange mr1 flex1 "
-              onClick={() => history.goBack()}
-            >back</button>
-            <button className="fz125 btn-green flex1">submit</button>
-          </div>
-        </div> */}
-
-
-      </ContainerWithHeadline>
-    </div>
+      </ContainerWithHeadline >
+    </div >
   );
 }
 

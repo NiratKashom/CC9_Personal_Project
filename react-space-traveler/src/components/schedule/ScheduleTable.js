@@ -3,7 +3,6 @@ import ScheduleTableRow from './ScheduleTableRow';
 import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
 
 function ScheduleTable() {
-  console.log(MOCK_FLIGHT);
 
   return (
     <div className="w100">
