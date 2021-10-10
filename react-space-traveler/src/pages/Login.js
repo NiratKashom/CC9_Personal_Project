@@ -3,18 +3,14 @@ import { Link } from 'react-router-dom';
 import { userContext } from '../contexts/userContext';
 
 function Login() {
-  const { hdlUserLogin } = useContext(userContext);
+  const { hdlSubmitLogin } = useContext(userContext);
   const [loginInput, setLoginInput] = useState({ email: '', password: '' });
 
-  const hdlClickSubmitLogin = e => {
-    e.preventDefault();
-    hdlUserLogin(loginInput);
-  };
   return (
     <div className="center">
       <div className="login modal dflex-col p25">
         <p className="fz25 mb2">LOGIN</p>
-        <form onSubmit={e => hdlClickSubmitLogin(e)}>
+        <form onSubmit={e => hdlSubmitLogin(e, loginInput)}>
           <input className="fz15 mb2 w100" type="text" placeholder="Email"
             value={loginInput.email}
             onChange={e => setLoginInput(cur => ({ ...cur, email: e.target.value }))}

@@ -10,8 +10,8 @@ function AdminEditFlight() {
   const { currentFlight, setCurrentFlight } = useContext(summaryContext);
 
   const hdlClickGoBackAndClearCurFlight = () => {
-    setCurrentFlight('');
     history.goBack();
+    setCurrentFlight('');
   };
 
 
@@ -105,7 +105,9 @@ function AdminEditFlight() {
         <ScheduleTableRow data={currentFlight} />
         <div className="dflex-jbetween">
           <div className="">
-            <button className="btn-red fz125">delete flight</button>
+            {currentFlight ? <></> :
+              <button className="btn-red fz125">delete flight</button>
+            }
           </div>
           <div className="dflex w25">
             <button className="fz125 btn-orange mr1 flex1 "

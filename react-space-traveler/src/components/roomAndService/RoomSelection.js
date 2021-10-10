@@ -8,7 +8,7 @@ import { summaryContext } from '../../contexts/summaryContext';
 function RoomSelection() {
   const { currentFlight } = useContext(summaryContext);
   const [roomType, setRoomType] = useState('standard');
-  console.log(currentFlight);
+
   return (
     <div className="container-with-bg mb125 p2">
       <SelectTypeRoom setRoomType={setRoomType} />
