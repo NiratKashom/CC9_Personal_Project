@@ -2,7 +2,6 @@ import { createContext, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { API_URL } from '../config/env';
-import { MOCK_USER } from '../temp/MOCK_USER';
 
 
 const userContext = createContext();
@@ -16,31 +15,25 @@ const UserProvider = ({ children }) => {
     e.preventDefault();
     // console.log(loginInput);
     try {
-      const res = await axios.post(`${API_URL}/login'`, loginInput);
-      setUser(res.data);
-      history.push('/schedule-flight');
+      const res = await axios.post(`${API_URL}/login`, loginInput);
+      setUser(cur => ({ ...cur, ...res.data.user }));
+      history.push('/');
     } catch (error) {
       if (error.response && error.response.status === 400) {
         console.log('Invalid username or password');
       }
     }
+  };
 
-
-    // const currentUser = MOCK_USER.find(item =>
-    //   item.email === input.email
-    // );
-    // if (currentUser) {
-    //   setUser(cur => ({ ...cur, ...currentUser }));
-    //   if (currentUser.isAdmin) {
-    //     console.log(`ADMIN LOGIN!!`);
-    //     history.push('/admin-manage');
-    //     return;
-    //   }
-    //   console.log(`USER LOGIN!!`);
-    //   history.push('/schedule-flight');
-    //   return;
-    // }
-    // console.log('email or password is invalid');
+  const hdlSubmitRegister = async (e, regInfo) => {
+    e.preventDefault();
+    try {
+      await axios.post(`${API_URL}/register`, regInfo);
+      console.log('register success');
+      history.push('/login');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const hdlLogout = () => {
@@ -50,7 +43,7 @@ const UserProvider = ({ children }) => {
 
   return <userContext.Provider value={{
     user, setUser,
-    hdlSubmitLogin, hdlLogout
+    hdlSubmitLogin, hdlLogout, hdlSubmitRegister
   }}>
     {children}
   </userContext.Provider>;
