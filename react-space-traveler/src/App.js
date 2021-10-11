@@ -26,14 +26,15 @@ function App() {
 
               <Route path="/login"><Login /></Route>
               <Route path="/register"><Register /></Route>
+              <Route path="/user-manage"><UserManage /></Route>
+              <Route path="/home"><Home /></Route>
               <SummaryProvider>
                 <ServiceProvider>
                   <Route path="/admin-manage"><AdminManage /></Route>
                   <Route path="/schedule-flight"><Schedule /></Route>
                 </ServiceProvider>
               </SummaryProvider>
-              <Route path="/user-manage"><UserManage /></Route>
-              <Route exact path="/home"><Home /></Route>
+
 
               <Route path="*">
                 <p> 404 page not found</p>

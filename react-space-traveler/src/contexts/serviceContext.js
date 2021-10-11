@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
-import { API_URL } from '../config/env';
-import axios from 'axios';
+import axios from '../config/axios';
+
 
 const serviceContext = createContext();
 
@@ -8,7 +8,7 @@ const ServiceProvider = ({ children }) => {
   const [serviceList, setserviceList] = useState([]);
 
   useEffect(() => {
-    axios.get(`${API_URL}/service`)
+    axios.get(`/service`)
       .then(res => {
         setserviceList(res.data.services);
       })

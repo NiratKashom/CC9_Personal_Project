@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../config/axios';
 import ScheduleTableRow from './ScheduleTableRow';
 // import { getToken } from '../services/localStorage';
 // import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
-import { API_URL } from '../../config/env';
-import { serviceContext } from '../../contexts/serviceContext';
+// import { API_URL } from '../../config/env';
+// import { serviceContext } from '../../contexts/serviceContext';
 
 function ScheduleTable(props) {
   const [schedule, setSchedule] = useState([]);
   const { filter } = props;
 
   useEffect(() => {
-    axios.get(`${API_URL}/schedule-flight`)
+    axios.get('/schedule-flight')
       .then(res => {
         setSchedule(res.data.flights);
       })
