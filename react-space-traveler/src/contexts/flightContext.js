@@ -75,7 +75,18 @@ const FlightProvider = ({ children }) => {
     try {
       await axios.post(`/schedule-flight/`, flightForCreate);
       history.push('/admin-manage');
-      window.location.reload();
+      setCurrentFlight('');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const hdlDeleteFilght = async () => {
+    try {
+      await axios.delete(`/schedule-flight/${currentFlight.id}`);
+      window.alert(`Flight: ${currentFlight.id} Delete success`);
+      history.push('/admin-manage');
+      setCurrentFlight('');
     } catch (error) {
       console.log(error);
     }
@@ -86,7 +97,7 @@ const FlightProvider = ({ children }) => {
     hdlClickSetCurFlightWithId, currentFlight, setCurrentFlight,
     flightForCreate, setFlightForCreate,
     hdlChangeEditFlight, hdlClickGoBackAndClearCurFlight,
-    hdlSubmitCreateFilght
+    hdlSubmitCreateFilght, hdlDeleteFilght
 
   }}>
     {children}

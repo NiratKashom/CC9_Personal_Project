@@ -21,8 +21,6 @@ function ScheduleTableRow(props) {
     departure,
     destination,
     id: flightId,
-    // roomPrice,
-    // extraPrice
   } = props.data;
 
   let calcPrice = serviceList[0]?.price;

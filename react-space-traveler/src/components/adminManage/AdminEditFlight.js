@@ -10,14 +10,14 @@ function AdminEditFlight() {
     currentFlight,
     flightForCreate,
     hdlChangeEditFlight, hdlClickGoBackAndClearCurFlight,
-    hdlSubmitCreateFilght
+    hdlSubmitCreateFilght, hdlDeleteFilght
   } = useContext(flightContext);
 
   const {
     departureDate,
     arrivalDate,
     returnDate,
-    departure,
+    // departure,
     destination,
     id: flightId,
   } = currentFlight;
@@ -25,6 +25,11 @@ function AdminEditFlight() {
   const formatDateInput = (dateObj) => {
     if (dateObj) return dateObj.toString().split('T')[0];
     return null;
+  };
+
+  const hdlCLickDel = e => {
+    e.preventDefault();
+    if (window.confirm("Delete Fligth?")) hdlDeleteFilght();
   };
 
   return (
@@ -127,7 +132,7 @@ function AdminEditFlight() {
             <div className="">
               {!currentFlight ? null :
                 <button className="btn-red fz125" type="button"
-                  onClick={() => console.log(`DELETE THIS FLIGHT: ${flightId}`)}
+                  onClick={hdlCLickDel}
                 >delete flight</button>
               }
             </div>
