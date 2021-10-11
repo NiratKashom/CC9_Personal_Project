@@ -1,37 +1,17 @@
-import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext } from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
-// import { summaryContext } from '../../contexts/summaryContext';
 import { flightContext } from '../../contexts/flightContext';
 import ScheduleTableRow from '../schedule/ScheduleTableRow';
 // import { separateDate, getFormattedDate } from '../../services/dateService';
 
 
 function AdminEditFlight() {
-  const history = useHistory();
-  const { currentFlight, setCurrentFlight } = useContext(flightContext);
-  const [flightForCreate, setFlightForCreate] = useState({ departure: 'earth' });
-
-  const hdlChangeNewFlight = (e) => {
-    let ISODate;
-    if (e.target.type === 'date') ISODate = new Date(e.target.value).toISOString();
-    switch (e.target.name) {
-      case 'departureDate':
-        setFlightForCreate(cur => ({ ...cur, departureDate: ISODate }));
-        break;
-      case 'arrivalDate':
-        setFlightForCreate(cur => ({ ...cur, arrivalDate: ISODate }));
-        break;
-      case 'returnDate':
-        setFlightForCreate(cur => ({ ...cur, returnDate: ISODate }));
-        break;
-      case 'destination':
-        setFlightForCreate(cur => ({ ...cur, destination: e.target.value }));
-        break;
-      default:
-        break;
-    }
-  };
+  const {
+    currentFlight,
+    flightForCreate,
+    hdlChangeEditFlight, hdlClickGoBackAndClearCurFlight,
+    hdlSubmitCreateFilght
+  } = useContext(flightContext);
 
   const {
     departureDate,
@@ -42,51 +22,16 @@ function AdminEditFlight() {
     id: flightId,
   } = currentFlight;
 
-  const hdlChangeEditFlight = (e) => {
-    let ISODate;
-    if (e.target.type === 'date') ISODate = new Date(e.target.value).toISOString();
-    switch (e.target.name) {
-      case 'departureDate':
-        setCurrentFlight(cur => ({ ...cur, departureDate: ISODate }));
-        break;
-      case 'arrivalDate':
-        setCurrentFlight(cur => ({ ...cur, arrivalDate: ISODate }));
-        break;
-      case 'returnDate':
-        setCurrentFlight(cur => ({ ...cur, returnDate: ISODate }));
-        break;
-      case 'destination':
-        setCurrentFlight(cur => ({ ...cur, destination: e.target.value }));
-        break;
-      default:
-        break;
-    }
-  };
-
-  const hdlClickGoBackAndClearCurFlight = () => {
-    history.goBack();
-    setCurrentFlight('');
-    setFlightForCreate({ departure: 'earth' });
-  };
-
   const formatDateInput = (dateObj) => {
     if (dateObj) return dateObj.toString().split('T')[0];
     return null;
   };
 
-  const hdlSubmitFilght = e => {
-    e.preventDefault();
-    console.log(currentFlight || flightForCreate);
-  };
-
-  console.log(currentFlight);
-  console.log(flightForCreate);
-
   return (
     <div className="flex3">
       <ContainerWithHeadline headline={currentFlight ?
         `edit flight id : ${currentFlight.id}` : `create flight`}  >
-        <form onSubmit={hdlSubmitFilght}>
+        <form onSubmit={hdlSubmitCreateFilght}>
           <p className="fz15 ttunderline mb1 ttcap">Fight info</p>
           <div className=" dflex-jbetween alistart mb1">
             <div className=" w45 mr15">
@@ -99,7 +44,7 @@ function AdminEditFlight() {
               <div className="dflex-jbetween ">
                 <label htmlFor="destination">destination</label>
                 <select name="destination" id="destination"
-                  onChange={e => { currentFlight ? hdlChangeEditFlight(e) : hdlChangeNewFlight(e); }}
+                  onChange={e => hdlChangeEditFlight(e)}
                   value={destination}
                 >
                   <option value=''>choose</option>
@@ -115,21 +60,21 @@ function AdminEditFlight() {
               <div className="dflex-jbetween mb1">
                 <label htmlFor="departureDate">Departure Date</label>
                 <input type="date" name="departureDate" id="departureDate"
-                  onChange={e => { currentFlight ? hdlChangeEditFlight(e) : hdlChangeNewFlight(e); }}
+                  onChange={e => hdlChangeEditFlight(e)}
                   value={formatDateInput(departureDate)}
                 />
               </div>
               <div className="dflex-jbetween mb1">
                 <label htmlFor="arrivalDate">arrival Date</label>
                 <input type="date" name="arrivalDate" id="arrivalDate"
-                  onChange={e => { currentFlight ? hdlChangeEditFlight(e) : hdlChangeNewFlight(e); }}
+                  onChange={e => hdlChangeEditFlight(e)}
                   value={formatDateInput(arrivalDate)}
                 />
               </div>
               <div className="dflex-jbetween">
                 <label htmlFor="returnDate">return Date</label>
                 <input type="date" name="returnDate" id="returnDate"
-                  onChange={e => { currentFlight ? hdlChangeEditFlight(e) : hdlChangeNewFlight(e); }}
+                  onChange={e => hdlChangeEditFlight(e)}
                   value={formatDateInput(returnDate)}
                 />
               </div>
