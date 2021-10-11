@@ -15,7 +15,6 @@ function AdminMenu() {
       </div>
       <div className="content ">
         <ul className="user-menu-list mt1">
-
           <li><Link to={`${url}`} className="fz125 ttcap">
             manage schedule
           </Link></li>

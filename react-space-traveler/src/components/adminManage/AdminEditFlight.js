@@ -1,17 +1,63 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import ContainerWithHeadline from '../ContainerWithHeadline';
 import { summaryContext } from '../../contexts/summaryContext';
 import ScheduleTableRow from '../schedule/ScheduleTableRow';
+import { separateDate, getFormattedDate } from '../../services/dateService';
 
 
 function AdminEditFlight() {
   const history = useHistory();
   const { currentFlight, setCurrentFlight } = useContext(summaryContext);
 
+  // const [editFlight, setEditFlight] = useState(
+  // );
+
+
+  const {
+    departureDate,
+    arrivalDate,
+    returnDate,
+    departure,
+    destination,
+    id: flightId,
+  } = currentFlight;
+
+  // const cloneFlight = {
+  //   departureDate: currentFlight.departureDate,
+  //   arrivalDate: currentFlight.arrivalDate,
+  //   returnDate: currentFlight.returnDate,
+  // };
+
+  const hdlChangeEditFlight = (e) => {
+    let ISODate;
+    if (e.target.type === 'date') ISODate = new Date(e.target.value).toISOString();
+    switch (e.target.name) {
+      case 'departureDate':
+        setCurrentFlight(cur => ({ ...cur, departureDate: ISODate }));
+        break;
+      case 'arrivalDate':
+        setCurrentFlight(cur => ({ ...cur, arrivalDate: ISODate }));
+        break;
+      case 'returnDate':
+        setCurrentFlight(cur => ({ ...cur, returnDate: ISODate }));
+        break;
+      case 'destination':
+        setCurrentFlight(cur => ({ ...cur, destination: e.target.value }));
+        break;
+      default:
+        break;
+    }
+  };
+
   const hdlClickGoBackAndClearCurFlight = () => {
     history.goBack();
     setCurrentFlight('');
+  };
+
+  const formatDateInput = (dateObj) => {
+    if (dateObj) return dateObj.toString().split('T')[0];
+    return null;
   };
 
   console.log(currentFlight);
@@ -32,7 +78,8 @@ function AdminEditFlight() {
             <div className="dflex-jbetween ">
               <label htmlFor="destination">destination</label>
               <select name="destination" id="destination"
-                value={currentFlight.destination}
+                onChange={e => hdlChangeEditFlight(e)}
+                value={destination}
               >
                 <option value='moon'>moon</option>
                 <option value="mars">mars</option>
@@ -44,16 +91,25 @@ function AdminEditFlight() {
 
           <div className=" flex1">
             <div className="dflex-jbetween mb1">
-              <label htmlFor="">Departure Date</label>
-              <input type="date" name="" id="" />
+              <label htmlFor="departureDate">Departure Date</label>
+              <input type="date" name="departureDate" id="departureDate"
+                onChange={e => hdlChangeEditFlight(e)}
+                value={formatDateInput(departureDate)}
+              />
             </div>
             <div className="dflex-jbetween mb1">
-              <label htmlFor="">arrival Date</label>
-              <input type="date" name="" id="" />
+              <label htmlFor="arrivalDate">arrival Date</label>
+              <input type="date" name="arrivalDate" id="arrivalDate"
+                onChange={e => hdlChangeEditFlight(e)}
+                value={formatDateInput(arrivalDate)}
+              />
             </div>
             <div className="dflex-jbetween">
-              <label htmlFor="">return Date</label>
-              <input type="date" name="" id="" />
+              <label htmlFor="returnDate">return Date</label>
+              <input type="date" name="returnDate" id="returnDate"
+                onChange={e => hdlChangeEditFlight(e)}
+                value={formatDateInput(returnDate)}
+              />
             </div>
           </div>
         </div>
@@ -95,12 +151,6 @@ function AdminEditFlight() {
                 <option value="">Select</option>
               </select>
             </div>
-            <div className="dflex-jbetween">
-              <label htmlFor="">xxxxxxx</label>
-              <select name="" id="">
-                <option value="">Select</option>
-              </select>
-            </div>ps
           </div>
         </div>
 
@@ -113,13 +163,12 @@ function AdminEditFlight() {
             }
           </div>
           <div className="dflex w25">
-            <button className="fz125 btn-orange mr1 flex1 "
+            <button className="fz125 btn-orange mr1 flex1"
               onClick={hdlClickGoBackAndClearCurFlight}
             >back</button>
             <button className="fz125 btn-green flex1">submit</button>
           </div>
         </div>
-
       </ContainerWithHeadline >
     </div >
   );
