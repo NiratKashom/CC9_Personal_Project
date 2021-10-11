@@ -1,7 +1,9 @@
 import { createContext, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { setToken, removeToken } from '../services/localStorageService';
 import { API_URL } from '../config/env';
+import jwtDecode from 'jwt-decode';
 
 
 const userContext = createContext();
@@ -16,7 +18,8 @@ const UserProvider = ({ children }) => {
     // console.log(loginInput);
     try {
       const res = await axios.post(`${API_URL}/login`, loginInput);
-      setUser(cur => ({ ...cur, ...res.data.user }));
+      setToken(res.data.token);
+      setUser(jwtDecode(res.data.token));
       history.push('/');
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -37,6 +40,7 @@ const UserProvider = ({ children }) => {
   };
 
   const hdlLogout = () => {
+    removeToken();
     setUser(null);
     history.push('/login');
   };

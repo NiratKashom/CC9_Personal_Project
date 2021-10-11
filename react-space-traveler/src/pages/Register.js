@@ -1,9 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { userContext } from '../contexts/userContext';
-import { useHistory } from 'react-router-dom';
 
 function Register() {
-  const history = useHistory();
   const { hdlSubmitRegister } = useContext(userContext);
   const [regInfo, setRegInfo] = useState({
     email: '',
