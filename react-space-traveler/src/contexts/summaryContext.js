@@ -1,5 +1,7 @@
 import { createContext, useState } from 'react';
-import { MOCK_FLIGHT } from '../temp/MOCK_SHCEDULE_FLIGTH';
+// import { MOCK_FLIGHT } from '../temp/MOCK_SHCEDULE_FLIGTH';
+import { API_URL } from '../config/env';
+import axios from 'axios';
 
 const summaryContext = createContext();
 
@@ -44,11 +46,14 @@ const SummaryProvider = ({ children }) => {
   });
 
 
-  const hdlClickSetCurFlightWithId = (flightId) => {
-    const pickOne = MOCK_FLIGHT.find(item =>
-      item.flightId === flightId
-    );
-    setCurrentFlight(cur => ({ ...cur, ...pickOne }));
+  const hdlClickSetCurFlightWithId = async (flightId) => {
+    try {
+      const res = await axios.get(`${API_URL}/schedule-flight/${flightId}`);
+      setCurrentFlight(cur => ({ ...cur, ...res.data.flight }));
+    } catch (error) {
+      console.log(error);
+    }
+    // setCurrentFlight(cur => ({ ...cur, ...pickOne }));
   };
 
   return <summaryContext.Provider value={{

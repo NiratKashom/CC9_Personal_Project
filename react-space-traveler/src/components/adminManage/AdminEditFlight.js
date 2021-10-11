@@ -14,11 +14,12 @@ function AdminEditFlight() {
     setCurrentFlight('');
   };
 
+  console.log(currentFlight);
 
   return (
     <div className="flex3">
       <ContainerWithHeadline headline={currentFlight ?
-        `edit flight id : ${currentFlight.flightId}` : `create flight`}  >
+        `edit flight id : ${currentFlight.id}` : `create flight`}  >
         <p className="fz15 ttunderline mb1 ttcap">Fight info</p>
         <div className=" dflex-jbetween alistart borderbot">
           <div className=" w45 mr15">
@@ -29,11 +30,13 @@ function AdminEditFlight() {
               </select>
             </div>
             <div className="dflex-jbetween ">
-              <label htmlFor="">destination</label>
-              <select name="" id="">
-                <option value="">moon</option>
-                <option value="">mars</option>
-                <option value="">jupiter</option>
+              <label htmlFor="destination">destination</label>
+              <select name="destination" id="destination"
+                value={currentFlight.destination}
+              >
+                <option value='moon'>moon</option>
+                <option value="mars">mars</option>
+                <option value="jupiter">jupiter</option>
               </select>
             </div>
 

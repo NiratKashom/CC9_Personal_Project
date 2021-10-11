@@ -10,6 +10,7 @@ import AdminManage from './pages/AdminManage';
 import { MockFlightProvider } from './contexts/mockContext';
 import { UserProvider } from './contexts/userContext';
 import { SummaryProvider } from './contexts/summaryContext';
+import { ServiceProvider } from './contexts/serviceContext';
 
 
 function App() {
@@ -26,8 +27,10 @@ function App() {
               <Route path="/login"><Login /></Route>
               <Route path="/register"><Register /></Route>
               <SummaryProvider>
-                <Route path="/admin-manage"><AdminManage /></Route>
-                <Route path="/schedule-flight"><Schedule /></Route>
+                <ServiceProvider>
+                  <Route path="/admin-manage"><AdminManage /></Route>
+                  <Route path="/schedule-flight"><Schedule /></Route>
+                </ServiceProvider>
               </SummaryProvider>
               <Route path="/user-manage"><UserManage /></Route>
               <Route exact path="/home"><Home /></Route>

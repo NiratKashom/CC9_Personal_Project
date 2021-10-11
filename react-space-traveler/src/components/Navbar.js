@@ -12,7 +12,8 @@ function Navbar() {
       <ul>
         <li className='branding'><Link to="/home">SPACE TRAVEL</Link></li>
         {/* <li><Link to="./destination.html">DESTINATION</Link></li> */}
-        <li><NavLink to="/schedule-flight">SCHEDULE</NavLink></li>
+        {!user?.isAdmin ? <li><NavLink to="/schedule-flight">SCHEDULE</NavLink></li> : null}
+
       </ul>
       <ul>
         {/* condition rendering by user and isAdmin */}

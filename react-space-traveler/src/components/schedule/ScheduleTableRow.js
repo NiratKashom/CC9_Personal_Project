@@ -3,12 +3,14 @@ import { useHistory, useRouteMatch } from 'react-router-dom';
 import { separateDate, getFormattedDate } from '../../services/dateService';
 import { summaryContext } from '../../contexts/summaryContext';
 import { userContext } from '../../contexts/userContext';
+import { serviceContext } from '../../contexts/serviceContext';
 
 function ScheduleTableRow(props) {
   const history = useHistory();
   const { path } = useRouteMatch();
   const { hdlClickIncrStep, hdlClickSetCurFlightWithId } = useContext(summaryContext);
   const { user } = useContext(userContext);
+  const { serviceList } = useContext(serviceContext);
 
   const {
     departureDate,
@@ -17,9 +19,21 @@ function ScheduleTableRow(props) {
     departure,
     destination,
     id: flightId,
-    roomPrice,
+    // roomPrice,
     // extraPrice
   } = props.data;
+
+  let calcPrice = serviceList[0]?.price;
+  switch (destination) {
+    case 'mars':
+      calcPrice = serviceList[0]?.price * 1.5;
+      break;
+    case 'jupiter':
+      calcPrice = serviceList[0]?.price * 3;
+      break;
+    default:
+      break;
+  }
 
   const hdlClickToRoomById = () => {
     hdlClickIncrStep();
@@ -33,7 +47,7 @@ function ScheduleTableRow(props) {
   };
 
   return (
-    <div onClick={user.isAdmin ? hdlClickEditSchdById : hdlClickToRoomById} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
+    <div onClick={user?.isAdmin ? hdlClickEditSchdById : hdlClickToRoomById} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
       <div className="dflex flex4">
         <div className="flex1">
           <p className="fz25">{separateDate(departureDate, 'day')}</p>
@@ -64,7 +78,8 @@ function ScheduleTableRow(props) {
         </div>
       </div>
       <div className="flex1 container-with-bg p125 dflex-jcenter alignitmcenter">
-        <p className="fz3">{roomPrice?.standard}<span className="fz2 ">&#3647;</span></p>
+        <p className="fz3">{calcPrice}<span className="fz2 ">&#3647;</span></p>
+        {/* <p className="fz3">{roomPrice?.standard}<span className="fz2 ">&#3647;</span></p> */}
       </div>
     </div>);
 }

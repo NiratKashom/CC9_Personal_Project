@@ -4,6 +4,7 @@ import ScheduleTableRow from './ScheduleTableRow';
 // import { getToken } from '../services/localStorage';
 // import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
 import { API_URL } from '../../config/env';
+import { serviceContext } from '../../contexts/serviceContext';
 
 function ScheduleTable(props) {
   const [schedule, setSchedule] = useState([]);
@@ -27,8 +28,6 @@ function ScheduleTable(props) {
       );
     });
 
-  console.log(filterFlight);
-
   return (
     <div className="w100">
       {filter ? filterFlight :
@@ -38,11 +37,6 @@ function ScheduleTable(props) {
           );
         })
       }
-      {/* {schedule.map((data, idx) => {
-        return (
-          <ScheduleTableRow key={idx} data={data} />
-        );
-      })} */}
     </div >
   );
 }
