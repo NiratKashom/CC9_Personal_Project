@@ -3,7 +3,6 @@ import axios from '../../config/axios';
 import ScheduleTableRow from './ScheduleTableRow';
 // import { getToken } from '../services/localStorage';
 // import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
-// import { API_URL } from '../../config/env';
 // import { serviceContext } from '../../contexts/serviceContext';
 
 function ScheduleTable(props) {

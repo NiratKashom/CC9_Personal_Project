@@ -1,6 +1,4 @@
 import { createContext, useState } from 'react';
-// import { MOCK_FLIGHT } from '../temp/MOCK_SHCEDULE_FLIGTH';
-import { API_URL } from '../config/env';
 import axios from '../config/axios';
 
 const summaryContext = createContext();
@@ -33,16 +31,6 @@ const SummaryProvider = ({ children }) => {
     returnDate: '',
     departureLocation: '',
     destinationLocation: '',
-    roomPrice: {
-      standard: 0,
-      deluxe: 0,
-      suite: 0
-    },
-    extraPrice: {
-      insurance: 0,
-      dinner: 0,
-      fitness: 0,
-    }
   });
 
 
@@ -53,7 +41,6 @@ const SummaryProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-    // setCurrentFlight(cur => ({ ...cur, ...pickOne }));
   };
 
   return <summaryContext.Provider value={{

@@ -4,11 +4,13 @@ import { separateDate, getFormattedDate } from '../../services/dateService';
 import { summaryContext } from '../../contexts/summaryContext';
 import { userContext } from '../../contexts/userContext';
 import { serviceContext } from '../../contexts/serviceContext';
+import { flightContext } from '../../contexts/flightContext';
 
 function ScheduleTableRow(props) {
   const history = useHistory();
   const { path } = useRouteMatch();
-  const { hdlClickIncrStep, hdlClickSetCurFlightWithId } = useContext(summaryContext);
+  const { hdlClickIncrStep } = useContext(summaryContext);
+  const { hdlClickSetCurFlightWithId } = useContext(flightContext);
   const { user } = useContext(userContext);
   const { serviceList } = useContext(serviceContext);
 

@@ -3,6 +3,7 @@ import ContainerWithHeadline from '../components/ContainerWithHeadline';
 import { useHistory } from 'react-router-dom';
 
 import { summaryContext } from '../contexts/summaryContext';
+import { flightContext } from '../contexts/flightContext';
 import { separateDate, getFormattedDate } from '../services/dateService';
 import { MOCK_USER } from '../temp//MOCK_USER';
 
@@ -12,7 +13,8 @@ function BookingConfirm() {
   const history = useHistory();
 
   const { summary, sumPrice, hdlClickDecrStep,
-    hdlClickIncrStep, currentFlight, setSummary } = useContext(summaryContext);
+    hdlClickIncrStep, setSummary } = useContext(summaryContext);
+  const { currentFlight } = useContext(flightContext);
 
   const hdlGoForward = () => {
     setSummary(cur => ({
@@ -43,7 +45,6 @@ function BookingConfirm() {
     // roomList,
     // extraList
   } = currentFlight;
-  console.log(MOCK_USER);
 
   return (
     <div className="booking-confirm w45 mt125">

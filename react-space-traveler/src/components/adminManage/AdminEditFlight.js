@@ -1,14 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import ContainerWithHeadline from '../ContainerWithHeadline';
-import { summaryContext } from '../../contexts/summaryContext';
+// import { summaryContext } from '../../contexts/summaryContext';
+import { flightContext } from '../../contexts/flightContext';
 import ScheduleTableRow from '../schedule/ScheduleTableRow';
 // import { separateDate, getFormattedDate } from '../../services/dateService';
 
 
 function AdminEditFlight() {
   const history = useHistory();
-  const { currentFlight, setCurrentFlight } = useContext(summaryContext);
+  const { currentFlight, setCurrentFlight } = useContext(flightContext);
   const [flightForCreate, setFlightForCreate] = useState({ departure: 'earth' });
 
   const hdlChangeNewFlight = (e) => {

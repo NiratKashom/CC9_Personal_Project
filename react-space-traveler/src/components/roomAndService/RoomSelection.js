@@ -2,11 +2,12 @@ import React, { useContext, useState } from 'react';
 import SelectTypeRoom from './SelectTypeRoom';
 import RoomDetail from './RoomDetail';
 import RoomAmountUpdate from './RoomAmountUpdate';
-import { summaryContext } from '../../contexts/summaryContext';
+// import { summaryContext } from '../../contexts/summaryContext';
+import { flightContext } from '../../contexts/flightContext';
 
 
 function RoomSelection() {
-  const { currentFlight } = useContext(summaryContext);
+  const { currentFlight } = useContext(flightContext);
   const [roomType, setRoomType] = useState('standard');
 
   return (

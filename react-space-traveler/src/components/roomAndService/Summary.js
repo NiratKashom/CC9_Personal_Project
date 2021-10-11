@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
 import { Link, useHistory } from 'react-router-dom';
 import { summaryContext } from '../../contexts/summaryContext';
+import { flightContext } from '../../contexts/flightContext';
 import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
 import { getFormattedDate } from '../../services/dateService';
 
@@ -9,7 +10,8 @@ import { getFormattedDate } from '../../services/dateService';
 
 function Summary() {
   const history = useHistory();
-  const { summary, sumPrice, hdlClickDecrStep, hdlClickIncrStep, step, setCurrentFlight } = useContext(summaryContext);
+  const { summary, sumPrice, hdlClickDecrStep, hdlClickIncrStep, step } = useContext(summaryContext);
+  const { setCurrentFlight } = useContext(flightContext);
 
   const hdlClickBack = () => {
     setCurrentFlight('');
