@@ -5,8 +5,9 @@ import ScheduleTableRow from './ScheduleTableRow';
 // import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
 import { API_URL } from '../../config/env';
 
-function ScheduleTable() {
+function ScheduleTable(props) {
   const [schedule, setSchedule] = useState([]);
+  const { filter } = props;
 
   useEffect(() => {
     axios.get(`${API_URL}/schedule-flight`)
@@ -18,13 +19,30 @@ function ScheduleTable() {
       });
   }, []);
 
+  const filterFlight = schedule.filter((data) => (
+    data.destination === filter))
+    .map((data, idx) => {
+      return (
+        <ScheduleTableRow key={idx} data={data} />
+      );
+    });
+
+  console.log(filterFlight);
+
   return (
     <div className="w100">
-      {schedule.map((data, idx) => {
+      {filter ? filterFlight :
+        schedule.map((data, idx) => {
+          return (
+            <ScheduleTableRow key={idx} data={data} />
+          );
+        })
+      }
+      {/* {schedule.map((data, idx) => {
         return (
           <ScheduleTableRow key={idx} data={data} />
         );
-      })}
+      })} */}
     </div >
   );
 }

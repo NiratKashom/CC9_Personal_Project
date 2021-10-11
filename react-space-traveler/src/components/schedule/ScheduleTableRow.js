@@ -14,9 +14,9 @@ function ScheduleTableRow(props) {
     departureDate,
     arrivalDate,
     returnDate,
-    departureLocation,
-    destinationLocation,
-    flightId,
+    departure,
+    destination,
+    id: flightId,
     roomPrice,
     // extraPrice
   } = props.data;
@@ -42,19 +42,19 @@ function ScheduleTableRow(props) {
         </div>
         <div className="flex2">
           <p className="fz125">day 1</p>
-          <p className="fz2">{departureLocation}</p>
+          <p className="fz2">{departure}</p>
           <p className="fz125">{getFormattedDate(departureDate)}</p>
         </div>
         <p className="fz25 txtblue">{`->`}</p>
         <div className="flex2">
           <p className="fz125">day 1</p>
-          <p className="fz2">{destinationLocation}</p>
+          <p className="fz2">{destination}</p>
           <p className="fz125">{getFormattedDate(arrivalDate)}</p>
         </div>
         <p className="fz25 txtgreen">{`->`}</p>
         <div className="flex2">
           <p className="fz125">day 1</p>
-          <p className="fz2">{departureLocation}</p>
+          <p className="fz2">{departure}</p>
           <p className="fz125">{getFormattedDate(returnDate)}</p>
         </div>
         <div className="flex1">
