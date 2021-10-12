@@ -12,6 +12,7 @@ import { UserProvider } from './contexts/userContext';
 import { SummaryProvider } from './contexts/summaryContext';
 import { ServiceProvider } from './contexts/serviceContext';
 import { FlightProvider } from './contexts/flightContext';
+import { ReservationProvider } from './contexts/reservationContext';
 
 
 function App() {
@@ -26,15 +27,17 @@ function App() {
               <Route path="/login"><Login /></Route>
               <Route path="/register"><Register /></Route>
               <Route exact path="/"><Home /></Route>
-              <FlightProvider>
-                <Route path="/user-manage"><UserManage /></Route>
-                <SummaryProvider>
-                  <ServiceProvider>
-                    <Route path="/admin-manage"><AdminManage /></Route>
-                    <Route path="/schedule-flight"><Schedule /></Route>
-                  </ServiceProvider>
-                </SummaryProvider>
-              </FlightProvider>
+              <ReservationProvider>
+                <FlightProvider>
+                  <Route path="/user-manage"><UserManage /></Route>
+                  <SummaryProvider>
+                    <ServiceProvider>
+                      <Route path="/admin-manage"><AdminManage /></Route>
+                      <Route path="/schedule-flight"><Schedule /></Route>
+                    </ServiceProvider>
+                  </SummaryProvider>
+                </FlightProvider>
+              </ReservationProvider>
               <Route path="*">
                 <p> 404 page not found</p>
               </Route>
