@@ -3,14 +3,11 @@ import ContainerWithHeadline from '../ContainerWithHeadline';
 import { Link, useHistory } from 'react-router-dom';
 import { summaryContext } from '../../contexts/summaryContext';
 import { flightContext } from '../../contexts/flightContext';
-// import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
 import { getFormattedDate } from '../../services/dateService';
-
-
 
 function Summary() {
   const history = useHistory();
-  const { summary, setSummary, sumPrice, hdlClickDecrStep, hdlClickIncrStep, step } = useContext(summaryContext);
+  const { hdlSubmitCreateReservation, summary, setSummary, sumPrice, hdlClickDecrStep, hdlClickIncrStep, step } = useContext(summaryContext);
   const { setCurrentFlight, currentFlight } = useContext(flightContext);
 
   const hdlClickBack = () => {
@@ -25,10 +22,13 @@ function Summary() {
     departureDate,
     returnDate,
     arrivalDate,
-    id: flightId
+    id
   } = currentFlight;
 
-  // console.log(summary);
+  const hdlClickSubmit = () => {
+    hdlSubmitCreateReservation();
+    hdlClickIncrStep();
+  };
 
   return (
     <div className="flex1">
@@ -36,6 +36,7 @@ function Summary() {
         <div className="summary">
           <div className="flight-detail borderbot mb1 pb1">
             <h2 className="fz125 mb05 ttup">Flight</h2>
+            <p>Flight ID: {id}</p>
             <p className="ttcap">{`${destination} - ${departure} - ${destination}`}</p>
             <p>Depart: {getFormattedDate(departureDate)}</p>
             <p>Arrival: {getFormattedDate(arrivalDate)}</p>
@@ -53,7 +54,6 @@ function Summary() {
                 </div>
               ))
             }
-
           </div>
 
           <div className="borderbot mb1 pb1">
@@ -67,13 +67,6 @@ function Summary() {
                 </div>
               ))
             }
-            {/* {summary.extraList.map((item, idx) => (
-              <div key={idx} className="dflex-jbetween ">
-                <p className="ttcap">{`${item.amount} ${item.extraType} :`}</p>
-                <p className="fz125">{item.amount * item.price} &#3647;</p>
-              </div>
-            ))
-            } */}
           </div>
 
           <p className="fz125 txtend mb125">
@@ -84,7 +77,7 @@ function Summary() {
             <button className="btn-orange fz15 mr15 p05 flex1"
               onClick={hdlClickBack}
             >back</button>
-            {step === 3 ? <button onClick={hdlClickIncrStep} className="btn-green fz15 ml15 p05 flex1">Submit</button>
+            {step === 3 ? <button onClick={hdlClickSubmit} className="btn-green fz15 ml15 p05 flex1">Submit</button>
               :
               <Link onClick={hdlClickIncrStep} to={`/schedule-flight/confirm`} className="btn-green fz15 ml15 p05 flex1">next</Link>
             }

@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { summaryContext } from '../../contexts/summaryContext';
+import { flightContext } from '../../contexts/flightContext';
 
 
 function ServiceCard(props) {
-  const { summary, setSummary } = useContext(summaryContext);
-  // const { price } = props;
-  // console.log(props.data);
+  const { summary, setSummary, calcPrice } = useContext(summaryContext);
+  const { currentFlight } = useContext(flightContext);
   const { id, name, description, price, serviceType } = props.data;
+
+  const netPrice = calcPrice(currentFlight.destination, price);
 
   const hdlChangeAmountRoom = val => {
     const cloneSummary = [...summary];
@@ -14,10 +16,9 @@ function ServiceCard(props) {
       serviceId: id,
       type: serviceType,
       name: name,
-      price: price,
-      amount: 1,
+      price: netPrice,
+      amount: val,
     };
-
 
     // findIndex >>> find = index /not found = -1
 
@@ -33,12 +34,10 @@ function ServiceCard(props) {
         cloneSummary[idxOfServiceHad].amount = +val;
       }
     } else {
-      console.log('push new service');
       cloneSummary.push(objForUpdate);
     }
     setSummary(cloneSummary);
   };
-  console.log(summary);
 
   return (
     <div className="service-card container-with-bg p1 mx15 flex1 txtcenter">
@@ -50,7 +49,9 @@ function ServiceCard(props) {
         {description}
       </p>
       <div className="dflex-jcenter">
-        <p className="fz15 ttcap mr1">{price} &#3647; </p>
+        <p className="fz15 ttcap mr1">
+          {netPrice} &#3647;
+        </p>
         <select className="fz125 p05 mr1"
           onChange={e => hdlChangeAmountRoom(e.target.value)}
         >

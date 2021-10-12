@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../config/axios';
 import ScheduleTableRow from './ScheduleTableRow';
-// import { getToken } from '../services/localStorage';
-// import { MOCK_FLIGHT } from '../../temp/MOCK_SHCEDULE_FLIGTH';
-// import { serviceContext } from '../../contexts/serviceContext';
 
 function ScheduleTable(props) {
   const [schedule, setSchedule] = useState([]);

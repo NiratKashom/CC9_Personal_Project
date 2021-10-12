@@ -1,18 +1,23 @@
 import React, { useContext } from 'react';
+import { flightContext } from '../../contexts/flightContext';
+import { summaryContext } from '../../contexts/summaryContext';
 import standardRoomPic from '../../img/standard_room.jpg';
-import { serviceContext } from '../../contexts/serviceContext';
+
 
 
 function RoomDetail(props) {
-  const { selectedRoom, roomType } = props;
+  const { selectedRoom } = props;
+  const { calcPrice } = useContext(summaryContext);
+  const { currentFlight } = useContext(flightContext);
 
-  // console.log(selectedRoom);
+
+
 
   return (
     <div className="room-detail mt125 dflex alistart">
       <img src={standardRoomPic} alt="standard_room" />
       <div className="room-detail-text">
-        <p className="fz2">{selectedRoom.price} &#3647;</p>
+        <p className="fz2">{calcPrice(currentFlight.destination, selectedRoom.price)} &#3647;</p>
         <ul className="p125 mb125 ">
           <li>2 adult</li>
           <li>1 king size bed</li>

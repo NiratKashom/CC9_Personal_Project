@@ -38,29 +38,6 @@ const FlightProvider = ({ children }) => {
     setFlightForCreate({ departure: 'earth' });
   };
 
-
-  // const hdlChangeNewFlight = (e) => {
-  //   let ISODate;
-  //   if (e.target.type === 'date') ISODate = new Date(e.target.value).toISOString();
-  //   switch (e.target.name) {
-  //     case 'departureDate':
-  //       setFlightForCreate(cur => ({ ...cur, departureDate: ISODate }));
-  //       break;
-  //     case 'arrivalDate':
-  //       setFlightForCreate(cur => ({ ...cur, arrivalDate: ISODate }));
-  //       break;
-  //     case 'returnDate':
-  //       setFlightForCreate(cur => ({ ...cur, returnDate: ISODate }));
-  //       break;
-  //     case 'destination':
-  //       setFlightForCreate(cur => ({ ...cur, destination: e.target.value }));
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // };
-
-
   const hdlClickSetCurFlightWithId = async (flightId) => {
     try {
       const res = await axios.get(`/schedule-flight/${flightId}`);

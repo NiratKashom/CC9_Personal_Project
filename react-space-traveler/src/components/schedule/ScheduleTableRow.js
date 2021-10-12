@@ -79,7 +79,6 @@ function ScheduleTableRow(props) {
       </div>
       <div className="flex1 container-with-bg p125 dflex-jcenter alignitmcenter">
         <p className="fz3">{calcPrice}<span className="fz2 ">&#3647;</span></p>
-        {/* <p className="fz3">{roomPrice?.standard}<span className="fz2 ">&#3647;</span></p> */}
       </div>
     </div>);
 }

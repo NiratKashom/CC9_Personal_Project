@@ -6,15 +6,12 @@ import { summaryContext } from '../contexts/summaryContext';
 
 
 function Payment() {
-  const { step, summary } = useContext(summaryContext);
-
-  console.log(summary);
+  const { step } = useContext(summaryContext);
 
   return (
     <div className="w100 dflex alistart mt125 outline">
       <PaymentMethod />
       <Summary />
-      {/* <PaymentSummary /> */}
       {step === 4 ? <CompleteBooking /> : null}
 
     </div>

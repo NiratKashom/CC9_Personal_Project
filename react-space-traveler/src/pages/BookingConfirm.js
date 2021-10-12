@@ -1,21 +1,17 @@
 import React, { useContext } from 'react';
 import ContainerWithHeadline from '../components/ContainerWithHeadline';
 import { useHistory } from 'react-router-dom';
-
 import { summaryContext } from '../contexts/summaryContext';
 import { flightContext } from '../contexts/flightContext';
 import { userContext } from '../contexts/userContext';
 import { separateDate, getFormattedDate } from '../services/dateService';
-// import { MOCK_USER } from '../temp//MOCK_USER';
-
-
 
 function BookingConfirm() {
   const history = useHistory();
 
   const { summary, sumPrice, hdlClickDecrStep,
-    hdlClickIncrStep, setSummary,
-    reserveInfoForSubmit, setReserveInfoForSubmit
+    hdlClickIncrStep,
+    setReserveInfoForSubmit
   } = useContext(summaryContext);
   const { currentFlight } = useContext(flightContext);
   const { user: {
@@ -28,14 +24,16 @@ function BookingConfirm() {
   const hdlGoForward = () => {
     setReserveInfoForSubmit(cur => ({
       ...cur,
-      userId: id,
-      flightId: currentFlight.flightId,
-      status: 'pending'
+      passengerId: id,
+      flightId: currentFlight.id,
+      orderList: [...summary]
     })
     );
     hdlClickIncrStep();
     history.push(`/schedule-flight/payment`);
   };
+
+  console.log(summary);
 
 
   const hdlClickBack = () => {
@@ -47,8 +45,8 @@ function BookingConfirm() {
     departureDate,
     arrivalDate,
     returnDate,
-    departureLocation,
-    destinationLocation,
+    departure,
+    destination,
     id: flightId,
   } = currentFlight;
 
@@ -64,19 +62,19 @@ function BookingConfirm() {
             </div>
             <div >
               <p className="fz125">day 1</p>
-              <p className="fz2">{departureLocation}</p>
+              <p className="fz2">{departure}</p>
               <p className="fz125">{getFormattedDate(departureDate)}</p>
             </div>
             <p className="fz25 txtblue">{`->`}</p>
             <div>
               <p className="fz125">day 1</p>
-              <p className="fz2">{destinationLocation}</p>
+              <p className="fz2">{destination}</p>
               <p className="fz125">{getFormattedDate(arrivalDate)}</p>
             </div>
             <p className="fz25 txtgreen">{`->`}</p>
             <div>
               <p className="fz125">day 1</p>
-              <p className="fz2">{departureLocation}</p>
+              <p className="fz2">{departure}</p>
               <p className="fz125">{getFormattedDate(returnDate)}</p>
             </div>
             <div className="ml1">
@@ -108,7 +106,6 @@ function BookingConfirm() {
             </div>
           </div>
 
-
           <div className="borderbot mb1 pb1">
             <h2 className="fz125 mb05 ttup">Room</h2>
             {summary?.filter(item => item.type === 'room')
@@ -119,13 +116,6 @@ function BookingConfirm() {
                 </div>
               ))
             }
-            {/* {summary?.roomList.map((item, idx) => (
-              <div key={idx} className="dflex-jbetween ">
-                <p className="ttcap">{`${item.amount} ${item.roomType} room :`}</p>
-                <p className="fz125">{item.amount * item.price} &#3647;</p>
-              </div>
-            ))
-            } */}
           </div>
 
           <div className="borderbot mb1 pb1">
@@ -138,14 +128,7 @@ function BookingConfirm() {
                 </div>
               ))
             }
-            {/* <div className="dflex-jbetween">
-              <p>3 Dinner buffet coupon: </p>
-              <p className="fz125 txtend ">3000 &#3647; </p>
-            </div>
-            <div className="dflex-jbetween">
-              <p>1 Travel Insurance: </p>
-              <p className="fz125 txtend ">12335 &#3647; </p>
-            </div> */}
+
           </div>
 
           <p className="fz125 txtend mb125">

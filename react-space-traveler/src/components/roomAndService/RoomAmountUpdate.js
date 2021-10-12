@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
 import { summaryContext } from '../../contexts/summaryContext';
+import { flightContext } from '../../contexts/flightContext';
 
 
 function RoomAmountUpdate(props) {
   const { selectedRoom } = props;
-  const { summary, setSummary } = useContext(summaryContext);
+  const { summary, setSummary, calcPrice } = useContext(summaryContext);
+  const { currentFlight } = useContext(flightContext);
+
+  const netPrice = calcPrice(currentFlight.destination, selectedRoom.price);
 
   const hdlChangeAmountRoom = val => {
     const cloneSummary = [...summary];
@@ -14,8 +18,8 @@ function RoomAmountUpdate(props) {
         serviceId: selectedRoom.id,
         type: selectedRoom.serviceType,
         name: selectedRoom.name,
-        price: selectedRoom.price,
-        amount: 1,
+        price: netPrice,
+        amount: val,
       };
     }
     // findIndex >>> find = index /not found = -1
@@ -32,12 +36,10 @@ function RoomAmountUpdate(props) {
         cloneSummary[idxOfServiceHad].amount = +val;
       }
     } else {
-      console.log('push new service');
       cloneSummary.push(objForUpdate);
     }
     setSummary(cloneSummary);
   };
-  console.log(summary);
 
   return (
     <div className="room-update w100 dflex-jend">
