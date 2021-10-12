@@ -27,7 +27,6 @@ function SelectTypeRoom(props) {
       <input type="radio" name="roomType" id="deluxe" value="deluxe"
         onChange={e => hdlClickSelectTypeRoom(e)}
       />
-
       <label className={`btn-outline-white${active === 'suite' ? '-active' : ''} fz125 w25 mr1`} htmlFor="suite">
         Suite Room
       </label>

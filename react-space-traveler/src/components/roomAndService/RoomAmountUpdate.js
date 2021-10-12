@@ -3,34 +3,69 @@ import { summaryContext } from '../../contexts/summaryContext';
 
 
 function RoomAmountUpdate(props) {
-  const { roomPrice, roomType } = props;
+  const { selectedRoom, roomType } = props;
   const { summary, setSummary } = useContext(summaryContext);
 
   const hdlChangeAmountRoom = val => {
-    // let roomStr = `${roomType} room, price: ${roomPrice[roomType]}, amount: ${val}`;
-
-    const cloneSummary = { ...summary };
+    const cloneSummary = [...summary];
     // findIndex >>> find = index /not found = -1
-    const idxRoomTypeHad = cloneSummary.roomList.findIndex(item => item.roomType === roomType);
-    if (idxRoomTypeHad >= 0) {
+    // cloneSummary.push({ serviceId: 2 });
+    let objForUpdate = {
+      serviceId: selectedRoom.id,
+      type: selectedRoom.serviceType,
+      name: selectedRoom.name,
+      price: selectedRoom.price,
+      amount: 1,
+    };
+
+    //check hasIdService
+    const idxOfServiceHad = cloneSummary.findIndex(
+      item => item.serviceId === selectedRoom.id);
+    if (idxOfServiceHad >= 0) {
       if (+val === 0) {
-        cloneSummary.roomList.splice(idxRoomTypeHad, 1);
+        console.log(`val = 0 for delete this service`);
+        cloneSummary.splice(idxOfServiceHad, 1);
       } else {
-        cloneSummary.roomList[idxRoomTypeHad].amount = +val;
+        console.log(`val = ${val} for update amount service`);
+        cloneSummary[idxOfServiceHad].amount = +val;
       }
     } else {
-      let roomSelect = {
-        roomType: '',
-        price: '',
-        amount: ''
-      };
-      roomSelect.roomType = roomType;
-      roomSelect.price = roomPrice[roomType];
-      roomSelect.amount = +val;
-      cloneSummary.roomList.push(roomSelect);
+      console.log('push new service');
+      cloneSummary.push(objForUpdate);
+
+      //   // let roomSelect = {
+      //   //   roomType: '',
+      //   //   price: '',
+      //   //   amount: ''
+      //   // };
+      //   // roomSelect.roomType = roomType;
+      //   // roomSelect.price = roomPrice[roomType];
+      //   // roomSelect.amount = +val;
+      //   // cloneSummary.roomList.push(roomSelect);
     }
     setSummary(cloneSummary);
+
+    // const idxRoomTypeHad = cloneSummary.findIndex(item => item.roomType === roomType);
+    // if (idxRoomTypeHad >= 0) {
+    //   if (+val === 0) {
+    //     cloneSummary.roomList.splice(idxRoomTypeHad, 1);
+    //   } else {
+    //     cloneSummary.roomList[idxRoomTypeHad].amount = +val;
+    //   }
+    // } else {
+    //   // let roomSelect = {
+    //   //   roomType: '',
+    //   //   price: '',
+    //   //   amount: ''
+    //   // // };
+    //   // // roomSelect.roomType = roomType;
+    //   // // roomSelect.price = roomPrice[roomType];
+    //   // // roomSelect.amount = +val;
+    //   // // cloneSummary.roomList.push(roomSelect);
+    // }
+    // setSummary(cloneSummary);
   };
+  console.log(summary);
 
   return (
     <div className="room-update w100 dflex-jend">
@@ -47,6 +82,6 @@ function RoomAmountUpdate(props) {
       {/* <button type="button" className="btn-blue fz125 p05">Update</button> */}
     </div>
   );
-}
+};
 
 export default RoomAmountUpdate;

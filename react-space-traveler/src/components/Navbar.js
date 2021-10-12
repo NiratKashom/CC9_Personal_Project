@@ -6,11 +6,10 @@ import { userContext } from '../contexts/userContext';
 function Navbar() {
   const { user, hdlLogout } = useContext(userContext);
 
-
   return (
     <nav className="nav w100">
       <ul>
-        <li className='branding'><Link to="/home">SPACE TRAVEL</Link></li>
+        <li className='branding'><Link to="/">SPACE TRAVEL</Link></li>
         {/* <li><Link to="./destination.html">DESTINATION</Link></li> */}
         {!user?.isAdmin ? <li><NavLink to="/schedule-flight">SCHEDULE</NavLink></li> : null}
 
@@ -43,7 +42,6 @@ function Navbar() {
               </li>
             </>
         }
-
       </ul>
     </nav >
   );

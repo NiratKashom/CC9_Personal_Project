@@ -22,12 +22,10 @@ function App() {
         <MockFlightProvider>
           <div className="App">
             <Navbar />
-
             <Switch>
-
               <Route path="/login"><Login /></Route>
               <Route path="/register"><Register /></Route>
-              <Route path="/home"><Home /></Route>
+              <Route exact path="/"><Home /></Route>
               <FlightProvider>
                 <Route path="/user-manage"><UserManage /></Route>
                 <SummaryProvider>
@@ -37,13 +35,10 @@ function App() {
                   </ServiceProvider>
                 </SummaryProvider>
               </FlightProvider>
-
-
               <Route path="*">
                 <p> 404 page not found</p>
               </Route>
             </Switch>
-
           </div>
         </MockFlightProvider>
       </UserProvider>

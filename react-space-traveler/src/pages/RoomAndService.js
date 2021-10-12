@@ -5,7 +5,7 @@ import Summary from '../components/roomAndService/Summary';
 function RoomAndService() {
 
   return (
-    <div className="w100 dflex alistart mt125 outline">
+    <div className="w100 dflex alistart mt125">
       <SelectionSector />
       <Summary />
     </div>

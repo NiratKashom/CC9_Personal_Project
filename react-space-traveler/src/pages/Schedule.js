@@ -10,7 +10,7 @@ function Schedule() {
   const { path } = useRouteMatch();
 
   return (
-    <div className="schedule w75 px2 m0auto dflex-col-center outline">
+    <div className="schedule w75 px2 m0auto dflex-col-center">
 
       <StepperBar />
       <Switch>
