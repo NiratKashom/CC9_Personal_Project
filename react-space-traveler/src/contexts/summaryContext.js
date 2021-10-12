@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react';
-import axios from '../config/axios';
 
 const summaryContext = createContext();
 
@@ -11,17 +10,17 @@ const SummaryProvider = ({ children }) => {
 
   const [summary, setSummary] = useState([]);
 
-  // const sumPrice = summary.roomList.reduce((acc, item) => {
-  //   return acc += item.price * item.amount;
-  // }, 0) + summary.extraList.reduce((acc, item) => {
-  //   return acc += item.price * item.amount;
-  // }, 0);
+  const [reserveInfoForSubmit, setReserveInfoForSubmit] = useState({});
+
+  const sumPrice = summary.reduce((acc, item) => {
+    return acc += item.price * item.amount;
+  }, 0);
 
 
   return <summaryContext.Provider value={{
-    summary, setSummary,
-    // sumPrice,
+    summary, setSummary, sumPrice,
     step, setStep, hdlClickIncrStep, hdlClickDecrStep,
+    reserveInfoForSubmit, setReserveInfoForSubmit
   }}>
     {children}
   </summaryContext.Provider>;

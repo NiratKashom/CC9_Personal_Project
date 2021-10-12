@@ -8,7 +8,7 @@ import { serviceContext } from '../../contexts/serviceContext';
 
 
 function RoomSelection() {
-  const { currentFlight } = useContext(flightContext);
+  // const { currentFlight } = useContext(flightContext);
   const { serviceList } = useContext(serviceContext);
   const [roomType, setRoomType] = useState('standard');
 

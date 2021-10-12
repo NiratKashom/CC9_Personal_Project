@@ -25,10 +25,10 @@ function Summary() {
     departureDate,
     returnDate,
     arrivalDate,
-    id
+    id: flightId
   } = currentFlight;
 
-  console.log(summary);
+  // console.log(summary);
 
   return (
     <div className="flex1">
@@ -59,14 +59,14 @@ function Summary() {
           <div className="borderbot mb1 pb1">
             {/* each service */}
             <h2 className="fz125 mb05 ttup">Extra Service</h2>
-            {/* {summary?.filter(item => item.type === 'service')
+            {summary?.filter(item => item.type === 'extra')
               .map((item, idx) => (
                 <div key={idx} className="dflex-jbetween ">
                   <p className="ttcap">{`${item.amount} ${item.name} :`}</p>
                   <p className="fz125">{item.amount * item.price} &#3647;</p>
                 </div>
               ))
-            } */}
+            }
             {/* {summary.extraList.map((item, idx) => (
               <div key={idx} className="dflex-jbetween ">
                 <p className="ttcap">{`${item.amount} ${item.extraType} :`}</p>

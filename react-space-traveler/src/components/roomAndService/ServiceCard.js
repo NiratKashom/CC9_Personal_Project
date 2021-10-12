@@ -4,46 +4,55 @@ import { summaryContext } from '../../contexts/summaryContext';
 
 function ServiceCard(props) {
   const { summary, setSummary } = useContext(summaryContext);
-  const { price } = props;
-  const { title, description, icon, extraType } = props.data;
+  // const { price } = props;
+  // console.log(props.data);
+  const { id, name, description, price, serviceType } = props.data;
 
-  const hdlChangeAmountExtra = val => {
-    const cloneSummary = { ...summary };
+  const hdlChangeAmountRoom = val => {
+    const cloneSummary = [...summary];
+    let objForUpdate = {
+      serviceId: id,
+      type: serviceType,
+      name: name,
+      price: price,
+      amount: 1,
+    };
+
+
     // findIndex >>> find = index /not found = -1
-    const idxExtraHad = cloneSummary.extraList.findIndex(item => item.extraType === extraType);
-    if (idxExtraHad >= 0) {
+
+    //check hasIdService
+    const idxOfServiceHad = cloneSummary.findIndex(
+      item => item.serviceId === id);
+    if (idxOfServiceHad >= 0) {
       if (+val === 0) {
-        cloneSummary.extraList.splice(idxExtraHad, 1);
+        // console.log(`val = 0 for delete this service`);
+        cloneSummary.splice(idxOfServiceHad, 1);
       } else {
-        cloneSummary.extraList[idxExtraHad].amount = +val;
+        // console.log(`val = ${val} for update amount service`);
+        cloneSummary[idxOfServiceHad].amount = +val;
       }
     } else {
-      let extraSelect = {
-        extraType: '',
-        price: '',
-        amount: ''
-      };
-      extraSelect.extraType = extraType;
-      extraSelect.price = price[extraType];
-      extraSelect.amount = +val;
-      cloneSummary.extraList.push(extraSelect);
+      console.log('push new service');
+      cloneSummary.push(objForUpdate);
     }
     setSummary(cloneSummary);
   };
+  console.log(summary);
 
   return (
     <div className="service-card container-with-bg p1 mx15 flex1 txtcenter">
-      <p className="fz15 ttcap">{title}</p>
+      <p className="fz15 ttcap">{name}</p>
       <span className="material-icons-outlined my1">
-        {icon}
+        {/* {icon} */}
       </span>
       <p className="mb05">
         {description}
       </p>
       <div className="dflex-jcenter">
-        <p className="fz15 ttcap mr1">{`${price[extraType]}`} &#3647; </p>
+        <p className="fz15 ttcap mr1">{price} &#3647; </p>
         <select className="fz125 p05 mr1"
-          onChange={e => hdlChangeAmountExtra(e.target.value)}
+          onChange={e => hdlChangeAmountRoom(e.target.value)}
         >
           <option value="0">0</option>
           <option value="1">1</option>

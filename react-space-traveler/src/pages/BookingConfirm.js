@@ -4,8 +4,9 @@ import { useHistory } from 'react-router-dom';
 
 import { summaryContext } from '../contexts/summaryContext';
 import { flightContext } from '../contexts/flightContext';
+import { userContext } from '../contexts/userContext';
 import { separateDate, getFormattedDate } from '../services/dateService';
-import { MOCK_USER } from '../temp//MOCK_USER';
+// import { MOCK_USER } from '../temp//MOCK_USER';
 
 
 
@@ -13,14 +14,21 @@ function BookingConfirm() {
   const history = useHistory();
 
   const { summary, sumPrice, hdlClickDecrStep,
-    hdlClickIncrStep, setSummary } = useContext(summaryContext);
+    hdlClickIncrStep, setSummary,
+    reserveInfoForSubmit, setReserveInfoForSubmit
+  } = useContext(summaryContext);
   const { currentFlight } = useContext(flightContext);
+  const { user: {
+    id,
+    firstName,
+    lastName,
+    email }
+  } = useContext(userContext);
 
   const hdlGoForward = () => {
-    setSummary(cur => ({
+    setReserveInfoForSubmit(cur => ({
       ...cur,
-      userId: MOCK_USER.id,
-      bookerName: `${MOCK_USER.firstName} ${MOCK_USER.lastName}`,
+      userId: id,
       flightId: currentFlight.flightId,
       status: 'pending'
     })
@@ -41,9 +49,7 @@ function BookingConfirm() {
     returnDate,
     departureLocation,
     destinationLocation,
-    flightId,
-    // roomList,
-    // extraList
+    id: flightId,
   } = currentFlight;
 
   return (
@@ -51,7 +57,6 @@ function BookingConfirm() {
       <ContainerWithHeadline headline="booking confirmation">
         <div className="summary ">
           <div className="borderbot mb1 pb1 txtcenter ttcap dflex-jbetween">
-
             <div className="mr1">
               <p className="fz25">{separateDate(departureDate, 'day')}</p>
               <p className="fz125">{separateDate(departureDate, 'month')}</p>
@@ -79,7 +84,6 @@ function BookingConfirm() {
               <p className="fz125">{separateDate(returnDate, 'month')}</p>
               <p className="fz125">{separateDate(returnDate, 'year')}</p>
             </div>
-
           </div>
 
           <div className="borderbot mb1 pb1">
@@ -88,11 +92,11 @@ function BookingConfirm() {
               <div className="mr1">
                 <div className="dflex-jbetween ">
                   <p className="ttcap txtwhite80">Booker name :</p>
-                  <p className="ml05 txtend ttcap fz125">{`${MOCK_USER.firstName} ${MOCK_USER.lastName}`}</p>
+                  <p className="ml05 txtend ttcap fz125">{`${firstName} ${lastName}`}</p>
                 </div>
                 <div className="dflex-jbetween">
                   <p className="ttcap txtwhite80">email address: </p>
-                  <p className="ml05 txtend fz125">{MOCK_USER.email}</p>
+                  <p className="ml05 txtend fz125">{email}</p>
                 </div>
               </div>
               <div>
@@ -107,25 +111,41 @@ function BookingConfirm() {
 
           <div className="borderbot mb1 pb1">
             <h2 className="fz125 mb05 ttup">Room</h2>
-            {summary.roomList.map((item, idx) => (
+            {summary?.filter(item => item.type === 'room')
+              .map((item, idx) => (
+                <div key={idx} className="dflex-jbetween ">
+                  <p className="ttcap">{`${item.amount} ${item.name} :`}</p>
+                  <p className="fz125">{item.amount * item.price} &#3647;</p>
+                </div>
+              ))
+            }
+            {/* {summary?.roomList.map((item, idx) => (
               <div key={idx} className="dflex-jbetween ">
                 <p className="ttcap">{`${item.amount} ${item.roomType} room :`}</p>
                 <p className="fz125">{item.amount * item.price} &#3647;</p>
               </div>
             ))
-            }
+            } */}
           </div>
 
           <div className="borderbot mb1 pb1">
             <h2 className="fz125 mb05 ttup">Extra Service</h2>
-            <div className="dflex-jbetween">
+            {summary?.filter(item => item.type === 'extra')
+              .map((item, idx) => (
+                <div key={idx} className="dflex-jbetween ">
+                  <p className="ttcap">{`${item.amount} ${item.name} :`}</p>
+                  <p className="fz125">{item.amount * item.price} &#3647;</p>
+                </div>
+              ))
+            }
+            {/* <div className="dflex-jbetween">
               <p>3 Dinner buffet coupon: </p>
               <p className="fz125 txtend ">3000 &#3647; </p>
             </div>
             <div className="dflex-jbetween">
               <p>1 Travel Insurance: </p>
               <p className="fz125 txtend ">12335 &#3647; </p>
-            </div>
+            </div> */}
           </div>
 
           <p className="fz125 txtend mb125">

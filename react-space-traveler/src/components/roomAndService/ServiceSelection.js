@@ -1,20 +1,21 @@
 import React, { useContext } from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
 import ServiceCard from './ServiceCard';
-import { summaryContext } from '../../contexts/summaryContext';
-import { mockFlightContext } from '../../contexts/mockContext';
+// import { mockFlightContext } from '../../contexts/mockContext';
+import { serviceContext } from '../../contexts/serviceContext';
 
 
 function ServiceSelection() {
-  const { MOCK_FLIGHT, MOCK_EXTRA_LIST } = useContext(mockFlightContext);
+  const { serviceList } = useContext(serviceContext);
 
   return (
     <>
       <ContainerWithHeadline headline="Extra Service"
         addClass="dflex-jaround mb125">
-        {MOCK_EXTRA_LIST.map((item, idx) => (
-          <ServiceCard key={idx} data={item} price={MOCK_FLIGHT.extraPrice} />
-        ))}
+        {serviceList.filter(item => item.serviceType === 'extra')
+          .map(item => (
+            <ServiceCard key={item.id} data={item} />
+          ))}
       </ContainerWithHeadline>
     </>
   );
