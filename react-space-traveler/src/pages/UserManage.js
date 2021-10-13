@@ -14,13 +14,13 @@ function UserManage() {
       <UserMenu />
       <UserManageReservation />
       <Switch >
-        <Route exact path={`${path}/UserReverseInfo`}>
+        <Route path={`${path}/UserReverseInfo`}>
           <UserReverseInfo />
         </Route>
-        <Route exact path={`${path}/UserCancelReserve`}>
+        <Route path={`${path}/UserCancelReserve`}>
           <UserCancelReserve />
         </Route>
-        <Route exact path={`${path}/UserCancelComplete`}>
+        <Route path={`${path}/UserCancelComplete`}>
           <UserCancelComplete />
         </Route>
       </Switch>

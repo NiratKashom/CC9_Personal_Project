@@ -7,7 +7,18 @@ const reservationContext = createContext();
 const ReservationProvider = ({ children }) => {
   const history = useHistory();
   const [reservation, setReservation] = useState([]);
-  // const [flightForCreate, setFlightForCreate] = useState({ departure: 'earth' });
+  const [curReservation, setCurReservation] = useState({});
+
+  const hdlClickSetCurReservation = async (reservavtionId) => {
+    try {
+      const res = await axios.get(`/reservation/reservationInfo/${reservavtionId}`);
+      setCurReservation(cur => ({ ...cur, ...res.data.reservationById }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // console.log(curReservation);
 
 
   // const hdlChangeEditFlight = (e) => {
@@ -80,8 +91,11 @@ const ReservationProvider = ({ children }) => {
   // };
 
 
+
+
   return <reservationContext.Provider value={{
-    reservation, setReservation
+    reservation, setReservation, hdlClickSetCurReservation,
+    curReservation, setCurReservation
   }}>
     {children}
   </reservationContext.Provider>;

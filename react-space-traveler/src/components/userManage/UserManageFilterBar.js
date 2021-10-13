@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 function UserManageFilterBar() {
   const [filterStatus, setFilterStatus] = useState('');
 
-  console.log(filterStatus);
+  // console.log(filterStatus);
 
   return (
     <div className="dflex-jend ">

@@ -33,7 +33,7 @@ const UserProvider = ({ children }) => {
     e.preventDefault();
     try {
       await axios.post(`/register`, regInfo);
-      console.log('register success');
+      window.alert('register success');
       history.push('/login');
     } catch (error) {
       console.log(error);

@@ -28,6 +28,7 @@ function Summary() {
   const hdlClickSubmit = () => {
     hdlSubmitCreateReservation();
     hdlClickIncrStep();
+    history.push();
   };
 
   return (
@@ -36,11 +37,11 @@ function Summary() {
         <div className="summary">
           <div className="flight-detail borderbot mb1 pb1">
             <h2 className="fz125 mb05 ttup">Flight</h2>
-            <p>Flight ID: {id}</p>
-            <p className="ttcap">{`${destination} - ${departure} - ${destination}`}</p>
-            <p>Depart: {getFormattedDate(departureDate)}</p>
-            <p>Arrival: {getFormattedDate(arrivalDate)}</p>
-            <p>Return: {getFormattedDate(returnDate)}</p>
+            <p className="txtwhite80 ">Flight ID: <span>{id}</span> </p>
+            <p className="ttcap">{`${departure} - ${destination} - ${departure}`}</p>
+            <p className="txtwhite80 ">Depart: <span>{getFormattedDate(departureDate)}</span></p>
+            <p className="txtwhite80 ">Arrival: <span>{getFormattedDate(arrivalDate)}</span></p>
+            <p className="txtwhite80 ">Return: <span>{getFormattedDate(returnDate)}</span></p>
           </div>
 
           <div className="borderbot mb1 pb1">

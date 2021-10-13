@@ -2,8 +2,6 @@ import React, { useContext } from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
 import { flightContext } from '../../contexts/flightContext';
 import ScheduleTableRow from '../schedule/ScheduleTableRow';
-// import { separateDate, getFormattedDate } from '../../services/dateService';
-
 
 function AdminEditFlight() {
   const {

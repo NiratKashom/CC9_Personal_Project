@@ -13,6 +13,8 @@ function ModalWithCloseBtn(props) {
     if (headline === 'complete booking') {
       setStep(0);
       history.push('/schedule-flight');
+    } else if (headline === 'reservation infomation') {
+      history.goBack();
     }
   };
 

@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ModalWithCloseBtn from '../ModalWithCloseBtn';
+import { reservationContext } from '../../contexts/reservationContext';
+import { userContext } from '../../contexts/userContext';
 
 function UserReverseInfo() {
+  const { curReservation } = useContext(reservationContext);
+  // const { user } = useContext(userContext);
+  console.log('call UserReverseInfo');
+  console.log(curReservation);
 
+  // const {
+  //   departureDate,
+  //   arrivalDate,
+  //   returnDate,
+  //   departure,
+  //   destination,
+  //   id,
+  // } = curReservation;
 
   return (
     <div className="modal-backdrop center">

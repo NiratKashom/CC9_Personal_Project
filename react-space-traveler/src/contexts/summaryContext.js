@@ -33,9 +33,9 @@ const SummaryProvider = ({ children }) => {
   const hdlSubmitCreateReservation = async () => {
     try {
       await axios.post(`reservation/`, reserveInfoForSubmit);
-      window.alert('create reservation success');
+      // window.alert('create reservation success');
+      setSummary([]);
       setReserveInfoForSubmit([]);
-      history.push('/schedule-flight');
     } catch (error) {
       console.log(error);
     }

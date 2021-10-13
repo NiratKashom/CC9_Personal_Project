@@ -1,8 +1,9 @@
 import React from 'react';
-
 import ModalWithCloseBtn from '../components/ModalWithCloseBtn';
+import { Link } from 'react-router-dom';
 
 function CompleteBooking() {
+
   return (
     <div className="complete-booking modal-backdrop center outline ">
 
@@ -13,13 +14,13 @@ function CompleteBooking() {
           check_circle_outline
         </span>
         <p className="fz15 mb05">Thank you for your reservation.</p>
-        <p className="fz15 mb05">Booking ID: D002MON0101220701221300</p>
-        <p className="fz125">You can check booking status in
-          <a href="./userManageReservation.html"
+        {/* <p className="fz15 mb05">Booking ID: D002MON0101220701221300</p> */}
+        <p className="fz125">You can check reservation status at
+          <Link to="/user-manage"
             className="link ttcap ml05 fz15"
           >
             Manage reservation
-          </a>
+          </Link>
         </p>
       </ModalWithCloseBtn>
 

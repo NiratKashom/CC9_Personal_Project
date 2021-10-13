@@ -30,14 +30,11 @@ function UserManageTable() {
     }
   }, []);
 
-  console.log(reservation);
+  // console.log(reservation);
 
   return (
     <div className="mt125">
       {reservation.map(item => <AdminMngUserTableRow key={item.id} data={item} />) || null}
-      {/* <Link to={`${path}/UserReverseInfo`}>
-        <AdminMngUserTableRow />
-      </Link> */}
     </div>
   );
 }

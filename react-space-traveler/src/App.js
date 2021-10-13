@@ -29,9 +29,9 @@ function App() {
               <Route exact path="/"><Home /></Route>
               <ReservationProvider>
                 <FlightProvider>
-                  <Route path="/user-manage"><UserManage /></Route>
                   <SummaryProvider>
                     <ServiceProvider>
+                      <Route path="/user-manage"><UserManage /></Route>
                       <Route path="/admin-manage"><AdminManage /></Route>
                       <Route path="/schedule-flight"><Schedule /></Route>
                     </ServiceProvider>
