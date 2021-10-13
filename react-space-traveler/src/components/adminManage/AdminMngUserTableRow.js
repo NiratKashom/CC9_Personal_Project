@@ -3,6 +3,7 @@ import { getFormattedDate } from '../../services/dateService';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { reservationContext } from '../../contexts/reservationContext';
 import { userContext } from '../../contexts/userContext';
+import { getToken } from '../../services/localStorageService';
 import axios from '../../config/axios';
 
 
@@ -22,13 +23,15 @@ function AdminMngUserTableRow(props) {
 
   const hdlClickSetCurReservation = async (id) => {
     try {
-      const res = await axios.get(`/reservation/reservationInfo/${id}`);
+      const res = await axios.get(`/reservation/reservationInfo/${id}`, {
+        headers: { authorization: 'Bearer ' + getToken() }
+      });
       setCurReservation(cur => ({ ...cur, ...res.data.reservationById }));
       if (user.isAdmin) {
-        console.log('admin fetch success');
+        // console.log('admin fetch success');
         history.push(`${path}/MngReserveInfo`);
       } else {
-        console.log('user fetch success');
+        // console.log('user fetch success');
         history.push(`${path}/UserReverseInfo`);
       }
     } catch (error) {

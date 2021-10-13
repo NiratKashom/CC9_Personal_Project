@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import axios from '../config/axios';
 import { useHistory } from 'react-router-dom';
+import { getToken } from '../services/localStorageService';
 
 const summaryContext = createContext();
 
@@ -32,7 +33,9 @@ const SummaryProvider = ({ children }) => {
 
   const hdlSubmitCreateReservation = async () => {
     try {
-      await axios.post(`reservation/`, reserveInfoForSubmit);
+      await axios.post(`reservation/`, reserveInfoForSubmit, {
+        headers: { authorization: 'Bearer ' + getToken() }
+      });
       setSummary([]);
       setReserveInfoForSubmit([]);
     } catch (error) {

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../config/axios';
 import ScheduleTableRow from './ScheduleTableRow';
+import { getToken } from '../../services/localStorageService';
 
 function ScheduleTable({ filterFlight }) {
   const [schedule, setSchedule] = useState([]);
 
 
   useEffect(() => {
-    axios.get('/schedule-flight')
+    axios.get('/schedule-flight', {
+      headers: { authorization: 'Bearer ' + getToken() }
+    })
       .then(res => {
         setSchedule(res.data.flights);
       })

@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import axios from '../config/axios';
 import { useHistory } from 'react-router-dom';
+import { getToken } from '../services/localStorageService';
 
 const reservationContext = createContext();
 
@@ -14,7 +15,9 @@ const ReservationProvider = ({ children }) => {
     console.log(`${stat}`);
     try {
       await axios.put(`/reservation/reservationInfo/${curReservation.id}`,
-        { status: stat, reserveId: curReservation.id }
+        { status: stat, reserveId: curReservation.id }, {
+        headers: { authorization: 'Bearer ' + getToken() }
+      }
       );
       window.alert('update success');
       setTrigger(cur => !cur);

@@ -1,9 +1,10 @@
 import { createContext, useState } from 'react';
 import axios from '../config/axios';
 import { useHistory } from 'react-router-dom';
-import { setToken, removeToken } from '../services/localStorageService';
-// import { API_URL } from '../config/env';
+import { setToken, removeToken, user as initialUser } from '../services/localStorageService';
 import jwtDecode from 'jwt-decode';
+// import { user as initialUser } from "../services/localStorage";
+
 
 
 const userContext = createContext();
@@ -11,12 +12,11 @@ const userContext = createContext();
 
 const UserProvider = ({ children }) => {
   const history = useHistory();
-  const [user, setUser] = useState({ isAdmin: false });
+  const [user, setUser] = useState(initialUser);
 
 
   const hdlSubmitLogin = async (e, loginInput) => {
     e.preventDefault();
-    // console.log(loginInput);
     try {
       const res = await axios.post(`/login`, loginInput);
       setToken(res.data.token);
@@ -41,7 +41,7 @@ const UserProvider = ({ children }) => {
   };
 
   const hdlLogout = () => {
-    // removeToken();
+    removeToken();
     setUser(null);
     history.push('/login');
   };

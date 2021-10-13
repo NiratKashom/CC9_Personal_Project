@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import axios from '../config/axios';
 import { useHistory } from 'react-router-dom';
+import { getToken } from '../services/localStorageService';
 
 const flightContext = createContext();
 
@@ -41,7 +42,9 @@ const FlightProvider = ({ children }) => {
 
   const hdlClickSetCurFlightWithId = async (flightId) => {
     try {
-      const res = await axios.get(`/schedule-flight/${flightId}`);
+      const res = await axios.get(`/schedule-flight/${flightId}`, {
+        headers: { authorization: 'Bearer ' + getToken() }
+      });
       setCurrentFlight(cur => ({ ...cur, ...res.data.flight }));
     } catch (error) {
       console.log(error);
@@ -51,7 +54,9 @@ const FlightProvider = ({ children }) => {
   const hdlSubmitCreateFilght = async e => {
     e.preventDefault();
     try {
-      await axios.post(`/schedule-flight/`, flightForCreate);
+      await axios.post(`/schedule-flight/`, flightForCreate, {
+        headers: { authorization: 'Bearer ' + getToken() }
+      });
       history.push('/admin-manage');
       setCurrentFlight('');
     } catch (error) {
@@ -62,7 +67,9 @@ const FlightProvider = ({ children }) => {
   const hdlSubmitEditFilght = async e => {
     e.preventDefault();
     try {
-      await axios.put(`/schedule-flight/${currentFlight.id}`, currentFlight);
+      await axios.put(`/schedule-flight/${currentFlight.id}`, currentFlight, {
+        headers: { authorization: 'Bearer ' + getToken() }
+      });
       window.alert(`update success flightId: ${currentFlight.id}`);
     } catch (error) {
       console.log(error);
@@ -71,7 +78,9 @@ const FlightProvider = ({ children }) => {
 
   const hdlDeleteFilght = async () => {
     try {
-      await axios.delete(`/schedule-flight/${currentFlight.id}`);
+      await axios.delete(`/schedule-flight/${currentFlight.id}`, {
+        headers: { authorization: 'Bearer ' + getToken() }
+      });
       window.alert(`Flight: ${currentFlight.id} Delete success`);
       history.push('/admin-manage');
       setCurrentFlight('');

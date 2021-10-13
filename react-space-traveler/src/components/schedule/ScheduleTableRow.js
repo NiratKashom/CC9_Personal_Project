@@ -47,7 +47,7 @@ function ScheduleTableRow(props) {
   };
 
   return (
-    <div onClick={user?.isAdmin ? hdlClickEditSchdById : hdlClickToRoomById} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
+    <div onClick={!user ? () => history.push('/login') : user.isAdmin ? hdlClickEditSchdById : hdlClickToRoomById} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
       <div className="dflex flex4">
         <div className="flex1">
           <p className="fz25">{separateDate(departureDate, 'day')}</p>

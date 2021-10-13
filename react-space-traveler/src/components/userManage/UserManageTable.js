@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import AdminMngUserTableRow from '../adminManage/AdminMngUserTableRow';
 import { reservationContext } from '../../contexts/reservationContext';
 import { userContext } from '../../contexts/userContext';
+import { getToken } from '../../services/localStorageService';
 import axios from 'axios';
 
 function UserManageTable({ reserveFilter }) {
@@ -10,7 +11,9 @@ function UserManageTable({ reserveFilter }) {
 
   useEffect(() => {
     if (user?.isAdmin) {
-      axios.get('/reservation')
+      axios.get('/reservation', {
+        headers: { authorization: 'Bearer ' + getToken() }
+      })
         .then(res => {
           setReservation(res.data.allReservation);
         })
@@ -18,7 +21,9 @@ function UserManageTable({ reserveFilter }) {
           console.log(err);
         });
     } else {
-      axios.get(`/reservation/${user.id}`)
+      axios.get(`/reservation/${user.id}`, {
+        headers: { authorization: 'Bearer ' + getToken() }
+      })
         .then(res => {
           setReservation(res.data.reserveByUser);
         })
