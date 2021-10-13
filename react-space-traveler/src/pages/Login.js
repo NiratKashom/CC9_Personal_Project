@@ -25,7 +25,6 @@ function Login() {
               register
             </Link>
             <button type="submit" className="btn-green fz15 flex1 ">
-
               login
             </button>
           </div>

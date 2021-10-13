@@ -24,8 +24,8 @@ function Navbar() {
           user.isAdmin ?
             <>
               <li><NavLink to="/admin-manage">MANAGE schedule</NavLink></li>
-              <li>
-                <NavLink to="#" >welcome admin</NavLink>
+              <li className="dflex ">
+                <p >welcome admin</p>
                 <button className="btn-outline-red fz15 ml1"
                   onClick={hdlLogout}
                 >logout</button>
@@ -34,8 +34,8 @@ function Navbar() {
             :
             <>
               <li><NavLink to="/user-manage">MANAGE RESERVATION</NavLink></li>
-              <li>
-                <NavLink to="#" >welcome {user.firstName}</NavLink>
+              <li className="dflex ">
+                <p >welcome {user.firstName}</p>
                 <button className="btn-outline-red fz15 ml1"
                   onClick={hdlLogout}
                 >logout</button>

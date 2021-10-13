@@ -2,7 +2,7 @@ import React from 'react';
 import UserManageReservation from '../components/userManage/UserManageReservation';
 import UserMenu from '../components/userManage/UserMenu';
 import UserReverseInfo from '../components/userManage/UserReverseInfo';
-import UserCancelReserve from '../components/userManage/UserCancelReserve';
+// import UserCancelReserve from '../components/userManage/UserCancelReserve';
 import UserCancelComplete from '../components/userManage/UserCancelComplete';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
@@ -17,9 +17,9 @@ function UserManage() {
         <Route path={`${path}/UserReverseInfo`}>
           <UserReverseInfo />
         </Route>
-        <Route path={`${path}/UserCancelReserve`}>
+        {/* <Route path={`${path}/UserCancelReserve`}>
           <UserCancelReserve />
-        </Route>
+        </Route> */}
         <Route path={`${path}/UserCancelComplete`}>
           <UserCancelComplete />
         </Route>

@@ -1,17 +1,15 @@
 import React, { useContext, useEffect } from 'react';
 import AdminMngUserTableRow from '../adminManage/AdminMngUserTableRow';
-import { Link, useRouteMatch } from 'react-router-dom';
 import { reservationContext } from '../../contexts/reservationContext';
 import { userContext } from '../../contexts/userContext';
 import axios from 'axios';
 
 function UserManageTable() {
-  const { reservation, setReservation } = useContext(reservationContext);
+  const { reservation, setReservation, trigger } = useContext(reservationContext);
   const { user } = useContext(userContext);
-  // const { path } = useRouteMatch();
 
   useEffect(() => {
-    if (user.isAdmin) {
+    if (user?.isAdmin) {
       axios.get('/reservation')
         .then(res => {
           setReservation(res.data.allReservation);
@@ -28,9 +26,7 @@ function UserManageTable() {
           console.log(err);
         });
     }
-  }, []);
-
-  // console.log(reservation);
+  }, [trigger]);
 
   return (
     <div className="mt125">

@@ -376,6 +376,12 @@ nav ul li a {
   font-weight: 400;
 }
 
+nav ul li p {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: var(--myWhite);
+}
+
 nav ul li a:hover {
   color: var(--myWhite);
 }
@@ -570,6 +576,20 @@ div.home-container div select {
 /* user-menu */
 .menu span {
   font-size: 15rem;
+}
+
+.menu .user-menu-list li a {
+  color: var(--myWhite50);
+  font-weight: 400;
+}
+
+.menu .user-menu-list li a:hover {
+  color: var(--myWhite);
+}
+
+.menu .user-menu-list li a:active {
+  color: var(--myWhite);
+  text-decoration: underline;
 }
 
 /* user cancel reserve */

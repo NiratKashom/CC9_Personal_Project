@@ -8,94 +8,39 @@ const ReservationProvider = ({ children }) => {
   const history = useHistory();
   const [reservation, setReservation] = useState([]);
   const [curReservation, setCurReservation] = useState({});
+  const [trigger, setTrigger] = useState(false);
 
-  const hdlClickSetCurReservation = async (reservavtionId) => {
+  const hdlChangeEditFlight = async (stat) => {
+    console.log(`${stat}`);
     try {
-      const res = await axios.get(`/reservation/reservationInfo/${reservavtionId}`);
-      setCurReservation(cur => ({ ...cur, ...res.data.reservationById }));
+      await axios.put(`/reservation/reservationInfo/${curReservation.id}`,
+        { status: stat, reserveId: curReservation.id }
+      );
+      window.alert('update success');
+      setTrigger(cur => !cur);
+      history.push('/admin-manage/user-reservation');
     } catch (error) {
       console.log(error);
     }
   };
 
-  // console.log(curReservation);
-
-
-  // const hdlChangeEditFlight = (e) => {
-  //   const getState = currentFlight ? setCurrentFlight : setFlightForCreate;
-  //   let ISODate;
-  //   if (e.target.type === 'date') ISODate = new Date(e.target.value).toISOString();
-  //   switch (e.target.name) {
-  //     case 'departureDate':
-  //       getState(cur => ({ ...cur, departureDate: ISODate }));
-  //       break;
-  //     case 'arrivalDate':
-  //       getState(cur => ({ ...cur, arrivalDate: ISODate }));
-  //       break;
-  //     case 'returnDate':
-  //       getState(cur => ({ ...cur, returnDate: ISODate }));
-  //       break;
-  //     case 'destination':
-  //       getState(cur => ({ ...cur, destination: e.target.value }));
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // };
-
-  // const hdlClickGoBackAndClearCurFlight = () => {
-  //   history.goBack();
-  //   setCurrentFlight('');
-  //   setFlightForCreate({ departure: 'earth' });
-  // };
-
-  // const hdlClickSetCurFlightWithId = async (flightId) => {
-  //   try {
-  //     const res = await axios.get(`/schedule-flight/${flightId}`);
-  //     setCurrentFlight(cur => ({ ...cur, ...res.data.flight }));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const hdlSubmitCreateFilght = async e => {
-  //   e.preventDefault();
-  //   try {
-  //     await axios.post(`/schedule-flight/`, flightForCreate);
-  //     history.push('/admin-manage');
-  //     setCurrentFlight('');
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const hdlSubmitEditFilght = async e => {
-  //   e.preventDefault();
-  //   try {
-  //     await axios.put(`/schedule-flight/${currentFlight.id}`, currentFlight);
-  //     window.alert(`update success flightId: ${currentFlight.id}`);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const hdlDeleteFilght = async () => {
-  //   try {
-  //     await axios.delete(`/schedule-flight/${currentFlight.id}`);
-  //     window.alert(`Flight: ${currentFlight.id} Delete success`);
-  //     history.push('/admin-manage');
-  //     setCurrentFlight('');
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-
+  const displayStatus = (status) => {
+    switch (status) {
+      case 'rejected':
+        return 'txtred';
+      case 'approved':
+        return 'txtgreen';
+      default:
+        return 'txtorange';
+    }
+  };
 
 
   return <reservationContext.Provider value={{
-    reservation, setReservation, hdlClickSetCurReservation,
-    curReservation, setCurReservation
+    reservation, setReservation, displayStatus,
+    // hdlClickSetCurReservation,
+    trigger, setTrigger,
+    curReservation, setCurReservation, hdlChangeEditFlight
   }}>
     {children}
   </reservationContext.Provider>;

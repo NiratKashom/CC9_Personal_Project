@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 import { userContext } from '../../contexts/userContext';
 
 function AdminMenu() {
@@ -15,12 +15,12 @@ function AdminMenu() {
       </div>
       <div className="content ">
         <ul className="user-menu-list mt1">
-          <li><Link to={`${url}`} className="fz125 ttcap">
+          <li><NavLink to={`${url}`} className="fz125 ttcap">
             manage schedule
-          </Link></li>
-          <li><Link to={`${url}/user-reservation`} className="fz125 ttcap">
+          </NavLink></li>
+          <li><NavLink to={`${url}/user-reservation`} className="fz125 ttcap">
             manage reservation
-          </Link></li>
+          </NavLink></li>
         </ul>
         <div className=" txtcenter mt15">
           <button className="btn-red fz15" onClick={hdlLogout}>logout</button>

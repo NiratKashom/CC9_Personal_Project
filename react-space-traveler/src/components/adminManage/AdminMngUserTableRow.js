@@ -3,36 +3,38 @@ import { getFormattedDate } from '../../services/dateService';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { reservationContext } from '../../contexts/reservationContext';
 import { userContext } from '../../contexts/userContext';
+import axios from '../../config/axios';
 
 
 function AdminMngUserTableRow(props) {
   const { user } = useContext(userContext);
   const history = useHistory();
   const { path } = useRouteMatch();
-  const { hdlClickSetCurReservation } = useContext(reservationContext);
+  const { setCurReservation, displayStatus } = useContext(reservationContext);
   const { Flight: {
     departureDate, returnDate, arrivalDate, departure, destination },
     id, flightId, status } = props.data;
-
-  const displayStatus = (status) => {
-    switch (status) {
-      case 'rejected':
-        return 'txtred';
-      case 'approved':
-        return 'txtgreen';
-      default:
-        return 'txtorange';
-    }
-  };
 
   const enableHover = (path) => {
     if (path === '/admin-manage/user-reservation') return;
     return 'table-row';
   };
 
-  const hdlClickGetReserveId = () => {
-    hdlClickSetCurReservation(id);
-    history.push(`/user-manage/UserReverseInfo/${id}`);
+  const hdlClickSetCurReservation = async (id) => {
+    // hdlClickSetCurReservation(id);
+    try {
+      const res = await axios.get(`/reservation/reservationInfo/${id}`);
+      setCurReservation(cur => ({ ...cur, ...res.data.reservationById }));
+      if (user.isAdmin) {
+        console.log('admin fetch success');
+        history.push(`${path}/MngReserveInfo`);
+      } else {
+        console.log('user fetch success');
+        history.push(`${path}/UserReverseInfo`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
 
@@ -68,20 +70,28 @@ function AdminMngUserTableRow(props) {
         <p className={`${displayStatus(status)} ttup txtcenter`}>{status}</p>
       </div>
       {/* action */}
-      <div className=" w10 txtcenter dflex-jaround">
+      <div className=" w10 txtcenter dflex-jaround alicenter">
         <button className="material-icons-outlined txtblue fz2"
-          onClick={hdlClickGetReserveId}>
+          onClick={() => hdlClickSetCurReservation(id)}>
           description
         </button>
-        {
-          user.isAdmin ?
-            <span className="material-icons-round fz2 txtgreen">
-              check_circle_outline
-            </span> : null
+        {!user.isAdmin ? null : status !== 'pending' ?
+          <span className="material-icons-round fz2 txtwhite80">
+            check_circle_outline
+          </span> :
+          <button className="material-icons-round fz2 txtgreen">
+            check_circle_outline
+          </button>
         }
-        < button className="material-icons-outlined txtred fz2">
-          cancel
-        </button>
+
+        {status !== 'pending' ?
+          < span className="material-icons-outlined txtwhite80 fz2">
+            cancel
+          </span> :
+          < button className="material-icons-outlined txtred fz2">
+            cancel
+          </button>
+        }
       </div>
     </div >
   );

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function CompleteBooking() {
 
   return (
-    <div className="complete-booking modal-backdrop center outline ">
+    <div className="complete-booking modal-backdrop center ">
 
       <ModalWithCloseBtn headline="complete booking"
         addClass="txtcenter px25 complete-booking-detail"

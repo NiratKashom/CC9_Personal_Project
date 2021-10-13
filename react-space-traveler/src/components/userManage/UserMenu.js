@@ -2,14 +2,18 @@ import React, { useContext } from 'react';
 import { userContext } from '../../contexts/userContext';
 
 function UserMenu() {
-  const { hdlLogout } = useContext(userContext);
+  const { hdlLogout, user } = useContext(userContext);
   return (
     <div className="menu p0 flex1 mr1 container-with-bg ">
       <div className="headline txtcenter">
         <span className="material-icons-outlined fz25">
           account_circle
         </span>
-        <p className="fz15">Firstname Lastname</p>
+        <p className="fz15 ttcap">{`${user.firstName} ${user.lastName}`}</p>
+        <div className="dflex-jcenter mt05">
+          <p className="fz1 ttup txtwhite80 mr05">user ID :</p>
+          <p className="fz1">{user.id}</p>
+        </div>
       </div>
       <div className="content ">
         <ul className="user-menu-list mt1">

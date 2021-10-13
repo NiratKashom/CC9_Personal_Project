@@ -3,25 +3,30 @@ import AdminMenu from '../components/adminManage/AdminMenu';
 import AdminManageSchedule from '../components/adminManage/AdminManageSchedule';
 import AdminEditFlight from '../components/adminManage/AdminEditFlight';
 import AdminMngUserReserve from '../components/adminManage/AdminMngUserReserve';
-import AdminMngUserReserveInfo from '../components/adminManage/AdminMngUserReserveInfo';
+// import AdminMngUserReserveInfo from '../components/adminManage/AdminMngUserReserveInfo';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import UserReverseInfo from '../components/userManage/UserReverseInfo';
 
 function AdminManage() {
-  const { path } = useRouteMatch();
+  const { path, url } = useRouteMatch();
   return (
-    <div className="w75 px2 m0auto dflex alistart outline">
+    <div className="w75 px2 m0auto dflex alistart">
       <AdminMenu />
       <Switch>
-        <Route path={`${path}/MngReserveInfo`}>
-          <AdminMngUserReserveInfo />
-        </Route>
+        {/* <Route path={`${path}/user-reservation/MngReserveInfo`}>
+          <UserReverseInfo />
+        </Route> */}
         <Route path={`${path}/manage-flight`}>
           <AdminEditFlight />
         </Route>
         <Route path={`${path}/user-reservation`}>
           <AdminMngUserReserve />
+          <Switch >
+            <Route path={`${path}/user-reservation/MngReserveInfo`}>
+              <UserReverseInfo />
+            </Route>
+          </Switch>
         </Route>
-
         <Route exact path={path}>
           <AdminManageSchedule />
         </Route>

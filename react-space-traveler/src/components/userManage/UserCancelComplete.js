@@ -2,7 +2,7 @@ import React from 'react';
 import ModalWithCloseBtn from '../ModalWithCloseBtn';
 function UserCancelComplete() {
   return (
-    <div className="modal-backdrop center outline ">
+    <div className="modal-backdrop center ">
 
       <ModalWithCloseBtn headline="completed cancelled "
         addClass="txtcenter px25 complete-booking-detail"

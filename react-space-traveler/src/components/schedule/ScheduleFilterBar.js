@@ -11,8 +11,8 @@ function ScheduleFilterBar({ setFilter }) {
         <option value="mars">Mars</option>
         <option value="jupiter">Jupiter</option>
       </select>
-      <label className="p05">Departure date :</label>
-      <input type="date" />
+      {/* <label className="p05">Departure date :</label>
+      <input type="date" /> */}
     </div>
   );
 }

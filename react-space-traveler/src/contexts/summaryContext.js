@@ -33,7 +33,6 @@ const SummaryProvider = ({ children }) => {
   const hdlSubmitCreateReservation = async () => {
     try {
       await axios.post(`reservation/`, reserveInfoForSubmit);
-      // window.alert('create reservation success');
       setSummary([]);
       setReserveInfoForSubmit([]);
     } catch (error) {
