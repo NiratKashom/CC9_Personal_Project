@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UserManageFilterBar from '../userManage/UserManageFilterBar';
 import UserManageTable from '../userManage/UserManageTable';
 import ContainerWithHeadline from '../ContainerWithHeadline';
 
 function AdminMngUserReserve() {
+  const [reserveFilter, setReserveFilter] = useState('');
   return (
     <div className="flex3">
       <ContainerWithHeadline headline="manage reservation"  >
-        <UserManageFilterBar />
-        <UserManageTable />
+        <UserManageFilterBar setReserveFilter={setReserveFilter} />
+        <UserManageTable reserveFilter={reserveFilter} />
       </ContainerWithHeadline>
     </div>
   );

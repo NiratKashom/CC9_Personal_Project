@@ -15,14 +15,14 @@ function UserMenu() {
           <p className="fz1">{user.id}</p>
         </div>
       </div>
-      <div className="content ">
-        <ul className="user-menu-list mt1">
+      <div className="content txtcenter ">
+        {/* <ul className="user-menu-list mt1">
           <li><a href="./schedule.html" className="fz125">manage reservation</a></li>
           <li><a href="./schedule.html" className="fz125">back</a></li>
-        </ul>
-        <div className=" txtcenter mt15">
-          <button className="btn-red fz15" onClick={hdlLogout} >logout</button>
-        </div>
+        </ul> */}
+        <button className="btn-red fz15" onClick={hdlLogout} >logout</button>
+        {/* <div className=" txtcenter mt15">
+        </div> */}
       </div>
     </div>
   );

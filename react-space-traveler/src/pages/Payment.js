@@ -9,7 +9,7 @@ function Payment() {
   const { step } = useContext(summaryContext);
 
   return (
-    <div className="w100 dflex alistart mt125 outline">
+    <div className="w100 dflex alistart mt125">
       <PaymentMethod />
       <Summary />
       {step === 4 ? <CompleteBooking /> : null}

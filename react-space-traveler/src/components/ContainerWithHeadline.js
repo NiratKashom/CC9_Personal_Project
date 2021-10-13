@@ -7,7 +7,7 @@ function ContainerWithHeadline(props) {
       <div className="headline">
         <h1 className="fz15 ttcap">{headline}</h1>
       </div>
-      <div className={`p125 ${addClass || ''}`}>
+      <div className={`p125 pt0 ${addClass || ''}`}>
         {children}
       </div>
     </div>

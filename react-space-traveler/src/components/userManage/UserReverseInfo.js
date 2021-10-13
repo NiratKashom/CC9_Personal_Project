@@ -85,7 +85,7 @@ function UserReverseInfo() {
         </div>
 
         <div className="borderbot mb1 pb1">
-          <h2 className="fz125 mb05 ttup">Booking Info</h2>
+          <h2 className="fz125 mb05 ttup">Booking Info :</h2>
           <div className="dflex-jbetween">
             <div >
               <div className="dflex-jbetween ">
@@ -113,7 +113,7 @@ function UserReverseInfo() {
 
 
         <div className="borderbot mb1 pb1">
-          <h2 className="fz125 mb05 ttup">Room</h2>
+          <h2 className="fz125 mb05 ttup">Room :</h2>
           {orderList?.filter(item => item.Service.serviceType === 'room')
             .map((item, idx) => (
               <div key={idx} className="dflex-jbetween ">
@@ -126,7 +126,7 @@ function UserReverseInfo() {
         </div>
 
         <div className="borderbot mb1 pb1">
-          <h2 className="fz125 mb05 ttup">extra</h2>
+          <h2 className="fz125 mb05 ttup">extra :</h2>
           {orderList?.filter(item => item.Service.serviceType === 'extra')
             .map((item, idx) => (
               <div key={idx} className="dflex-jbetween ">

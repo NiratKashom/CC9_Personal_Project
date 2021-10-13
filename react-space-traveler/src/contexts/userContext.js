@@ -11,7 +11,7 @@ const userContext = createContext();
 
 const UserProvider = ({ children }) => {
   const history = useHistory();
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({ isAdmin: false });
 
 
   const hdlSubmitLogin = async (e, loginInput) => {

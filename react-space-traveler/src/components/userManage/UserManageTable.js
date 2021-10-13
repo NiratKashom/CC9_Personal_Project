@@ -4,7 +4,7 @@ import { reservationContext } from '../../contexts/reservationContext';
 import { userContext } from '../../contexts/userContext';
 import axios from 'axios';
 
-function UserManageTable() {
+function UserManageTable({ reserveFilter }) {
   const { reservation, setReservation, trigger } = useContext(reservationContext);
   const { user } = useContext(userContext);
 
@@ -28,9 +28,14 @@ function UserManageTable() {
     }
   }, [trigger]);
 
+  const filteredReservation = reservation.filter((item) => (
+    item.status === reserveFilter))
+    .map(item => <AdminMngUserTableRow key={item.id} data={item} />);
+
   return (
-    <div className="mt125">
-      {reservation.map(item => <AdminMngUserTableRow key={item.id} data={item} />) || null}
+    < div className="mt125" >
+      {reserveFilter ? filteredReservation :
+        reservation.map(item => <AdminMngUserTableRow key={item.id} data={item} />)}
     </div>
   );
 }

@@ -598,3 +598,7 @@ div.home-container div select {
   right: 1.25rem;
   bottom: 1.25rem;
 }
+
+.pointer {
+  cursor: pointer;
+}

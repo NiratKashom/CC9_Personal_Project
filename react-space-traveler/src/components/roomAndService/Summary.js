@@ -36,9 +36,9 @@ function Summary() {
       <ContainerWithHeadline headline="summary">
         <div className="summary">
           <div className="flight-detail borderbot mb1 pb1">
-            <h2 className="fz125 mb05 ttup">Flight</h2>
+            <h2 className="fz125 mb05 ttup">Flight :</h2>
             <p className="txtwhite80 ">Flight ID: <span>{id}</span> </p>
-            <p className="ttcap">{`${departure} - ${destination} - ${departure}`}</p>
+            <p className="ttcap fz125">{`${departure} - ${destination} - ${departure}`}</p>
             <p className="txtwhite80 ">Depart: <span>{getFormattedDate(departureDate)}</span></p>
             <p className="txtwhite80 ">Arrival: <span>{getFormattedDate(arrivalDate)}</span></p>
             <p className="txtwhite80 ">Return: <span>{getFormattedDate(returnDate)}</span></p>
@@ -46,7 +46,7 @@ function Summary() {
 
           <div className="borderbot mb1 pb1">
             {/* each service */}
-            <h2 className="fz125 mb05 ttup">Room</h2>
+            <h2 className="fz125 mb05 ttup">Room :</h2>
             {summary?.filter(item => item.type === 'room')
               .map((item, idx) => (
                 <div key={idx} className="dflex-jbetween ">
@@ -59,7 +59,7 @@ function Summary() {
 
           <div className="borderbot mb1 pb1">
             {/* each service */}
-            <h2 className="fz125 mb05 ttup">Extra Service</h2>
+            <h2 className="fz125 mb05 ttup">Extra Service :</h2>
             {summary?.filter(item => item.type === 'extra')
               .map((item, idx) => (
                 <div key={idx} className="dflex-jbetween ">

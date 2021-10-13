@@ -238,6 +238,16 @@
   font-size: 10rem;
 }
 
+.lh25 {
+  line-height: 2.5rem;
+}
+.lh3 {
+  line-height: 3rem;
+}
+.lh5 {
+  line-height: 5rem;
+}
+
 /* text-transform */
 .ttcap {
   text-transform: capitalize;
@@ -253,6 +263,10 @@
 /* text-align */
 .txtcenter {
   text-align: center;
+}
+
+.txtjus {
+  text-align: justify;
 }
 
 .txtend {

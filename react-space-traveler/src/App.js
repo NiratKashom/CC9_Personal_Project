@@ -23,9 +23,9 @@ function App() {
           <Switch>
             <Route path="/login"><Login /></Route>
             <Route path="/register"><Register /></Route>
-            <Route exact path="/"><Home /></Route>
             <ReservationProvider>
               <FlightProvider>
+                <Route exact path="/"><Home /></Route>
                 <SummaryProvider>
                   <ServiceProvider>
                     <Route path="/user-manage"><UserManage /></Route>

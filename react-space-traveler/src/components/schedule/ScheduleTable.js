@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from '../../config/axios';
 import ScheduleTableRow from './ScheduleTableRow';
 
-function ScheduleTable(props) {
+function ScheduleTable({ filterFlight }) {
   const [schedule, setSchedule] = useState([]);
-  const { filter } = props;
+
 
   useEffect(() => {
     axios.get('/schedule-flight')
@@ -16,8 +16,8 @@ function ScheduleTable(props) {
       });
   }, []);
 
-  const filterFlight = schedule.filter((data) => (
-    data.destination === filter))
+  const filtered = schedule.filter((data) => (
+    data.destination === filterFlight))
     .map((data, idx) => {
       return (
         <ScheduleTableRow key={idx} data={data} />
@@ -26,7 +26,7 @@ function ScheduleTable(props) {
 
   return (
     <div className="w100">
-      {filter ? filterFlight :
+      {filterFlight ? filtered :
         schedule.map((data, idx) => {
           return (
             <ScheduleTableRow key={idx} data={data} />

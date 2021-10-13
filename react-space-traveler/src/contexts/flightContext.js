@@ -8,6 +8,7 @@ const FlightProvider = ({ children }) => {
   const history = useHistory();
   const [currentFlight, setCurrentFlight] = useState('');
   const [flightForCreate, setFlightForCreate] = useState({ departure: 'earth' });
+  const [filterFlight, setFilterFlight] = useState('');
 
 
   const hdlChangeEditFlight = (e) => {
@@ -84,7 +85,8 @@ const FlightProvider = ({ children }) => {
     hdlClickSetCurFlightWithId, currentFlight, setCurrentFlight,
     flightForCreate, setFlightForCreate,
     hdlChangeEditFlight, hdlClickGoBackAndClearCurFlight,
-    hdlSubmitCreateFilght, hdlDeleteFilght, hdlSubmitEditFilght
+    hdlSubmitCreateFilght, hdlDeleteFilght, hdlSubmitEditFilght,
+    filterFlight, setFilterFlight
 
   }}>
     {children}

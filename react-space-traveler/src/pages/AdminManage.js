@@ -13,9 +13,6 @@ function AdminManage() {
     <div className="w75 px2 m0auto dflex alistart">
       <AdminMenu />
       <Switch>
-        {/* <Route path={`${path}/user-reservation/MngReserveInfo`}>
-          <UserReverseInfo />
-        </Route> */}
         <Route path={`${path}/manage-flight`}>
           <AdminEditFlight />
         </Route>
