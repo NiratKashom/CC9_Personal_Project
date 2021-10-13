@@ -4,11 +4,12 @@ import ScheduleTable from '../schedule/ScheduleTable';
 import { summaryContext } from '../../contexts/summaryContext';
 
 function ScheduleSection() {
-  const { setStep } = useContext(summaryContext);
+  const { setStep, setSummary } = useContext(summaryContext);
 
   const [filter, setFilter] = useState('');
   useEffect(() => {
     setStep(0);
+    setSummary([]);
   }, []);
 
   return (

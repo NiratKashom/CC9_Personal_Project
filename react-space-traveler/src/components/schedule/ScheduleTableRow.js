@@ -46,10 +46,6 @@ function ScheduleTableRow(props) {
     history.push(`${path}/manage-flight/${flightId}`);
   };
 
-  console.log('row had call');
-  console.log(path);
-
-
   return (
     <div onClick={user?.isAdmin ? hdlClickEditSchdById : hdlClickToRoomById} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
       <div className="dflex flex4">

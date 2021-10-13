@@ -6,7 +6,7 @@ const reservationContext = createContext();
 
 const ReservationProvider = ({ children }) => {
   const history = useHistory();
-  const [reservation, setReservation] = useState('');
+  const [reservation, setReservation] = useState([]);
   // const [flightForCreate, setFlightForCreate] = useState({ departure: 'earth' });
 
 

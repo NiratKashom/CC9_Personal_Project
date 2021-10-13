@@ -41,7 +41,7 @@ const UserProvider = ({ children }) => {
   };
 
   const hdlLogout = () => {
-    removeToken();
+    // removeToken();
     setUser(null);
     history.push('/login');
   };
