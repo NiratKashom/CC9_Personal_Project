@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 import axios from '../config/axios';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { getToken } from '../services/localStorageService';
 
 const summaryContext = createContext();
@@ -12,7 +12,7 @@ const SummaryProvider = ({ children }) => {
   const hdlClickDecrStep = () => setStep(step - 1);
 
   const [summary, setSummary] = useState([]);
-
+  const [payslip, setPayslip] = useState(null);
   const [reserveInfoForSubmit, setReserveInfoForSubmit] = useState({});
 
   const sumPrice = summary.reduce((acc, item) => {
@@ -30,9 +30,18 @@ const SummaryProvider = ({ children }) => {
     }
   };
 
+
+  // console.log(reserveInfoForSubmit);
   const hdlSubmitCreateReservation = async () => {
+
     try {
-      await axios.post(`reservation/`, reserveInfoForSubmit, {
+      const formData = new FormData();
+      formData.append("flightId", reserveInfoForSubmit.flightId);
+      formData.append("passengerId", reserveInfoForSubmit.passengerId);
+      formData.append("orderList", JSON.stringify(reserveInfoForSubmit.orderList));
+      formData.append("payslip", payslip);
+
+      await axios.post(`/reservation`, formData, {
         headers: { authorization: 'Bearer ' + getToken() }
       });
       setSummary([]);
@@ -45,6 +54,7 @@ const SummaryProvider = ({ children }) => {
   return <summaryContext.Provider value={{
     summary, setSummary, sumPrice, calcPrice,
     step, setStep, hdlClickIncrStep, hdlClickDecrStep,
+    payslip, setPayslip,
     reserveInfoForSubmit, setReserveInfoForSubmit, hdlSubmitCreateReservation
   }}>
     {children}

@@ -77,7 +77,7 @@ function AdminMngUserTableRow(props) {
           onClick={() => hdlClickSetCurReservation(id)}>
           description
         </button>
-        {!user.isAdmin ? null : status !== 'pending' ?
+        {/* {!user.isAdmin ? null : status !== 'pending' ?
           <span className="material-icons-round fz25 txtwhite80">
             check_circle_outline
           </span> :
@@ -93,7 +93,7 @@ function AdminMngUserTableRow(props) {
           <butto className="material-icons-outlined txtred fz25 pointer">
             cancel
           </butto>
-        }
+        } */}
       </div>
     </div >
   );

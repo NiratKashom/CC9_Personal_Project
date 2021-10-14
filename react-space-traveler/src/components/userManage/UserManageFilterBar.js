@@ -5,7 +5,7 @@ function UserManageFilterBar({ setReserveFilter }) {
 
   return (
     <div className="dflex-jend ">
-      <div className="dflex w45 ">
+      <div className="dflex w74 ">
         {/*  */}
         <input type="radio" name="status" id="all" value=""
           onChange={e => setReserveFilter(e.target.value)}
@@ -35,8 +35,15 @@ function UserManageFilterBar({ setReserveFilter }) {
           onChange={e => setReserveFilter(e.target.value)}
           className="dnone"
         />
-        <label className="btn-outline-red flex1" htmlFor="rejected">
+        <label className="btn-outline-red flex1 mr1" htmlFor="rejected">
           rejected
+        </label>
+        <input type="radio" name="status" id="canceled" value="canceled"
+          onChange={e => setReserveFilter(e.target.value)}
+          className="dnone"
+        />
+        <label className="btn-outline-red flex1 mr1" htmlFor="canceled">
+          canceled
         </label>
 
       </div>

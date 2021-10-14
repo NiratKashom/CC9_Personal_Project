@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
+import { summaryContext } from '../../contexts/summaryContext';
 
 
 function PaymentMethod() {
-  const [upPic, setUppic] = useState('');
+  const { setPayslip, } = useContext(summaryContext);
   const [previewPic, setPreviewPic] = useState('');
 
   const hdlUploadPayslip = (e) => {
-    console.log(e.target.files[0]);
+    setPayslip(e.target.files[0]);
     setPreviewPic(URL.createObjectURL(e.target.files[0]));
-    // setUppic
-    // setPreviewPic
   };
 
   return (

@@ -20,6 +20,7 @@ function Summary() {
     history.goBack();
   };
 
+
   const { destination,
     departure,
     departureDate,
@@ -32,7 +33,6 @@ function Summary() {
     hdlSubmitCreateReservation();
     hdlClickIncrStep();
     setErrSummary('');
-    // 
   };
 
   const hdlClickBeforeConfirm = () => {

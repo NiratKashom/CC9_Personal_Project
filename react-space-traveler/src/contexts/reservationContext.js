@@ -11,7 +11,7 @@ const ReservationProvider = ({ children }) => {
   const [curReservation, setCurReservation] = useState({});
   const [trigger, setTrigger] = useState(false);
 
-  const hdlChangeEditFlight = async (stat) => {
+  const hdlChangeStatReserve = async (stat) => {
     console.log(`${stat}`);
     try {
       await axios.put(`/reservation/reservationInfo/${curReservation.id}`,
@@ -33,6 +33,8 @@ const ReservationProvider = ({ children }) => {
         return 'txtred';
       case 'approved':
         return 'txtgreen';
+      case 'canceled':
+        return 'txtred';
       default:
         return 'txtorange';
     }
@@ -41,9 +43,8 @@ const ReservationProvider = ({ children }) => {
 
   return <reservationContext.Provider value={{
     reservation, setReservation, displayStatus,
-    // hdlClickSetCurReservation,
     trigger, setTrigger,
-    curReservation, setCurReservation, hdlChangeEditFlight
+    curReservation, setCurReservation, hdlChangeStatReserve,
   }}>
     {children}
   </reservationContext.Provider>;

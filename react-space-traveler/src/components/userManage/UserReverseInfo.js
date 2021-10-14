@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
 import ModalWithCloseBtn from '../ModalWithCloseBtn';
 import { reservationContext } from '../../contexts/reservationContext';
 import { userContext } from '../../contexts/userContext';
@@ -7,14 +6,18 @@ import { separateDate, getFormattedDate } from '../../services/dateService';
 
 
 function UserReverseInfo() {
-  const { curReservation, hdlChangeEditFlight, displayStatus } = useContext(reservationContext);
+  const { curReservation, hdlChangeStatReserve, displayStatus } = useContext(reservationContext);
   const { user } = useContext(userContext);
+  const [preview, setPreview] = useState(false);
+  // console.log('below is curReservation');
+  // console.log(curReservation);
 
   const
     {
       id: reserveId,
       status,
       flightId,
+      payslipUrl,
       flight: {
         departureDate,
         arrivalDate,
@@ -37,7 +40,11 @@ function UserReverseInfo() {
   }, 0);
 
   const hdlclickUpdateStatus = (stat) => {
-    hdlChangeEditFlight(stat);
+    hdlChangeStatReserve(stat);
+  };
+
+  const hdlClickPreviewPayslip = () => {
+    setPreview(c => !c);
   };
 
   return (
@@ -114,10 +121,10 @@ function UserReverseInfo() {
 
         <div className="borderbot mb1 pb1">
           <h2 className="fz125 mb05 ttup">Room :</h2>
-          {orderList?.filter(item => item.Service.serviceType === 'room')
+          {orderList?.filter(item => item['Service.serviceType'] === 'room')
             .map((item, idx) => (
               <div key={idx} className="dflex-jbetween ">
-                <p className="ttcap">{`${item.amount} ${item.Service.name} :`}</p>
+                <p className="ttcap">{`${item.amount} ${item['Service.name']} :`}</p>
                 <p className="fz125">{item.amount * item.price} &#3647;</p>
               </div>
             ))
@@ -127,25 +134,34 @@ function UserReverseInfo() {
 
         <div className="borderbot mb1 pb1">
           <h2 className="fz125 mb05 ttup">extra :</h2>
-          {orderList?.filter(item => item.Service.serviceType === 'extra')
+          {orderList?.filter(item => item['Service.serviceType'] === 'extra')
             .map((item, idx) => (
               <div key={idx} className="dflex-jbetween ">
-                <p className="ttcap">{`${item.amount} ${item.Service.name} :`}</p>
+                <p className="ttcap">{`${item.amount} ${item['Service.name']} :`}</p>
                 <p className="fz125">{item.amount * item.price} &#3647;</p>
               </div>
             ))
           }
         </div>
-
-        <p className="fz125 txtend mb125">
-          Total Trip:
-          <span className="fz15" > {sumPrice} &#3647; </span>
-        </p>
-        <div className="dflex-jbetween">
+        <div className="dflex-jbetween alicenter mb1">
           <p className="fz15 ttup ">
             status :
             <span className={`fz15 ml05 ${displayStatus(status)}`}>{status}</span>
           </p>
+          <p className="fz125 ">
+            Total Trip:
+            <span className="fz15" > {sumPrice} &#3647; </span>
+          </p>
+        </div>
+        {preview && <div className=" mb1">
+          <img className="previewPayslip container-with-bg" src={payslipUrl} alt="" />
+        </div>}
+
+
+        <div className="dflex-jbetween">
+          <button className="btn-outline-blue fz125"
+            onClick={hdlClickPreviewPayslip}
+          >preview payslip</button>
           {user.isAdmin ?
             <div>
               <button className="btn-outline-red fz125 mr1"
@@ -156,9 +172,12 @@ function UserReverseInfo() {
               >approve</button>
             </div>
             : status !== 'rejected' ?
-              <Link to={`/user-manage/UserCancelReserve`}>
-                <button className="btn-outline-red fz125 ml1">cancel a reservation</button>
-              </Link> : null
+              <button className="btn-outline-red fz125 ml1"
+                onClick={() => hdlclickUpdateStatus('canceled')}
+              >cancel a reservation</button> : null
+            // <Link to={`/user-manage/UserCancelReserve`}>
+            //   <button className="btn-outline-red fz125 ml1">cancel a reservation</button>
+            // </Link> : null
           }
         </div>
 

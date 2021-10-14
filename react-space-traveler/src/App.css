@@ -13,6 +13,7 @@
   /*colors */
   --myBlue: #5eb8e9;
   --myBlueHov: hsl(201, 73%, 45%);
+  /* --myBlueHov: hsl(0, 0%, 100%); */
   --myGreen: #67ca90;
   --myGreenHov: hsl(145, 48%, 50%);
   --myRed: #fe6464;
@@ -103,6 +104,7 @@ option[class*="-orange"]:hover {
 
 .txtblue {
   color: var(--myBlue);
+  transition: 0.5s;
 }
 
 .txtorange {
@@ -628,5 +630,9 @@ div.home-container div select:focus {
 }
 
 .payImg {
+  width: 520px;
+}
+
+.previewPayslip {
   width: 520px;
 }

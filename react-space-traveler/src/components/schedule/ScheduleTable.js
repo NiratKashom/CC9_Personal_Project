@@ -23,7 +23,11 @@ function ScheduleTable({ filterFlight }) {
 
   const filtered = schedule.filter((data) => (
     data.destination === filterFlight))
-    .map((data, idx) => {
+    .sort((a, b) => {
+      const aDate = new Date(b.departureDate).getTime();
+      const bDate = new Date(a.departureDate).getTime();
+      return bDate - aDate;
+    }).map((data, idx) => {
       return (
         <ScheduleTableRow key={idx} data={data} />
       );
@@ -32,7 +36,11 @@ function ScheduleTable({ filterFlight }) {
   return (
     <div className="w100">
       {filterFlight ? filtered :
-        schedule.map((data, idx) => {
+        schedule.sort((a, b) => {
+          const aDate = new Date(b.departureDate).getTime();
+          const bDate = new Date(a.departureDate).getTime();
+          return bDate - aDate;
+        }).map((data, idx) => {
           return (
             <ScheduleTableRow key={idx} data={data} />
           );

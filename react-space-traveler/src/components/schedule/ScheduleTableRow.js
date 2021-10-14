@@ -48,7 +48,7 @@ function ScheduleTableRow(props) {
 
   return (
     <div onClick={!user ? () => history.push('/login') : user.isAdmin ? hdlClickEditSchdById : hdlClickToRoomById}
-      className={`${url === '/manage-flight' || url === '/admin-manage' ? "table-row" : ''} txtcenter ttcap container-with-bg dflex-jbetween mb1 p1`}>
+      className={`${url === '/admin-manage' || url === '/schedule-flight' ? "table-row" : ""} txtcenter ttcap container-with-bg dflex-jbetween mb1 p1`}>
       <div className="dflex flex4">
         <div className="flex1">
           <p className="fz25">{separateDate(departureDate, 'day')}</p>
@@ -60,13 +60,13 @@ function ScheduleTableRow(props) {
           <p className="fz2">{departure}</p>
           <p className="fz125">{getFormattedDate(departureDate)}</p>
         </div>
-        <p className="fz25 txtblue">{`->`}</p>
+        <p className="fz25 txtblue">{`-> `}</p>
         <div className="flex2">
           <p className="fz125">day 1</p>
           <p className="fz2">{destination}</p>
           <p className="fz125">{getFormattedDate(arrivalDate)}</p>
         </div>
-        <p className="fz25 txtgreen">{`->`}</p>
+        <p className="fz25 txtgreen">{`-> `}</p>
         <div className="flex2">
           <p className="fz125">day 1</p>
           <p className="fz2">{departure}</p>
@@ -84,4 +84,4 @@ function ScheduleTableRow(props) {
     </div>);
 }
 
-export default ScheduleTableRow;
+export default ScheduleTableRow;;;
