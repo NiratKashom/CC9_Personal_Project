@@ -6,7 +6,6 @@ import { getToken } from '../services/localStorageService';
 const summaryContext = createContext();
 
 const SummaryProvider = ({ children }) => {
-  const history = useHistory();
   const [step, setStep] = useState(0);
 
   const hdlClickIncrStep = () => setStep(step + 1);

@@ -8,7 +8,6 @@ import { serviceContext } from '../../contexts/serviceContext';
 function RoomSelection() {
   const { serviceList } = useContext(serviceContext);
   const [roomType, setRoomType] = useState('standard');
-
   const roomList = serviceList.filter(item => item.serviceType === 'room');
 
   const selectedRoom = roomList.find(item => {
@@ -16,7 +15,7 @@ function RoomSelection() {
   });
 
   return (
-    <div className="container-with-bg mb125 p2">
+    <div className={`container-with-bg mb125 p2`}>
       <SelectTypeRoom setRoomType={setRoomType} />
       <RoomDetail selectedRoom={selectedRoom} roomType={roomType} />
       <RoomAmountUpdate selectedRoom={selectedRoom} />

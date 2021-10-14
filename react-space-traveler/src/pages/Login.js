@@ -26,7 +26,7 @@ function Login() {
             value={loginInput.email}
             onChange={e => setLoginInput(cur => ({ ...cur, email: e.target.value }))}
           />
-          <input className="fz15 mb2 w100" type="text" placeholder="Password"
+          <input className="fz15 mb2 w100" type="text" placeholder="Password" type="password"
             value={loginInput.password}
             onChange={e => setLoginInput(cur => ({ ...cur, password: e.target.value }))}
           />

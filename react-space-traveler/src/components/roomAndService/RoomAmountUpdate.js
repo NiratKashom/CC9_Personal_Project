@@ -45,7 +45,6 @@ function RoomAmountUpdate(props) {
     <div className="room-update w100 dflex-jend">
       <label className="ttcap fz125 mr1">number of rooms :</label>
       <select className="fz125 p05 mr1"
-
         onChange={e => hdlChangeAmountRoom(e.target.value)}
       >
         <option value="0">0</option>

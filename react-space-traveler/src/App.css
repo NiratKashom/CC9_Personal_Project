@@ -225,6 +225,10 @@ input[type="date"] {
   border: 1px solid var(--myWhite50);
 }
 
+.warning_border {
+  box-shadow: 0 0 0 2px var(--myRed);
+}
+
 .red-box-outline {
   border-radius: 10px;
   padding: 0.5rem;
@@ -544,9 +548,14 @@ div.home-container div select:focus {
 }
 
 /* schedule-table */
+.table-row {
+  transition: transform 0.5s ease;
+}
+
 .table-row:hover {
-  background: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  background-color: radial-gradient(163.23% 243.53% at 1.12% 14.1%, rgba(137, 153, 194, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
   cursor: pointer;
+  transform: scale(1.03);
 }
 
 /* room and service */

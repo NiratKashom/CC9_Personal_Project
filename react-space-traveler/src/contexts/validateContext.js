@@ -8,8 +8,8 @@ const validateContext = createContext();
 
 const ValidateProvider = ({ children }) => {
   const [errLogin, setErrLogin] = useState('');
-  const [errRegister, setErrRegister] = useState();
-  const history = useHistory();
+  const [errRegister, setErrRegister] = useState('');
+  const [errSummary, setErrSummary] = useState('');
 
   const validateLogin = (inputLogin) => {
     if (inputLogin.email.trim() === '') {
@@ -44,12 +44,18 @@ const ValidateProvider = ({ children }) => {
     return true;
   };
 
-
-
+  const validateBeforeConfirm = (summary) => {
+    console.log(summary);
+    console.log(summary.map(item => item.type === 'room').length);
+    if (summary.map(item => item.type === 'room').length === 0) return setErrSummary('please select at least 1 room');
+    setErrSummary('');
+    return true;
+  };
 
   return <validateContext.Provider value={{
     errLogin, setErrLogin, validateLogin,
-    errRegister, setErrRegister, validateRegister
+    errRegister, setErrRegister, validateRegister,
+    validateBeforeConfirm, errSummary, setErrSummary
   }}>
     {children}
   </validateContext.Provider>;
