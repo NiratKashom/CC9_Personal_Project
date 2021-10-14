@@ -8,7 +8,7 @@ import { flightContext } from '../../contexts/flightContext';
 
 function ScheduleTableRow(props) {
   const history = useHistory();
-  const { path } = useRouteMatch();
+  const { path, url } = useRouteMatch();
   const { hdlClickIncrStep } = useContext(summaryContext);
   const { hdlClickSetCurFlightWithId } = useContext(flightContext);
   const { user } = useContext(userContext);
@@ -47,7 +47,8 @@ function ScheduleTableRow(props) {
   };
 
   return (
-    <div onClick={!user ? () => history.push('/login') : user.isAdmin ? hdlClickEditSchdById : hdlClickToRoomById} className="table-row txtcenter ttcap container-with-bg dflex-jbetween mb1">
+    <div onClick={!user ? () => history.push('/login') : user.isAdmin ? hdlClickEditSchdById : hdlClickToRoomById}
+      className={`${url === '/manage-flight' || url === '/admin-manage' ? "table-row" : ''} txtcenter ttcap container-with-bg dflex-jbetween mb1 p1`}>
       <div className="dflex flex4">
         <div className="flex1">
           <p className="fz25">{separateDate(departureDate, 'day')}</p>

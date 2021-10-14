@@ -4,7 +4,7 @@ import { validateContext } from '../contexts/validateContext';
 
 function Register() {
   const { hdlSubmitRegister } = useContext(userContext);
-  const { errRegister, setErrRegister, validateRegister } = useContext(validateContext);
+  const { errRegister, validateRegister } = useContext(validateContext);
 
   const [regInfo, setRegInfo] = useState({
     email: '',

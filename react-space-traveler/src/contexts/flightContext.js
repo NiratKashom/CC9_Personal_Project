@@ -1,17 +1,18 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useContext } from 'react';
 import axios from '../config/axios';
 import { useHistory } from 'react-router-dom';
 import { getToken } from '../services/localStorageService';
+import { validateContext } from '../contexts/validateContext';
 
 const flightContext = createContext();
 
 const FlightProvider = ({ children }) => {
+  const { validateCreateFlight, setErrCreatFlight } = useContext(validateContext);
   const history = useHistory();
   const [currentFlight, setCurrentFlight] = useState('');
-  const [flightForCreate, setFlightForCreate] = useState({ departure: 'earth' });
+  const [flightForCreate, setFlightForCreate] = useState({ departure: 'earth', destination: '' });
   const [filterFlight, setFilterFlight] = useState('');
   const [flightTrigger, setFlightTrigger] = useState(false);
-
 
   const hdlChangeEditFlight = (e) => {
     const getState = currentFlight ? setCurrentFlight : setFlightForCreate;
@@ -37,8 +38,9 @@ const FlightProvider = ({ children }) => {
 
   const hdlClickGoBackAndClearCurFlight = () => {
     history.goBack();
+    setErrCreatFlight('');
     setCurrentFlight('');
-    setFlightForCreate({ departure: 'earth' });
+    setFlightForCreate({ departure: 'earth', destination: '' });
   };
 
   const hdlClickSetCurFlightWithId = async (flightId) => {
@@ -64,6 +66,7 @@ const FlightProvider = ({ children }) => {
       console.log(error);
     }
   };
+
 
   const hdlSubmitEditFilght = async e => {
     e.preventDefault();

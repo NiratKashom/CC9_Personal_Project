@@ -225,8 +225,8 @@ input[type="date"] {
   border: 1px solid var(--myWhite50);
 }
 
-.warning_border {
-  box-shadow: 0 0 0 2px var(--myRed);
+input[type="file"] {
+  display: none;
 }
 
 .red-box-outline {

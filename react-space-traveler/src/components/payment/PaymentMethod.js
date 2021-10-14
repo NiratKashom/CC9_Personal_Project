@@ -15,11 +15,12 @@ function PaymentMethod() {
             file_upload
           </span>
           <p className="fz15 mb125 ttcap">You can also upload Your Payslip by</p>
-          <button type="button"
-            className="ttcap btn-blue fz15 mb1"
-          >
-            click here
-          </button>
+
+          <div className="pt1 pb15">
+            <label className="pointer btn-blue fz15">click here
+              <input type="file" />
+            </label>
+          </div>
         </div>
       </ContainerWithHeadline>
     </div>

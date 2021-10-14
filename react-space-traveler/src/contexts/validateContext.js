@@ -10,6 +10,7 @@ const ValidateProvider = ({ children }) => {
   const [errLogin, setErrLogin] = useState('');
   const [errRegister, setErrRegister] = useState('');
   const [errSummary, setErrSummary] = useState('');
+  const [errCreatFlight, setErrCreatFlight] = useState('');
 
   const validateLogin = (inputLogin) => {
     if (inputLogin.email.trim() === '') {
@@ -45,17 +46,30 @@ const ValidateProvider = ({ children }) => {
   };
 
   const validateBeforeConfirm = (summary) => {
-    console.log(summary);
-    console.log(summary.map(item => item.type === 'room').length);
-    if (summary.map(item => item.type === 'room').length === 0) return setErrSummary('please select at least 1 room');
+    // console.log(summary);
+    // console.log(summary.filter(item => item.type === 'room').length);
+    if (summary.filter(item => item.type === 'room').length === 0) return setErrSummary('please select at least 1 room');
     setErrSummary('');
+    return true;
+  };
+
+  const validateCreateFlight = (flightForCreate) => {
+    const dpDate = new Date(flightForCreate.departureDate).getTime();
+    const arDate = new Date(flightForCreate.arrivalDate).getTime();
+    const rtDate = new Date(flightForCreate.returnDate).getTime();
+    if (flightForCreate.destination === '') return setErrCreatFlight('pls input destination');
+    if (isNaN(dpDate) || isNaN(arDate) || isNaN(rtDate)) return setErrCreatFlight('dont have date');
+    if (dpDate > arDate) return setErrCreatFlight('departureDate must less than arrivalDate');
+    if (arDate > rtDate) return setErrCreatFlight('arrivalDate must less than returnDate');
+    setErrCreatFlight('');
     return true;
   };
 
   return <validateContext.Provider value={{
     errLogin, setErrLogin, validateLogin,
     errRegister, setErrRegister, validateRegister,
-    validateBeforeConfirm, errSummary, setErrSummary
+    validateBeforeConfirm, errSummary, setErrSummary,
+    validateCreateFlight, errCreatFlight, setErrCreatFlight
   }}>
     {children}
   </validateContext.Provider>;

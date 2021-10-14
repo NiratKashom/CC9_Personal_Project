@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
 import { flightContext } from '../../contexts/flightContext';
+import { validateContext } from '../../contexts/validateContext';
 import ScheduleTableRow from '../schedule/ScheduleTableRow';
+import ModalWithCloseBtn from '../ModalWithCloseBtn';
 
 function AdminEditFlight() {
   const {
@@ -10,6 +12,7 @@ function AdminEditFlight() {
     hdlChangeEditFlight, hdlClickGoBackAndClearCurFlight,
     hdlSubmitCreateFilght, hdlDeleteFilght, hdlSubmitEditFilght
   } = useContext(flightContext);
+  const { validateCreateFlight, errCreatFlight } = useContext(validateContext);
 
   const {
     departureDate,
@@ -19,8 +22,6 @@ function AdminEditFlight() {
     destination,
     id: flightId,
   } = currentFlight;
-
-
 
   const formatDateInput = (dateObj) => {
     if (dateObj) return dateObj.toString().split('T')[0];
@@ -33,6 +34,15 @@ function AdminEditFlight() {
       hdlDeleteFilght();
     };
   };
+
+  const hdlClickCreateFilght = (e) => {
+    e.preventDefault();
+    if (validateCreateFlight(flightForCreate)) {
+      hdlSubmitCreateFilght(flightForCreate);
+    }
+    return;
+  };
+
 
   return (
     <div className="flex3">
@@ -86,46 +96,7 @@ function AdminEditFlight() {
             </div>
           </div>
         </div>
-
-        {/* <div className=" dflex-jbetween alistart mb1">
-          <div className="w45 mr15">
-            <p className="fz15 ttunderline mb1 ttcap">Room rate</p>
-            <div className="dflex-jbetween mb1 ">
-              <label htmlFor="">standard room</label>
-              <select name="" id="">
-                <option value="">Select</option>
-              </select>
-            </div>
-            <div className="dflex-jbetween mb1">
-              <label htmlFor="">deluxe room</label>
-              <select name="" id="">
-                <option value="">Select</option>
-              </select>
-            </div>
-            <div className="dflex-jbetween">
-              <label htmlFor="">suite room</label>
-              <select name="" id="">
-                <option value="">Select</option>
-              </select>
-            </div>
-          </div>
-
-          <div className=" flex1">
-            <p className="fz15 ttunderline mb1 ttcap">service rate</p>
-            <div className="dflex-jbetween mb1 ">
-              <label htmlFor="">dinner buffet couple</label>
-              <select name="" id="">
-                <option value="">Select</option>
-              </select>
-            </div>
-            <div className="dflex-jbetween mb1">
-              <label htmlFor="">travel insurance</label>
-              <select name="" id="">
-                <option value="">Select</option>
-              </select>
-            </div>
-          </div>
-        </div> */}
+        {errCreatFlight && <p className="red-box-outline txtcenter fz15 mb1">{errCreatFlight}</p>}
 
         {/* <AdminMngSchdTableRow /> */}
         <ScheduleTableRow data={currentFlight || flightForCreate} />
@@ -146,7 +117,7 @@ function AdminEditFlight() {
             >Edit</button>
               :
               <button className="fz125 btn-green flex1"
-                onClick={hdlSubmitCreateFilght}
+                onClick={e => hdlClickCreateFilght(e)}
               >create</button>
             }
           </div>
