@@ -11,7 +11,7 @@ const userContext = createContext();
 
 
 const UserProvider = ({ children }) => {
-  const { setErrLogin } = useContext(validateContext);
+  const { setErrLogin, setErrRegister } = useContext(validateContext);
   const history = useHistory();
   const [user, setUser] = useState(initialUser);
 
@@ -39,7 +39,9 @@ const UserProvider = ({ children }) => {
       window.alert('register success');
       history.push('/login');
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.status === 400) {
+        setErrRegister('email has used');
+      }
     }
   };
 

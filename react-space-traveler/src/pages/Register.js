@@ -1,8 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { userContext } from '../contexts/userContext';
+import { validateContext } from '../contexts/validateContext';
 
 function Register() {
   const { hdlSubmitRegister } = useContext(userContext);
+  const { errRegister, setErrRegister, validateRegister } = useContext(validateContext);
+
   const [regInfo, setRegInfo] = useState({
     email: '',
     firstName: '',
@@ -11,12 +14,24 @@ function Register() {
     confirmPassword: '',
   });
 
+  const hdlClickRegister = (e) => {
+    e.preventDefault();
+    if (validateRegister(regInfo)) {
+      hdlSubmitRegister(e, regInfo);
+    }
+    return;
+  };
+
+
+
+
 
   return (
     <div className="center">
       <div className="register modal dflex-col p25">
-        <p className="fz25 mb2 ttup">register</p>
-        <form action="">
+        <p className="fz25 mb1 ttup">register</p>
+        {errRegister && <p className="red-box-outline mb1 fz125 ttcap">{errRegister}</p>}
+        <form>
           <div className="w100 dflex-jaround">
             <input className="fz15  mr125 mb2 w100" type="text"
               placeholder="First Name" value={regInfo.firstName}
@@ -47,7 +62,7 @@ function Register() {
             ))} />
           <button type="button"
             className="btn-green fz15 w100 "
-            onClick={e => hdlSubmitRegister(e, regInfo)}
+            onClick={e => hdlClickRegister(e)}
           >
             submit
           </button>

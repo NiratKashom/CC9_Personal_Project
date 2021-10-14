@@ -5,7 +5,7 @@ import { validateContext } from '../contexts/validateContext';
 
 function Login() {
   const { hdlSubmitLogin } = useContext(userContext);
-  const { errLogin, setErrLogin, validateLogin } = useContext(validateContext);
+  const { errLogin, validateLogin } = useContext(validateContext);
   const [loginInput, setLoginInput] = useState({ email: '', password: '' });
 
   const hdlClickValidateLogin = (e) => {
