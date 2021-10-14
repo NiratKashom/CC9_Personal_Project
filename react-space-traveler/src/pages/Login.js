@@ -1,17 +1,27 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { userContext } from '../contexts/userContext';
+import { validateContext } from '../contexts/validateContext';
 
 function Login() {
   const { hdlSubmitLogin } = useContext(userContext);
+  const { errLogin, setErrLogin, validateLogin } = useContext(validateContext);
   const [loginInput, setLoginInput] = useState({ email: '', password: '' });
 
+  const hdlClickValidateLogin = (e) => {
+    e.preventDefault();
+    if (validateLogin(loginInput)) {
+      hdlSubmitLogin(e, loginInput);
+    }
+    return;
+  };
 
   return (
     <div className="center">
       <div className="login modal dflex-col p25">
-        <p className="fz25 mb2">LOGIN</p>
-        <form onSubmit={e => hdlSubmitLogin(e, loginInput)}>
+        <p className="fz25 mb1">LOGIN</p>
+        {errLogin && <p className="red-box-outline mb1 ttcap">{errLogin}</p>}
+        <form onSubmit={e => hdlClickValidateLogin(e)}>
           <input className="fz15 mb2 w100" type="text" placeholder="Email"
             value={loginInput.email}
             onChange={e => setLoginInput(cur => ({ ...cur, email: e.target.value }))}

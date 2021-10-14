@@ -1,9 +1,9 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useContext } from 'react';
 import axios from '../config/axios';
 import { useHistory } from 'react-router-dom';
 import { setToken, removeToken, user as initialUser } from '../services/localStorageService';
 import jwtDecode from 'jwt-decode';
-// import { user as initialUser } from "../services/localStorage";
+import { validateContext } from './validateContext';
 
 
 
@@ -11,6 +11,7 @@ const userContext = createContext();
 
 
 const UserProvider = ({ children }) => {
+  const { setErrLogin } = useContext(validateContext);
   const history = useHistory();
   const [user, setUser] = useState(initialUser);
 
@@ -21,10 +22,12 @@ const UserProvider = ({ children }) => {
       const res = await axios.post(`/login`, loginInput);
       setToken(res.data.token);
       setUser(jwtDecode(res.data.token));
-      history.push('/schedule-flight');
+      setErrLogin('');
+      history.push('/');
+
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        console.log('Invalid username or password');
+        setErrLogin('invalid email or password');
       }
     }
   };

@@ -10,6 +10,7 @@ const FlightProvider = ({ children }) => {
   const [currentFlight, setCurrentFlight] = useState('');
   const [flightForCreate, setFlightForCreate] = useState({ departure: 'earth' });
   const [filterFlight, setFilterFlight] = useState('');
+  const [flightTrigger, setFlightTrigger] = useState(false);
 
 
   const hdlChangeEditFlight = (e) => {
@@ -71,6 +72,7 @@ const FlightProvider = ({ children }) => {
         headers: { authorization: 'Bearer ' + getToken() }
       });
       window.alert(`update success flightId: ${currentFlight.id}`);
+      history.push('/admin-manage');
     } catch (error) {
       console.log(error);
     }
@@ -81,12 +83,11 @@ const FlightProvider = ({ children }) => {
       await axios.delete(`/schedule-flight/${currentFlight.id}`, {
         headers: { authorization: 'Bearer ' + getToken() }
       });
-      window.alert(`Flight: ${currentFlight.id} Delete success`);
-      history.push('/admin-manage');
-      setCurrentFlight('');
     } catch (error) {
       console.log(error);
     }
+    setCurrentFlight('');
+    history.push('/admin-manage');
   };
 
 

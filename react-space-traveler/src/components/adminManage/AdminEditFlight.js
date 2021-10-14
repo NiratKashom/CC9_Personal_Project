@@ -29,7 +29,9 @@ function AdminEditFlight() {
 
   const hdlCLickDel = e => {
     e.preventDefault();
-    if (window.confirm("Delete Fligth?")) hdlDeleteFilght();
+    if (window.confirm("Delete Fligth?")) {
+      hdlDeleteFilght();
+    };
   };
 
   return (

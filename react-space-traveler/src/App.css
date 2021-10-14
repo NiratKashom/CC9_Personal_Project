@@ -225,6 +225,14 @@ input[type="date"] {
   border: 1px solid var(--myWhite50);
 }
 
+.red-box-outline {
+  border-radius: 10px;
+  padding: 0.5rem;
+  background: var(--myBlack50);
+  border: 1px solid var(--myRed);
+  color: var(--myRed);
+}
+
 input {
   color: var(--myBlack);
   background: var(--myWhite);
@@ -420,7 +428,14 @@ div.home-container h2 {
 }
 
 div.home-container div select {
-  border-color: var(--myOrange);
+  /* outline: none; */
+  border: 1px solid;
+  color: var(--myOrangeHov);
+}
+
+div.home-container div select:focus {
+  outline: none;
+  box-shadow: none;
   color: var(--myOrange);
 }
 

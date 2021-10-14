@@ -12,36 +12,39 @@ import { SummaryProvider } from './contexts/summaryContext';
 import { ServiceProvider } from './contexts/serviceContext';
 import { FlightProvider } from './contexts/flightContext';
 import { ReservationProvider } from './contexts/reservationContext';
+import { ValidateProvider } from './contexts/validateContext';
+
 
 
 function App() {
   return (
     <BrowserRouter>
-      <UserProvider>
-        <div className="App">
-          <Navbar />
-          <Switch>
-            <Route path="/login"><Login /></Route>
-            <Route path="/register"><Register /></Route>
-            <ReservationProvider>
+      <ValidateProvider>
+        <UserProvider>
+          <div className="App">
+            <Navbar />
+            <Switch>
+              <Route path="/login"><Login /></Route>
+              <Route path="/register"><Register /></Route>
               <FlightProvider>
                 <Route exact path="/"><Home /></Route>
-                <SummaryProvider>
-                  <ServiceProvider>
-                    <Route path="/user-manage"><UserManage /></Route>
-                    <Route path="/admin-manage"><AdminManage /></Route>
-                    <Route path="/schedule-flight"><Schedule /></Route>
-                  </ServiceProvider>
-                </SummaryProvider>
+                <ReservationProvider>
+                  <SummaryProvider>
+                    <ServiceProvider>
+                      <Route path="/user-manage"><UserManage /></Route>
+                      <Route path="/admin-manage"><AdminManage /></Route>
+                      <Route path="/schedule-flight"><Schedule /></Route>
+                    </ServiceProvider>
+                  </SummaryProvider>
+                </ReservationProvider>
               </FlightProvider>
-            </ReservationProvider>
-            <Route path="*">
-              <p> 404 page not found</p>
-            </Route>
-          </Switch>
-        </div>
-      </UserProvider>
-
+              <Route path="*">
+                <p> 404 page not found</p>
+              </Route>
+            </Switch>
+          </div>
+        </UserProvider>
+      </ValidateProvider>
     </BrowserRouter>
 
   );

@@ -28,7 +28,9 @@ function AdminManage() {
           <AdminManageSchedule />
         </Route>
         <Route path='*'>
-          <p>404 page not found</p>
+          <div className="container-with-bg">
+            <p>404 page not found</p>
+          </div>
         </Route>
       </Switch>
     </div>

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from '../../config/axios';
 import ScheduleTableRow from './ScheduleTableRow';
 import { getToken } from '../../services/localStorageService';
+import { flightContext } from '../../contexts/flightContext';
 
 function ScheduleTable({ filterFlight }) {
+  const { flightTrigger } = useContext(flightContext);
   const [schedule, setSchedule] = useState([]);
 
 
@@ -17,7 +19,7 @@ function ScheduleTable({ filterFlight }) {
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  }, [flightTrigger]);
 
   const filtered = schedule.filter((data) => (
     data.destination === filterFlight))

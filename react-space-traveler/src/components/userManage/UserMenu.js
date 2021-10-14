@@ -21,8 +21,6 @@ function UserMenu() {
           <li><a href="./schedule.html" className="fz125">back</a></li>
         </ul> */}
         <button className="btn-red fz15" onClick={hdlLogout} >logout</button>
-        {/* <div className=" txtcenter mt15">
-        </div> */}
       </div>
     </div>
   );
