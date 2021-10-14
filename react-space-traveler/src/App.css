@@ -626,3 +626,7 @@ div.home-container div select:focus {
 .pointer {
   cursor: pointer;
 }
+
+.payImg {
+  width: 520px;
+}
