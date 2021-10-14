@@ -46,6 +46,7 @@ const SummaryProvider = ({ children }) => {
       });
       setSummary([]);
       setReserveInfoForSubmit([]);
+      setPayslip(null);
     } catch (error) {
       console.log(error);
     }

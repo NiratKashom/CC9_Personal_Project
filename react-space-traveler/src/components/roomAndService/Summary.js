@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import ContainerWithHeadline from '../ContainerWithHeadline';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { summaryContext } from '../../contexts/summaryContext';
 import { flightContext } from '../../contexts/flightContext';
 import { validateContext } from '../../contexts/validateContext';
@@ -8,7 +8,9 @@ import { getFormattedDate } from '../../services/dateService';
 
 function Summary() {
   const history = useHistory();
-  const { hdlSubmitCreateReservation, summary, setSummary, sumPrice, hdlClickDecrStep, hdlClickIncrStep, step } = useContext(summaryContext);
+  const { hdlSubmitCreateReservation, summary,
+    setSummary, sumPrice, hdlClickDecrStep, hdlClickIncrStep,
+    step, payslip } = useContext(summaryContext);
   const { setCurrentFlight, currentFlight } = useContext(flightContext);
   const { validateBeforeConfirm, errSummary, setErrSummary } = useContext(validateContext);
 
@@ -30,6 +32,11 @@ function Summary() {
   } = currentFlight;
 
   const hdlClickSubmit = () => {
+    console.log(!!payslip);
+    if (!payslip) {
+      setErrSummary('please upload your payslip');
+      return;
+    }
     hdlSubmitCreateReservation();
     hdlClickIncrStep();
     setErrSummary('');
@@ -48,8 +55,8 @@ function Summary() {
         <div className="summary">
           <div className="flight-detail borderbot mb1 pb1">
             <h2 className="fz125 mb05 ttup">Flight :</h2>
-            <p className="txtwhite80 ">Flight ID: <span>{id}</span> </p>
             <p className="ttcap fz125">{`${departure} - ${destination} - ${departure}`}</p>
+            <p className="txtwhite80 ">Flight ID: <span>{id}</span> </p>
             <p className="txtwhite80 ">Depart: <span>{getFormattedDate(departureDate)}</span></p>
             <p className="txtwhite80 ">Arrival: <span>{getFormattedDate(arrivalDate)}</span></p>
             <p className="txtwhite80 ">Return: <span>{getFormattedDate(returnDate)}</span></p>
