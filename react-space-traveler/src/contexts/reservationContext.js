@@ -19,7 +19,7 @@ const ReservationProvider = ({ children }) => {
         headers: { authorization: 'Bearer ' + getToken() }
       }
       );
-      window.alert('update success');
+      // window.alert('update success');
       setTrigger(cur => !cur);
       history.push('/admin-manage/user-reservation');
     } catch (error) {

@@ -636,3 +636,9 @@ div.home-container div select:focus {
 .previewPayslip {
   width: 520px;
 }
+
+.overflow {
+  height: 90vh;
+  overflow: auto;
+  /* flex-wrap: wrap; */
+}

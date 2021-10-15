@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import ModalWithCloseBtn from '../ModalWithCloseBtn';
 import { reservationContext } from '../../contexts/reservationContext';
 import { userContext } from '../../contexts/userContext';
-import { separateDate, getFormattedDate } from '../../services/dateService';
+import { separateDate, getFormattedDate, reformatName } from '../../services/dateService';
 
 
 function UserReverseInfo() {
@@ -63,21 +63,21 @@ function UserReverseInfo() {
 
             </div>
             <div className="dflex-col-center ttcap">
-              <p className="fz125">day 1</p>
+              {/* <p className="fz125">day 1</p> */}
               <p className="fz2">{departure}</p>
               <p className="fz125">{getFormattedDate(departureDate)}</p>
 
             </div>
             <p className="fz25 txtblue">{`->`}</p>
             <div className=" dflex-col-center ttcap">
-              <p className="fz125">day 1</p>
+              {/* <p className="fz125">day 1</p> */}
               <p className="fz2">{destination}</p>
               <p className="fz125">{getFormattedDate(arrivalDate)}</p>
 
             </div>
             <p className="fz25 txtgreen">{`->`}</p>
             <div className="dflex-col-center ttcap">
-              <p className="fz125">day 1</p>
+              {/* <p className="fz125">day 1</p> */}
               <p className="fz2">{departure}</p>
               <p className="fz125">{getFormattedDate(returnDate)}</p>
 
@@ -124,7 +124,7 @@ function UserReverseInfo() {
           {orderList?.filter(item => item['Service.serviceType'] === 'room')
             .map((item, idx) => (
               <div key={idx} className="dflex-jbetween ">
-                <p className="ttcap">{`${item.amount} ${item['Service.name']} :`}</p>
+                <p className="ttcap">{`${item.amount} ${reformatName(item['Service.name'])} :`}</p>
                 <p className="fz125">{item.amount * item.price} &#3647;</p>
               </div>
             ))
@@ -137,7 +137,7 @@ function UserReverseInfo() {
           {orderList?.filter(item => item['Service.serviceType'] === 'extra')
             .map((item, idx) => (
               <div key={idx} className="dflex-jbetween ">
-                <p className="ttcap">{`${item.amount} ${item['Service.name']} :`}</p>
+                <p className="ttcap">{`${item.amount} ${reformatName(item['Service.name'])} :`}</p>
                 <p className="fz125">{item.amount * item.price} &#3647;</p>
               </div>
             ))
@@ -162,7 +162,24 @@ function UserReverseInfo() {
           <button className="btn-outline-blue fz125"
             onClick={hdlClickPreviewPayslip}
           >preview payslip</button>
-          {user.isAdmin ?
+          {status === 'pending' ? user.isAdmin ?
+            <div>
+              <button className="btn-outline-red fz125 mr1"
+                onClick={() => hdlclickUpdateStatus('rejected')}
+              >reject</button>
+              <button className="btn-green fz125"
+                onClick={() => hdlclickUpdateStatus('approved')}
+              >approve</button>
+            </div>
+            :
+            <button className="btn-outline-red fz125 ml1"
+              onClick={() => hdlclickUpdateStatus('canceled')}
+            >cancel a reservation</button> : null
+            // <Link to={`/user-manage/UserCancelReserve`}>
+            //   <button className="btn-outline-red fz125 ml1">cancel a reservation</button>
+            // </Link> : null
+          }
+          {/* {user.isAdmin ?
             <div>
               <button className="btn-outline-red fz125 mr1"
                 onClick={() => hdlclickUpdateStatus('rejected')}
@@ -178,7 +195,7 @@ function UserReverseInfo() {
             // <Link to={`/user-manage/UserCancelReserve`}>
             //   <button className="btn-outline-red fz125 ml1">cancel a reservation</button>
             // </Link> : null
-          }
+          } */}
         </div>
 
       </ModalWithCloseBtn>

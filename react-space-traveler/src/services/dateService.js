@@ -29,4 +29,8 @@ const getFormattedDate = (date) => {
   return '';
 };
 
-export { separateDate, getFormattedDate };
+const reformatName = (pascalCase) => {
+  return pascalCase.split('_').join(' ');
+};
+
+export { separateDate, getFormattedDate, reformatName };

@@ -4,11 +4,13 @@ import { flightContext } from '../../contexts/flightContext';
 import { validateContext } from '../../contexts/validateContext';
 import ScheduleTableRow from '../schedule/ScheduleTableRow';
 import ModalWithCloseBtn from '../ModalWithCloseBtn';
+import { useHistory } from 'react-router-dom';
 
 function AdminEditFlight() {
+  const history = useHistory();
   const {
     currentFlight,
-    flightForCreate,
+    flightForCreate, setCurrentFlight,
     hdlChangeEditFlight, hdlClickGoBackAndClearCurFlight,
     hdlSubmitCreateFilght, hdlDeleteFilght, hdlSubmitEditFilght
   } = useContext(flightContext);
@@ -32,13 +34,14 @@ function AdminEditFlight() {
     e.preventDefault();
     if (window.confirm("Delete Fligth?")) {
       hdlDeleteFilght();
+      setCurrentFlight('');
+      history.push('/admin-manage');
     };
   };
 
   const hdlClickCreateFilght = (e) => {
-    e.preventDefault();
     if (validateCreateFlight(flightForCreate)) {
-      hdlSubmitCreateFilght(flightForCreate);
+      hdlSubmitCreateFilght(e);
     }
     return;
   };

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { summaryContext } from '../contexts/summaryContext';
 import { flightContext } from '../contexts/flightContext';
 import { userContext } from '../contexts/userContext';
-import { separateDate, getFormattedDate } from '../services/dateService';
+import { separateDate, getFormattedDate, reformatName } from '../services/dateService';
 
 function BookingConfirm() {
   const history = useHistory();
@@ -61,19 +61,19 @@ function BookingConfirm() {
               <p className="fz125">{separateDate(departureDate, 'year')}</p>
             </div>
             <div >
-              <p className="fz125">day 1</p>
+              {/* <p className="fz125">day 1</p> */}
               <p className="fz2">{departure}</p>
               <p className="fz125">{getFormattedDate(departureDate)}</p>
             </div>
             <p className="fz25 txtblue">{`->`}</p>
             <div>
-              <p className="fz125">day 1</p>
+              {/* <p className="fz125">day 1</p> */}
               <p className="fz2">{destination}</p>
               <p className="fz125">{getFormattedDate(arrivalDate)}</p>
             </div>
             <p className="fz25 txtgreen">{`->`}</p>
             <div>
-              <p className="fz125">day 1</p>
+              {/* <p className="fz125">day 1</p> */}
               <p className="fz2">{departure}</p>
               <p className="fz125">{getFormattedDate(returnDate)}</p>
             </div>
@@ -111,7 +111,7 @@ function BookingConfirm() {
             {summary?.filter(item => item.type === 'room')
               .map((item, idx) => (
                 <div key={idx} className="dflex-jbetween ">
-                  <p className="ttcap">{`${item.amount} ${item.name} :`}</p>
+                  <p className="ttcap">{`${item.amount} ${reformatName(item.name)} :`}</p>
                   <p className="fz125">{item.amount * item.price} &#3647;</p>
                 </div>
               ))
@@ -123,7 +123,7 @@ function BookingConfirm() {
             {summary?.filter(item => item.type === 'extra')
               .map((item, idx) => (
                 <div key={idx} className="dflex-jbetween ">
-                  <p className="ttcap">{`${item.amount} ${item.name} :`}</p>
+                  <p className="ttcap">{`${item.amount} ${reformatName(item.name)} :`}</p>
                   <p className="fz125">{item.amount * item.price} &#3647;</p>
                 </div>
               ))

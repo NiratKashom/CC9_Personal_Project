@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { summaryContext } from '../../contexts/summaryContext';
 import { flightContext } from '../../contexts/flightContext';
+import { reformatName } from '../../services/dateService';
 
 
 function ServiceCard(props) {
@@ -39,14 +40,18 @@ function ServiceCard(props) {
     setSummary(cloneSummary);
   };
 
+  const split = (description) => {
+    return description.split(',');
+  };
+
   return (
     <div className="service-card container-with-bg p1 mx15 flex1 txtcenter">
-      <p className="fz15 ttcap">{name}</p>
+      <p className="fz15 ttcap">{reformatName(name)}</p>
       <span className="material-icons-outlined my1">
-        {/* {icon} */}
+        {split(description)[0]}
       </span>
       <p className="mb05">
-        {description}
+        {split(description)[1]}
       </p>
       <div className="dflex-jcenter">
         <p className="fz15 ttcap mr1">

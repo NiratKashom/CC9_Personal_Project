@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { summaryContext } from '../../contexts/summaryContext';
 import { flightContext } from '../../contexts/flightContext';
 import { validateContext } from '../../contexts/validateContext';
-import { getFormattedDate } from '../../services/dateService';
+import { getFormattedDate, reformatName } from '../../services/dateService';
 
 function Summary() {
   const history = useHistory();
@@ -38,7 +38,6 @@ function Summary() {
       return;
     }
     hdlSubmitCreateReservation();
-    hdlClickIncrStep();
     setErrSummary('');
   };
 
@@ -68,7 +67,7 @@ function Summary() {
             {summary?.filter(item => item.type === 'room')
               .map((item, idx) => (
                 <div key={idx} className="dflex-jbetween ">
-                  <p className="ttcap">{`${item.amount} ${item.name} :`}</p>
+                  <p className="ttcap">{`${item.amount} ${reformatName(item.name)} :`}</p>
                   <p className="fz125">{item.amount * item.price} &#3647;</p>
                 </div>
               ))
@@ -81,7 +80,7 @@ function Summary() {
             {summary?.filter(item => item.type === 'extra')
               .map((item, idx) => (
                 <div key={idx} className="dflex-jbetween ">
-                  <p className="ttcap">{`${item.amount} ${item.name} :`}</p>
+                  <p className="ttcap">{`${item.amount} ${reformatName(item.name)} :`}</p>
                   <p className="fz125">{item.amount * item.price} &#3647;</p>
                 </div>
               ))

@@ -54,7 +54,7 @@ const FlightProvider = ({ children }) => {
     }
   };
 
-  const hdlSubmitCreateFilght = async e => {
+  const hdlSubmitCreateFilght = async (e) => {
     e.preventDefault();
     try {
       await axios.post(`/schedule-flight/`, flightForCreate, {
@@ -74,7 +74,7 @@ const FlightProvider = ({ children }) => {
       await axios.put(`/schedule-flight/${currentFlight.id}`, currentFlight, {
         headers: { authorization: 'Bearer ' + getToken() }
       });
-      window.alert(`update success flightId: ${currentFlight.id}`);
+      // window.alert(`update success flightId: ${currentFlight.id}`);
       history.push('/admin-manage');
     } catch (error) {
       console.log(error);
@@ -86,8 +86,10 @@ const FlightProvider = ({ children }) => {
       await axios.delete(`/schedule-flight/${currentFlight.id}`, {
         headers: { authorization: 'Bearer ' + getToken() }
       });
+
     } catch (error) {
       console.log(error);
+      history.push('/admin-manage');
     }
     setCurrentFlight('');
     history.push('/admin-manage');

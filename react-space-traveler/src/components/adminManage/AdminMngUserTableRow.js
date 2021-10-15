@@ -52,17 +52,17 @@ function AdminMngUserTableRow(props) {
       {/* date */}
       <div className="dflex-jbetween  w45 mr05 ">
         <div className="mr05 ">
-          <p className="ttcap txtwhite80">day 31</p>
+          {/* <p className="ttcap txtwhite80">day 31</p> */}
           <p className="fz15 ttcap lh2">{departure}</p>
           <p className="ttcap fz125">{getFormattedDate(departureDate)}</p>
         </div>
         <div className="mr05">
-          <p className="ttcap txtwhite80">day 31</p>
+          {/* <p className="ttcap txtwhite80">day 31</p> */}
           <p className="fz15  ttcap lh2" >{destination}</p>
           <p className="ttcap fz125">{getFormattedDate(arrivalDate)}</p>
         </div>
         <div className="mr05">
-          <p className="ttcap txtwhite80">day 31</p>
+          {/* <p className="ttcap txtwhite80">day 31</p> */}
           <p className="fz15  ttcap lh2">{departure}</p>
           <p className="ttcap fz125">{getFormattedDate(returnDate)}</p>
         </div>

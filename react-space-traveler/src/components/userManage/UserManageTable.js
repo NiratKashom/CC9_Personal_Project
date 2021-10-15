@@ -40,7 +40,7 @@ function UserManageTable({ reserveFilter }) {
     .map(item => <AdminMngUserTableRow key={item.id} data={item} />);
 
   return (
-    < div className="mt125" >
+    < div className="mt125 " >
       {reserveFilter ? filteredReservation :
         reservation.map(item => <AdminMngUserTableRow key={item.id} data={item} />)}
     </div>

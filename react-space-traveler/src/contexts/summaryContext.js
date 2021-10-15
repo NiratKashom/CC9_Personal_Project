@@ -44,6 +44,7 @@ const SummaryProvider = ({ children }) => {
       await axios.post(`/reservation`, formData, {
         headers: { authorization: 'Bearer ' + getToken() }
       });
+      hdlClickIncrStep();
       setSummary([]);
       setReserveInfoForSubmit([]);
       setPayslip(null);
